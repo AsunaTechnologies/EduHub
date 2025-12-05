@@ -34,7 +34,7 @@ class AssylDataHub {
                 students: 20000,
                 internationalStudents: 3000,
                 ranking: { world: 166, asia: 38, centralAsia: 1 },
-                image: "images/kaznu.png",
+                image: "https://eduhubimagesost.s3.eu-north-1.amazonaws.com/kaznu.png",
                 about: {
                     mission: {
                         en: "To be a leading research university that contributes to the sustainable development of Kazakhstan and global society through innovation, education, and research excellence.",
@@ -74,7 +74,7 @@ class AssylDataHub {
                 students: 9000,
                 internationalStudents: 1200,
                 ranking: { world: 400, asia: 100, centralAsia: 2 },
-                image: "images/nazarbayev.jpg",
+                image: "https://eduhubimagesost.s3.eu-north-1.amazonaws.com/nazarbayev.jpg",
                 about: {
                     mission: {
                         en: "To develop as a world-class research university that contributes to the sustainable development of Kazakhstan through innovation, research, and education.",
@@ -101,7 +101,7 @@ class AssylDataHub {
                 students: 10378,
                 internationalStudents: 1773,
                 ranking: { world: 1000, asia: 200, centralAsia: 3 },
-                image: "images/kaznmu.png",
+                image: "https://eduhubimagesost.s3.eu-north-1.amazonaws.com/kaznmu.png",
                 about: {
                     mission: {
                         en: "To train competitive healthcare professionals based on the integration of advanced educational and scientific medical technologies.",
