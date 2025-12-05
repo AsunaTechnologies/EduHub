@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study in Kazakhstan - Assyl DataHub</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.3.2/pixi.min.js"></script>
+    
+    <!-- Splitting CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --primary-bg: #0B1426;
+            --secondary-bg: #1a2332;
+            --accent-cyan: #00D4FF;
+            --accent-green: #39FF14;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-color: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        .font-orbitron {
+            font-family: 'Orbitron', monospace;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(11, 20, 38, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-cyan);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-cyan);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-top: 80px;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, var(--secondary-bg), var(--primary-bg));
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* University Tabs */
+        .university-tabs {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .tabs-navigation {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .tab-btn:hover,
+        .tab-btn.active {
+            background: var(--accent-cyan);
+            color: var(--primary-bg);
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            min-height: 600px;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* University Details */
+        .university-header {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .university-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .university-info h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .university-location {
+            color: var(--accent-cyan);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .university-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Sub Tabs */
+        .sub-tabs {
+            margin-top: 2rem;
+        }
+
+        .sub-tabs-navigation {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .sub-tab-btn {
+            padding: 0.8rem 1.5rem;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+            font-weight: 500;
+        }
+
+        .sub-tab-btn:hover,
+        .sub-tab-btn.active {
+            color: var(--accent-cyan);
+            border-bottom-color: var(--accent-cyan);
+        }
+
+        .sub-tab-content {
+            display: none;
+            padding: 1.5rem 0;
+        }
+
+        .sub-tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        /* Program List */
+        .program-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .program-card {
+            background: rgba(26, 35, 50, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        .program-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .program-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .program-detail {
+            text-align: center;
+            padding: 0.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .detail-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.2rem;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: var(--accent-cyan);
+        }
+
+        /* 3D Tour Container */
+        .tour-container {
+            width: 100%;
+            height: 400px;
+            background: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tour-placeholder {
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .tour-controls {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+        }
+
+        .tour-btn {
+            padding: 0.5rem 1rem;
+            background: var(--accent-cyan);
+            color: var(--primary-bg);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--secondary-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .comparison-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .comparison-card {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .comparison-card h4 {
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .comparison-value {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .university-header {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .university-image {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .tabs-navigation {
+                flex-direction: column;
+            }
+
+            .tab-btn {
+                text-align: center;
+            }
+
+            .sub-tabs-navigation {
+                flex-wrap: wrap;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            border-top-color: var(--accent-cyan);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo font-orbitron">Assyl DataHub</a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link" data-translate="followDreams">FOLLOW YOUR DREAMS</a></li>
+                <li><a href="study-in-kazakhstan.html" class="nav-link active" data-translate="studyKazakhstan">STUDY IN KAZAKHSTAN</a></li>
+                <li><a href="study-abroad.html" class="nav-link" data-translate="studyAbroad">STUDY ABROAD</a></li>
+                <li><a href="pricing.html" class="nav-link" data-translate="pricing">PRICING</a></li>
+                <li><a href="contact.html" class="nav-link" data-translate="contact">CONTACT</a></li>
+                <li><a href="profile.html" class="nav-link" id="profileBtn" style="display: none;" data-translate="profile">PROFILE</a></li>
+                <li><a href="#" class="nav-link" id="loginBtn" onclick="showLoginModal()" data-translate="login">LOGIN</a></li>
+                <li><a href="#" class="nav-link" id="logoutBtn" style="display: none;" onclick="window.assylDataHub.logout()" data-translate="logout">LOGOUT</a></li>
+            </ul>
+
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="kz">KZ</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title font-orbitron" data-translate="studyKazakhstan">STUDY IN KAZAKHSTAN</h1>
+            <p class="page-subtitle">
+                Explore top universities in Kazakhstan with detailed information about programs, admissions, and campus life. 
+                Compare institutions and find your perfect educational match.
+            </p>
+        </div>
+    </section>
+
+    <!-- University Tabs -->
+    <section class="university-tabs">
+        <div class="tabs-navigation">
+            <button class="tab-btn active" data-tab="kaznu">Al-Farabi Kazakh National University</button>
+            <button class="tab-btn" data-tab="nazarbayev">Nazarbayev University</button>
+            <button class="tab-btn" data-tab="kaznmu">Kazakh National Medical University</button>
+        </div>
+
+        <!-- Al-Farabi Kazakh National University -->
+        <div class="tab-content active" id="kaznu">
+            <div class="university-header">
+                <img src="https://kimi-web-img.moonshot.cn/img/argroupofeducation.com/511392b3adf8cd1d6e79bc2a39df307261dd6482.jpg" 
+                     alt="Al-Farabi Kazakh National University" class="university-image">
+                <div class="university-info">
+                    <h2>Al-Farabi Kazakh National University</h2>
+                    <p class="university-location">Almaty, Kazakhstan</p>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">
+                        Kazakhstan's oldest and most prestigious university, ranked #1 in Central Asia and #166 in the world. 
+                        A comprehensive research university offering over 180 programs across multiple disciplines.
+                    </p>
+                </div>
+            </div>
+
+            <div class="university-stats">
+                <div class="stat-card">
+                    <div class="stat-value">20,000+</div>
+                    <div class="stat-label">Total Students</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">3,000+</div>
+                    <div class="stat-label">International Students</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">#166</div>
+                    <div class="stat-label">World Ranking</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">#38</div>
+                    <div class="stat-label">Asia Ranking</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">#1</div>
+                    <div class="stat-label">Central Asia</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1934</div>
+                    <div class="stat-label">Founded</div>
+                </div>
+            </div>
+
+            <div class="sub-tabs">
+                <div class="sub-tabs-navigation">
+                    <button class="sub-tab-btn active" data-subtab="about">About the University</button>
+                    <button class="sub-tab-btn" data-subtab="programs">Academic Programs</button>
+                    <button class="sub-tab-btn" data-subtab="admission">Admission</button>
+                    <button class="sub-tab-btn" data-subtab="tour">3D Tour</button>
+                    <button class="sub-tab-btn" data-subtab="cooperation">International Cooperation</button>
+                </div>
+
+                <div class="sub-tab-content active" id="about">
+                    <h3 style="margin-bottom: 1rem; color: var(--accent-cyan);">Mission & Vision</h3>
+                    <p style="margin-bottom: 2rem; line-height: 1.6;">
+                        To be a leading research university that contributes to the sustainable development of Kazakhstan and global society 
+                        through innovation, education, and research excellence. KazNU aims to be among the top 100 universities worldwide 
+                        by 2030, fostering international collaboration and producing globally competitive graduates.
+                    </p>
+
+                    <h3 style="margin-bottom: 1rem; color: var(--accent-cyan);">History & Achievements</h3>
+                    <p style="margin-bottom: 1rem; line-height: 1.6;">
+                        Founded in 1934, Al-Farabi Kazakh National University is the oldest and largest university in Kazakhstan. 
+                        It has trained over 100,000 professionals who have made significant contributions to the development of Kazakhstan 
+                        and other countries. The university was the first in Kazakhstan to receive the Presidential Award for Quality 
+                        and the CIS Award for excellence in quality and service.
+                    </p>
+                    <p style="margin-bottom: 2rem; line-height: 1.6;">
+                        Key achievements include being ranked as the best university in Central Asia, membership in international university 
+                        associations, and partnerships with over 300 universities worldwide. The university has produced 17 laureates of 
+                        the State Prize of the Republic of Kazakhstan and numerous internationally recognized researchers.
+                    </p>
+
+                    <h3 style="margin-bottom: 1rem; color: var(--accent-cyan);">Leadership & Governance</h3>
+                    <p style="line-height: 1.6;">
+                        The university is governed by a rector and academic council, with strong emphasis on international standards 
+                        in higher education management. The leadership team includes distinguished academics and administrators 
+                        with extensive experience in higher education and research management.
+                    </p>
+                </div>
+
+                <div class="sub-tab-content" id="programs">
+                    <h3 style="margin-bottom: 2rem; color: var(--accent-cyan);">Academic Programs</h3>
+                    
+                    <div class="program-list">
+                        <div class="program-card">
+                            <div class="program-name">Computer Science & Engineering</div>
+                            <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                                Comprehensive program covering software development, artificial intelligence, cybersecurity, and data science.
+                            </p>
+                            <div class="program-details">
+                                <div class="program-detail">
+                                    <div class="detail-label">Degree</div>
+                                    <div class="detail-value">Bachelor/Master</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="detail-label">Duration</div>
+                                    <div class="detail-value">4/2 years</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="detail-label">Language</div>
+                                    <div class="detail-value">English/Russian</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="detail-label">Tuition</div>
+                                    <div class="detail-value">$4,500/year</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="program-card">
+                            <div class="program-name">Medicine (General Medicine)</div>
+                            <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                                Complete medical education program with clinical training and modern medical technology integration.
+                            </p>
+                            <div class="program-details">
+                                <div class="program-detail">
+                                    <div class="detail-label">Degree</div>
+                                    <div class="detail-value">MD</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="detail-label">Duration</div>
+                                    <div class="detail-value">6 years</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="detail-label">Language</div>
+                                    <div class="detail-value">English/Russian</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="detail-label">Tuition</div>
+                                    <div class="detail-value">$6,000/year</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="program-card">
+                            <div class="program-name">Business Administration</div>
+                            <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                                Modern business education with focus on international business, entrepreneurship, and digital transformation.
+                            </p>
+                            <div class="program-details">
+                                <div class="program-detail">
+                                    <div class="detail-label">Degree</div>
+                                    <div class="detail-value">BBA/MBA</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="detail-label">Duration</div>
+                                    <div class="detail-value">4/2 years</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="detail-label">Language</div>
+                                    <div class="detail-value">English</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="detail-label">Tuition</div>
+                                    <div class="detail-value">$4,200/year</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="program-card">
+                            <div class="program-name">Engineering (Various Fields)</div>
+                            <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                                Multiple engineering disciplines including mechanical, electrical, civil, and chemical engineering.
+                            </p>
+                            <div class="program-details">
+                                <div class="program-detail">
+                                    <div class="detail-label">Degree</div>
+                                    <div class="detail-value">Bachelor/Master</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="detail-label">Duration</div>
+                                    <div class="detail-value">4/2 years</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="detail-label">Language</div>
+                                    <div class="detail-value">English/Russian</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="detail-label">Tuition</div>
+                                    <div class="detail-value">$4,800/year</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sub-tab-content" id="admission">
+                    <h3 style="margin-bottom: 1rem; color: var(--accent-cyan);">Admission Requirements</h3>
+                    <div style="background: rgba(0, 212, 255, 0.1); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;">✓ High school diploma or equivalent</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Entrance examination (for certain programs)</li>
+                            <li style="margin-bottom: 0.5rem;">✓ English/Russian language proficiency</li>
+                            <li style="margin-bottom: 0.5rem;">✓ Medical certificate (for medical programs)</li>
+                            <li>✓ Valid passport and visa documents</li>
+                        </ul>
+                    </div>
+
+                    <h3 style="margin-bottom: 1rem; color: var(--accent-cyan);">Application Process</h3>
+                    <div style="margin-bottom: 2rem;">
+                        <p style="margin-bottom: 1rem; line-height: 1.6;">
+                            1. <strong>Online Application:</strong> Submit application through the university portal<br>
+                            2. <strong>Document Submission:</strong> Upload required documents<br>
+                            3. <strong>Entrance Exam:</strong> Take required examinations<br>
+                            4. <strong>Interview:</strong> Participate in online/offline interview<br>
+                            5. <strong>Admission Decision:</strong> Receive admission notification<br>
+                            6. <strong>Visa Process:</strong> Apply for student visa<br>
+                            7. <strong>Arrival:</strong> Travel to Kazakhstan and complete registration
+                        </p>
+                    </div>
+
+                    <h3 style="margin-bottom: 1rem; color: var(--accent-cyan);">Deadlines & Fees</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                        <div style="background: rgba(57, 255, 20, 0.1); padding: 1rem; border-radius: 8px;">
+                            <h4 style="color: var(--accent-green); margin-bottom: 0.5rem;">Fall Semester</h4>
+                            <p>Application Deadline: August 15</p>
+                            <p>Semester Starts: September 1</p>
+                        </div>
+                        <div style="background: rgba(0, 212, 255, 0.1); padding: 1rem; border-radius: 8px;">
+                            <h4 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">Spring Semester</h4>
+                            <p>Application Deadline: December 15</p>
+                            <p>Semester Starts: January 15</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <h4 style="color: var(--accent-cyan); margin-bottom: 1rem;">Annual Costs</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                            <div style="background: var(--primary-bg); padding: 1rem; border-radius: 8px; text-align: center;">
+                                <div style="font-size: 1.2rem; font-weight: 600; color: var(--accent-cyan);">$4,500</div>
+                                <div style="color: var(--text-secondary);">Tuition Fees</div>
+                            </div>
+                            <div style="background: var(--primary-bg); padding: 1rem; border-radius: 8px; text-align: center;">
+                                <div style="font-size: 1.2rem; font-weight: 600; color: var(--accent-cyan);">$800</div>
+                                <div style="color: var(--text-secondary);">Accommodation</div>
+                            </div>
+                            <div style="background: var(--primary-bg); padding: 1rem; border-radius: 8px; text-align: center;">
+                                <div style="font-size: 1.2rem; font-weight: 600; color: var(--accent-cyan);">$5,300</div>
+                                <div style="color: var(--text-secondary);">Total Annual</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sub-tab-content" id="tour">
+                    <h3 style="margin-bottom: 1rem; color: var(--accent-cyan);">3D Virtual Campus Tour</h3>
+                    <div class="tour-container" id="tourContainer">
+                        <div class="tour-placeholder">
+                            <div class="loading"></div>
+                            <p style="margin-top: 1rem;">Loading 3D Campus Tour...</p>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                                Explore the university campus in an interactive 3D environment
+                            </p>
+                        </div>
+                    </div>
+                    <div class="tour-controls">
+                        <button class="tour-btn" onclick="window.assylDataHub.init3DTour('kaznu')">Start Tour</button>
+                        <button class="tour-btn">Campus Map</button>
+                        <button class="tour-btn">Facilities</button>
+                    </div>
+                </div>
+
+                <div class="sub-tab-content" id="cooperation">
+                    <h3 style="margin-bottom: 1rem; color: var(--accent-cyan);">International Partnerships</h3>
+                    <div style="margin-bottom: 2rem;">
+                        <p style="line-height: 1.6; margin-bottom: 1rem;">
+                            KazNU has established partnerships with over 300 universities and research institutions across 36 countries, 
+                            providing students with extensive opportunities for international exchange and collaboration.
+                        </p>
+                        
+                        <h4 style="color: var(--accent-cyan); margin-bottom: 1rem;">Exchange Programs</h4>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+                            <li style="margin-bottom: 0.5rem;">• Erasmus+ Program (European Union)</li>
+                            <li style="margin-bottom: 0.5rem;">• DAAD Exchange Program (Germany)</li>
+                            <li style="margin-bottom: 0.5rem;">• Fulbright Program (USA)</li>
+                            <li style="margin-bottom: 0.5rem;">• Mevlana Exchange Program (Turkey)</li>
+                            <li style="margin-bottom: 0.5rem;">• CIS University Network</li>
+                            <li>• Shanghai Cooperation Organization Programs</li>
+                        </ul>
+
+                        <h4 style="color: var(--accent-cyan); margin-bottom: 1rem;">Dual Degree Programs</h4>
+                        <p style="line-height: 1.6; margin-bottom: 2rem;">
+                            Students can earn dual degrees through partnerships with universities in the USA, UK, Germany, 
+                            France, South Korea, and other countries. These programs typically involve 1-2 years of study 
+                            at partner institutions.
+                        </p>
+
+                        <h4 style="color: var(--accent-cyan); margin-bottom: 1rem;">Research Collaboration</h4>
+                        <p style="line-height: 1.6;">
+                            Active research collaborations with international institutions in fields such as nanotechnology, 
+                            renewable energy, biotechnology, and space research. The university participates in numerous 
+                            international research projects and conferences.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional university tabs would follow the same structure -->
+        <div class="tab-content" id="nazarbayev">
+            <div class="university-header">
+                <img src="https://kimi-web-img.moonshot.cn/img/airial.travel/b413baf6646e349f9c926b4b782a8a5a1b8a5870" 
+                     alt="Nazarbayev University" class="university-image">
+                <div class="university-info">
+                    <h2>Nazarbayev University</h2>
+                    <p class="university-location">Astana, Kazakhstan</p>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">
+                        Kazakhstan's flagship research university, founded in 2010 with a mission to become a world-class 
+                        research institution. Fully English-medium instruction with international faculty and standards.
+                    </p>
+                </div>
+            </div>
+
+            <div class="university-stats">
+                <div class="stat-card">
+                    <div class="stat-value">9,000+</div>
+                    <div class="stat-label">Total Students</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1,200+</div>
+                    <div class="stat-label">International Students</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">#400</div>
+                    <div class="stat-label">World Ranking</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">2010</div>
+                    <div class="stat-label">Founded</div>
+                </div>
+            </div>
+
+            <div class="sub-tabs">
+                <div class="sub-tabs-navigation">
+                    <button class="sub-tab-btn active" data-subtab="about">About the University</button>
+                    <button class="sub-tab-btn" data-subtab="programs">Academic Programs</button>
+                    <button class="sub-tab-btn" data-subtab="admission">Admission</button>
+                    <button class="sub-tab-btn" data-subtab="tour">3D Tour</button>
+                    <button class="sub-tab-btn" data-subtab="cooperation">International Cooperation</button>
+                </div>
+
+                <div class="sub-tab-content active" id="about">
+                    <h3 style="margin-bottom: 1rem; color: var(--accent-cyan);">Mission & Vision</h3>
+                    <p style="margin-bottom: 2rem; line-height: 1.6;">
+                        To develop as a world-class research university that contributes to the sustainable development of Kazakhstan 
+                        through innovation, research, and education. NU aims to be recognized globally for research excellence 
+                        and educational innovation.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="kaznmu">
+            <div class="university-header">
+                <img src="https://kimi-web-img.moonshot.cn/img/nissanstudyservices.com/721e2876de3ed1da40552a05041125f80fe6aacb.webp" 
+                     alt="Kazakh National Medical University" class="university-image">
+                <div class="university-info">
+                    <h2>Asfendiyarov Kazakh National Medical University</h2>
+                    <p class="university-location">Almaty, Kazakhstan</p>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">
+                        Kazakhstan's premier medical university, training healthcare professionals since 1930. 
+                        Every third doctor in Kazakhstan is a graduate of this prestigious institution.
+                    </p>
+                </div>
+            </div>
+
+            <div class="university-stats">
+                <div class="stat-card">
+                    <div class="stat-value">10,378</div>
+                    <div class="stat-label">Total Students</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1,773</div>
+                    <div class="stat-label">International Students</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">#1000</div>
+                    <div class="stat-label">World Ranking</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1930</div>
+                    <div class="stat-label">Founded</div>
+                </div>
+            </div>
+
+            <div class="sub-tabs">
+                <div class="sub-tabs-navigation">
+                    <button class="sub-tab-btn active" data-subtab="about">About the University</button>
+                    <button class="sub-tab-btn" data-subtab="programs">Academic Programs</button>
+                    <button class="sub-tab-btn" data-subtab="admission">Admission</button>
+                    <button class="sub-tab-btn" data-subtab="tour">3D Tour</button>
+                    <button class="sub-tab-btn" data-subtab="cooperation">International Cooperation</button>
+                </div>
+
+                <div class="sub-tab-content active" id="about">
+                    <h3 style="margin-bottom: 1rem; color: var(--accent-cyan);">Mission & Vision</h3>
+                    <p style="margin-bottom: 2rem; line-height: 1.6;">
+                        To train competitive healthcare professionals based on the integration of advanced educational and scientific 
+                        medical technologies. The university aims to be a leading medical education institution in Central Asia, 
+                        providing world-class medical training and research.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <h2 class="comparison-title">Quick Comparison</h2>
+        <div class="comparison-grid">
+            <div class="comparison-card">
+                <h4>Al-Farabi KazNU</h4>
+                <div class="comparison-value">#166 World</div>
+                <div>$5,300/year</div>
+                <div>20,000+ students</div>
+                <div>180+ programs</div>
+            </div>
+            <div class="comparison-card">
+                <h4>Nazarbayev University</h4>
+                <div class="comparison-value">#400 World</div>
+                <div>$9,200/year</div>
+                <div>9,000+ students</div>
+                <div>English only</div>
+            </div>
+            <div class="comparison-card">
+                <h4>Kazakh Medical University</h4>
+                <div class="comparison-value">#1000 World</div>
+                <div>$6,500/year</div>
+                <div>10,378 students</div>
+                <div>Medical focus</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--secondary-bg); padding: 2rem 0; text-align: center; border-top: 1px solid var(--border-color);">
+        <div class="container">
+            <p style="color: var(--text-secondary);">&copy; 2025 Assyl DataHub. Empowering educational choices through technology.</p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="main.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching functionality
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.dataset.tab;
+                    
+                    // Remove active class from all tabs and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    button.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // Sub tab switching functionality
+            const subTabButtons = document.querySelectorAll('.sub-tab-btn');
+            const subTabContents = document.querySelectorAll('.sub-tab-content');
+
+            subTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const subTabId = button.dataset.subtab;
+                    const parentTab = button.closest('.tab-content');
+                    
+                    // Remove active class from sub tabs and contents in current tab
+                    parentTab.querySelectorAll('.sub-tab-btn').forEach(btn => btn.classList.remove('active'));
+                    parentTab.querySelectorAll('.sub-tab-content').forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked sub tab and corresponding content
+                    button.classList.add('active');
+                    parentTab.querySelector('#' + subTabId).classList.add('active');
+                });
+            });
+
+            // Initialize 3D tour when tab is clicked
+            document.querySelectorAll('[data-subtab="tour"]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const universityId = btn.closest('.tab-content').id;
+                    setTimeout(() => {
+                        if (window.assylDataHub) {
+                            window.assylDataHub.init3DTour(universityId);
+                        }
+                    }, 300);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

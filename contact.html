@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Assyl DataHub</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --primary-bg: #0B1426;
+            --secondary-bg: #1a2332;
+            --accent-cyan: #00D4FF;
+            --accent-green: #39FF14;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-color: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        .font-orbitron {
+            font-family: 'Orbitron', monospace;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(11, 20, 38, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-cyan);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-cyan);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--accent-cyan);
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-top: 80px;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, var(--secondary-bg), var(--primary-bg));
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 0;
+            background: var(--secondary-bg);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            background: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+        }
+
+        .contact-form {
+            background: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        /* Contact Information */
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--accent-cyan), var(--accent-green));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .contact-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--primary-bg);
+        }
+
+        .contact-details h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-details p {
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-details a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: var(--accent-green);
+        }
+
+        /* Contact Form */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 1rem;
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            border-color: var(--accent-cyan);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, var(--accent-cyan), var(--accent-green));
+            color: var(--primary-bg);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Support Section */
+        .support-section {
+            padding: 3rem 0;
+            background: var(--primary-bg);
+        }
+
+        .support-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .support-card {
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .support-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .support-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--accent-cyan), var(--accent-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .support-icon svg {
+            width: 30px;
+            height: 30px;
+            color: var(--primary-bg);
+        }
+
+        .support-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .support-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .support-button {
+            padding: 0.8rem 1.5rem;
+            background: transparent;
+            color: var(--accent-cyan);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .support-button:hover {
+            background: var(--accent-cyan);
+            color: var(--primary-bg);
+        }
+
+        /* Office Locations */
+        .locations-section {
+            padding: 3rem 0;
+            background: var(--secondary-bg);
+        }
+
+        .locations-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .location-card {
+            background: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .location-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .location-flag {
+            width: 40px;
+            height: 30px;
+            border-radius: 4px;
+            margin-right: 1rem;
+            object-fit: cover;
+        }
+
+        .location-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .location-address {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .location-details p {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .location-details strong {
+            color: var(--text-primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .locations-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo font-orbitron">Assyl DataHub</a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link" data-translate="followDreams">FOLLOW YOUR DREAMS</a></li>
+                <li><a href="study-in-kazakhstan.html" class="nav-link" data-translate="studyKazakhstan">STUDY IN KAZAKHSTAN</a></li>
+                <li><a href="study-abroad.html" class="nav-link" data-translate="studyAbroad">STUDY ABROAD</a></li>
+                <li><a href="pricing.html" class="nav-link" data-translate="pricing">PRICING</a></li>
+                <li><a href="contact.html" class="nav-link active" data-translate="contact">CONTACT</a></li>
+                <li><a href="profile.html" class="nav-link" id="profileBtn" style="display: none;" data-translate="profile">PROFILE</a></li>
+                <li><a href="#" class="nav-link" id="loginBtn" onclick="showLoginModal()" data-translate="login">LOGIN</a></li>
+                <li><a href="#" class="nav-link" id="logoutBtn" style="display: none;" onclick="window.assylDataHub.logout()" data-translate="logout">LOGOUT</a></li>
+            </ul>
+
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="kz">KZ</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title font-orbitron" data-translate="contact">CONTACT</h1>
+            <p class="page-subtitle">
+                Get in touch with our team for support, partnerships, or any questions about your educational journey. 
+                We're here to help you succeed.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-grid">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h2 class="section-title">Get in Touch</h2>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Support</h3>
+                            <p>For general inquiries and support</p>
+                            <a href="mailto:support@assyldatahub.com">support@assyldatahub.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone Support</h3>
+                            <p>For urgent matters and consultations</p>
+                            <a href="tel:+77123456789">+7 (712) 345-6789</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 104 0v-.5a6.012 6.012 0 012.706-1.912 1.5 1.5 0 01-.27-1.674 6.024 6.024 0 01-2.706-1.912 1.5 1.5 0 01-.27-1.674 6.024 6.024 0 01-2.706-1.912 1.5 1.5 0 01-.27-1.674A6.012 6.012 0 014.332 8.027z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Live Chat</h3>
+                            <p>Instant support during business hours</p>
+                            <a href="#" onclick="openLiveChat()">Start Chat</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Office Hours</h3>
+                            <p><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM</p>
+                            <p><strong>Saturday:</strong> 10:00 AM - 4:00 PM</p>
+                            <p><strong>Sunday:</strong> Closed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h2 class="section-title">Send us a Message</h2>
+                    
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="subject">Subject *</label>
+                            <select id="subject" name="subject" class="form-select" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Technical Support</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="feedback">Feedback & Suggestions</option>
+                                <option value="billing">Billing & Payments</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="message">Message *</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="Please describe your inquiry in detail..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Options -->
+    <section class="support-section">
+        <div class="support-container">
+            <h2 class="section-title" style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Support Options</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
+                Choose the support option that works best for you
+            </p>
+
+            <div class="support-grid">
+                <div class="support-card">
+                    <div class="support-icon">
+                        <svg fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="support-title">Help Center</h3>
+                    <p class="support-description">
+                        Find answers to common questions, tutorials, and step-by-step guides in our comprehensive help center.
+                    </p>
+                    <a href="#" class="support-button">Browse Articles</a>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">
+                        <svg fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="support-title">Video Tutorials</h3>
+                    <p class="support-description">
+                        Watch detailed video tutorials on how to use our platform features and make the most of your subscription.
+                    </p>
+                    <a href="#" class="support-button">Watch Videos</a>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">
+                        <svg fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="support-title">Community Forum</h3>
+                    <p class="support-description">
+                        Connect with other students and educational consultants in our community forum to share experiences and tips.
+                    </p>
+                    <a href="#" class="support-button">Join Community</a>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">
+                        <svg fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="support-title">Webinars</h3>
+                    <p class="support-description">
+                        Attend live webinars on university selection, application strategies, and educational trends.
+                    </p>
+                    <a href="#" class="support-button">View Schedule</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Locations -->
+    <section class="locations-section">
+        <div class="locations-container">
+            <h2 class="section-title" style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Our Locations</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
+                Visit us at one of our offices around the world
+            </p>
+
+            <div class="locations-grid">
+                <div class="location-card">
+                    <div class="location-header">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='%2300AFCA'/%3E%3Cpath d='M30,8 L35,18 L45,18 L37,25 L40,35 L30,28 L20,35 L23,25 L15,18 L25,18 Z' fill='%23FFD700'/%3E%3C/svg%3E" 
+                             alt="Kazakhstan Flag" class="location-flag">
+                        <h3 class="location-name">Kazakhstan - Headquarters</h3>
+                    </div>
+                    <div class="location-address">
+                        123 Nazarbayev Avenue<br>
+                        Astana 010000<br>
+                        Kazakhstan
+                    </div>
+                    <div class="location-details">
+                        <p><strong>Phone:</strong> +7 (7172) 123-456</p>
+                        <p><strong>Email:</strong> kazakhstan@assyldatahub.com</p>
+                        <p><strong>Hours:</strong> Mon-Fri 9:00-18:00</p>
+                    </div>
+                </div>
+
+                <div class="location-card">
+                    <div class="location-header">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='%23B22234'/%3E%3Crect width='60' height='2.7' y='15.3' fill='%23FFFFFF'/%3E%3Crect width='60' height='2.7' y='22.7' fill='%23FFFFFF'/%3E%3C/svg%3E" 
+                             alt="USA Flag" class="location-flag">
+                        <h3 class="location-name">United States</h3>
+                    </div>
+                    <div class="location-address">
+                        456 Education Boulevard<br>
+                        San Francisco, CA 94105<br>
+                        United States
+                    </div>
+                    <div class="location-details">
+                        <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                        <p><strong>Email:</strong> usa@assyldatahub.com</p>
+                        <p><strong>Hours:</strong> Mon-Fri 9:00-17:00 PST</p>
+                    </div>
+                </div>
+
+                <div class="location-card">
+                    <div class="location-header">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='%23012169'/%3E%3Cpath d='M30,8 L35,18 L45,18 L37,25 L40,35 L30,28 L20,35 L23,25 L15,18 L25,18 Z' fill='%23FFD700'/%3E%3C/svg%3E" 
+                             alt="UK Flag" class="location-flag">
+                        <h3 class="location-name">United Kingdom</h3>
+                    </div>
+                    <div class="location-address">
+                        789 University Street<br>
+                        London WC2E 9XY<br>
+                        United Kingdom
+                    </div>
+                    <div class="location-details">
+                        <p><strong>Phone:</strong> +44 20 7123 4567</p>
+                        <p><strong>Email:</strong> uk@assyldatahub.com</p>
+                        <p><strong>Hours:</strong> Mon-Fri 9:00-17:00 GMT</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--secondary-bg); padding: 2rem 0; text-align: center; border-top: 1px solid var(--border-color);">
+        <div class="container">
+            <p style="color: var(--text-secondary);">&copy; 2025 Assyl DataHub. Empowering educational choices through technology.</p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="main.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Contact form handling
+            const contactForm = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show loading state
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+                
+                // Simulate form submission
+                setTimeout(() => {
+                    showNotification('Thank you! Your message has been sent successfully.', 'success');
+                    contactForm.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                }, 2000);
+            });
+
+            // Live chat functionality
+            window.openLiveChat = function() {
+                showNotification('Live chat feature coming soon! Please use email or phone for immediate assistance.', 'info');
+            };
+
+            // Initialize animations
+            if (typeof anime !== 'undefined') {
+                anime({
+                    targets: '.contact-item, .support-card, .location-card',
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    duration: 800,
+                    delay: anime.stagger(100),
+                    easing: 'easeOutExpo'
+                });
+            }
+
+            // Support card interactions
+            document.querySelectorAll('.support-button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const supportType = this.closest('.support-card').querySelector('.support-title').textContent;
+                    showNotification(`${supportType} feature coming soon! Please contact us directly for assistance.`, 'info');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

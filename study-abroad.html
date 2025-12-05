@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Abroad - Assyl DataHub</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    
+    <!-- Splitting CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --primary-bg: #0B1426;
+            --secondary-bg: #1a2332;
+            --accent-cyan: #00D4FF;
+            --accent-green: #39FF14;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-color: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        .font-orbitron {
+            font-family: 'Orbitron', monospace;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(11, 20, 38, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-cyan);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-cyan);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--accent-cyan);
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-top: 80px;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, var(--secondary-bg), var(--primary-bg));
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Filters Section */
+        .filters-section {
+            padding: 2rem 0;
+            background: var(--secondary-bg);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .filters-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .filter-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .filter-select {
+            padding: 0.8rem;
+            background: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-select:hover,
+        .filter-select:focus {
+            border-color: var(--accent-cyan);
+            outline: none;
+        }
+
+        .search-box {
+            padding: 0.8rem;
+            background: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            border-color: var(--accent-cyan);
+            outline: none;
+        }
+
+        /* Countries Grid */
+        .countries-section {
+            padding: 3rem 0;
+        }
+
+        .countries-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .countries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .country-card {
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .country-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+        }
+
+        .country-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+            border-color: var(--accent-cyan);
+        }
+
+        .country-flag {
+            width: 60px;
+            height: 40px;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .country-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .country-region {
+            color: var(--accent-cyan);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .country-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        .country-features {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .country-features li {
+            padding: 0.3rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .country-features li::before {
+            content: '✓';
+            color: var(--accent-green);
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+
+        /* Universities within Countries */
+        .universities-list {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .university-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.3);
+        }
+
+        .university-item:last-child {
+            border-bottom: none;
+        }
+
+        .university-info h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .university-info p {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        .university-ranking {
+            background: var(--accent-cyan);
+            color: var(--primary-bg);
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Popular Destinations */
+        .popular-section {
+            padding: 3rem 0;
+            background: var(--secondary-bg);
+        }
+
+        .popular-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .popular-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .popular-card {
+            background: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .popular-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-3px);
+        }
+
+        .popular-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .popular-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .popular-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Application Guide */
+        .guide-section {
+            padding: 3rem 0;
+        }
+
+        .guide-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .guide-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .guide-step {
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: var(--accent-cyan);
+            color: var(--primary-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 1rem 0 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .step-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .filters-container {
+                grid-template-columns: 1fr;
+            }
+
+            .countries-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo font-orbitron">Assyl DataHub</a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link" data-translate="followDreams">FOLLOW YOUR DREAMS</a></li>
+                <li><a href="study-in-kazakhstan.html" class="nav-link" data-translate="studyKazakhstan">STUDY IN KAZAKHSTAN</a></li>
+                <li><a href="study-abroad.html" class="nav-link active" data-translate="studyAbroad">STUDY ABROAD</a></li>
+                <li><a href="pricing.html" class="nav-link" data-translate="pricing">PRICING</a></li>
+                <li><a href="contact.html" class="nav-link" data-translate="contact">CONTACT</a></li>
+                <li><a href="profile.html" class="nav-link" id="profileBtn" style="display: none;" data-translate="profile">PROFILE</a></li>
+                <li><a href="#" class="nav-link" id="loginBtn" onclick="showLoginModal()" data-translate="login">LOGIN</a></li>
+                <li><a href="#" class="nav-link" id="logoutBtn" style="display: none;" onclick="window.assylDataHub.logout()" data-translate="logout">LOGOUT</a></li>
+            </ul>
+
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="kz">KZ</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title font-orbitron" data-translate="studyAbroad">STUDY ABROAD</h1>
+            <p class="page-subtitle">
+                Explore international study opportunities around the world. Discover top universities, 
+                compare programs, and find your perfect educational destination.
+            </p>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters-section">
+        <div class="filters-container">
+            <div class="filter-group">
+                <label class="filter-label">Search Universities</label>
+                <input type="text" class="search-box" placeholder="Search by country, university, or program..." id="searchInput">
+            </div>
+            <div class="filter-group">
+                <label class="filter-label">Region</label>
+                <select class="filter-select" id="regionFilter">
+                    <option value="">All Regions</option>
+                    <option value="europe">Europe</option>
+                    <option value="asia">Asia</option>
+                    <option value="americas">Americas</option>
+                    <option value="oceania">Oceania</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="filter-label">Program Type</label>
+                <select class="filter-select" id="programFilter">
+                    <option value="">All Programs</option>
+                    <option value="engineering">Engineering</option>
+                    <option value="medicine">Medicine</option>
+                    <option value="business">Business</option>
+                    <option value="computer-science">Computer Science</option>
+                    <option value="arts">Arts & Humanities</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="filter-label">Budget Range</label>
+                <select class="filter-select" id="budgetFilter">
+                    <option value="">Any Budget</option>
+                    <option value="low">$5,000 - $15,000</option>
+                    <option value="medium">$15,000 - $30,000</option>
+                    <option value="high">$30,000+</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countries Section -->
+    <section class="countries-section">
+        <div class="countries-container">
+            <div class="countries-grid" id="countriesGrid">
+                <!-- United States -->
+                <div class="country-card" data-region="americas" data-budget="high">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='%23B22234'/%3E%3Crect width='60' height='2.7' y='15.3' fill='%23FFFFFF'/%3E%3Crect width='60' height='2.7' y='22.7' fill='%23FFFFFF'/%3E%3C/svg%3E" 
+                         alt="USA Flag" class="country-flag">
+                    <h3 class="country-name">United States</h3>
+                    <p class="country-region">North America</p>
+                    
+                    <div class="country-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">5,000+</div>
+                            <div class="stat-label">Universities</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">1M+</div>
+                            <div class="stat-label">Intl Students</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="country-features">
+                        <li>World-class research facilities</li>
+                        <li>Diverse cultural experience</li>
+                        <li>Strong job market connections</li>
+                        <li>English-medium instruction</li>
+                    </ul>
+                    
+                    <div class="universities-list">
+                        <div class="university-item">
+                            <div class="university-info">
+                                <h4>MIT</h4>
+                                <p>Massachusetts Institute of Technology</p>
+                            </div>
+                            <div class="university-ranking">#1</div>
+                        </div>
+                        <div class="university-item">
+                            <div class="university-info">
+                                <h4>Stanford University</h4>
+                                <p>California, USA</p>
+                            </div>
+                            <div class="university-ranking">#3</div>
+                        </div>
+                        <div class="university-item">
+                            <div class="university-info">
+                                <h4>Harvard University</h4>
+                                <p>Massachusetts, USA</p>
+                            </div>
+                            <div class="university-ranking">#5</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- United Kingdom -->
+                <div class="country-card" data-region="europe" data-budget="high">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='%23012169'/%3E%3Cpath d='M0,0 L60,40 M60,0 L0,40' stroke='%23FFFFFF' stroke-width='6'/%3E%3Cpath d='M0,0 L60,40 M60,0 L0,40' stroke='%23C8102E' stroke-width='4'/%3E%3C/svg%3E" 
+                         alt="UK Flag" class="country-flag">
+                    <h3 class="country-name">United Kingdom</h3>
+                    <p class="country-region">Europe</p>
+                    
+                    <div class="country-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">160+</div>
+                            <div class="stat-label">Universities</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">500K+</div>
+                            <div class="stat-label">Intl Students</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="country-features">
+                        <li>Historic prestigious institutions</li>
+                        <li>Shorter program durations</li>
+                        <li>Rich cultural heritage</li>
+                        <li>Global recognition</li>
+                    </ul>
+                    
+                    <div class="universities-list">
+                        <div class="university-item">
+                            <div class="university-info">
+                                <h4>Oxford University</h4>
+                                <p>University of Oxford</p>
+                            </div>
+                            <div class="university-ranking">#2</div>
+                        </div>
+                        <div class="university-item">
+                            <div class="university-info">
+                                <h4>Cambridge University</h4>
+                                <p>University of Cambridge</p>
+                            </div>
+                            <div class="university-ranking">#4</div>
+                        </div>
+                        <div class="university-item">
+                            <div class="university-info">
+                                <h4>Imperial College</h4>
+                                <p>London, UK</p>
+                            </div>
+                            <div class="university-ranking">#8</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Germany -->
+                <div class="country-card" data-region="europe" data-budget="medium">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='%23000'/%3E%3Crect width='60' height='13.3' y='13.3' fill='%23DD0000'/%3E%3Crect width='60' height='13.3' y='26.6' fill='%23FFCE00'/%3E%3C/svg%3E" 
+                         alt="Germany Flag" class="country-flag">
+                    <h3 class="country-name">Germany</h3>
+                    <p class="country-region">Europe</p>
+                    
+                    <div class="country-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">400+</div>
+                            <div class="stat-label">Universities</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">400K+</div>
+                            <div class="stat-label">Intl Students</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="country-features">
+                        <li>Tuition-free public universities</li>
+                        <li>Strong engineering programs</li>
+                        <li>Excellent research opportunities</li>
+                        <li>Central European location</li>
+                    </ul>
+                    
+                    <div class="universities-list">
+                        <div class="university-item">
+                            <div class="university-info">
+                                <h4>Technical University Munich</h4>
+                                <p>Munich, Germany</p>
+                            </div>
+                            <div class="university-ranking">#37</div>
+                        </div>
+                        <div class="university-item">
+                            <div class="university-info">
+                                <h4>Heidelberg University</h4>
+                                <p>Heidelberg, Germany</p>
+                            </div>
+                            <div class="university-ranking">#63</div>
+                        </div>
+                        <div class="university-item">
+                            <div class="university-info">
+                                <h4>LMU Munich</h4>
+                                <p>Munich, Germany</p>
+                            </div>
+                            <div class="university-ranking">#64</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canada -->
+                <div class="country-card" data-region="americas" data-budget="medium">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='%23F00'/%3E%3Crect width='60' height='40' fill='%23F00'/%3E%3Cpath d='M30,0 L30,40' stroke='%23FFF' stroke-width='12'/%3E%3Cpath d='M0,20 L60,20' stroke='%23FFF' stroke-width='12'/%3E%3C/svg%3E" 
+                         alt="Canada Flag" class="country-flag">
+                    <h3 class="country-name">Canada</h3>
+                    <p class="country-region">North America</p>
+                    
+                    <div class="country-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">100+</div>
+                            <div class="stat-label">Universities</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">600K+</div>
+                            <div class="stat-label">Intl Students</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="country-features">
+                        <li>High quality of life</li>
+                        <li>Immigration pathways</li>
+                        <li>Multicultural society</li>
+                        <li>Beautiful natural environment</li>
+                    </ul>
+                    
+                    <div class="universities-list">
+                        <div class="university-item">
+                            <div class="university-info">
+                                <h4>University of Toronto</h4>
+                                <p>Toronto, Canada</p>
+                            </div>
+                            <div class="university-ranking">#21</div>
+                        </div>
+                        <div class="university-item">
+                            <div class="university-info">
+                                <h4>McGill University</h4>
+                                <p>Montreal, Canada</p>
+                            </div>
+                            <div class="university-ranking">#30</div>
+                        </div>
+                        <div class="university-item">
+                            <div class="university-info">
+                                <h4>UBC</h4>
+                                <p>Vancouver, Canada</p>
+                            </div>
+                            <div class="university-ranking">#34</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Australia -->
+                <div class="country-card" data-region="oceania" data-budget="high">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='%23012169'/%3E%3Ccircle cx='30' cy='20' r='10' fill='%23FFF'/%3E%3Ccircle cx='30' cy='20' r='6' fill='%23012169'/%3E%3Cpath d='M30,14 L30,26 M24,20 L36,20' stroke='%23FFF' stroke-width='2'/%3E%3C/svg%3E" 
+                         alt="Australia Flag" class="country-flag">
+                    <h3 class="country-name">Australia</h3>
+                    <p class="country-region">Oceania</p>
+                    
+                    <div class="country-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">40+</div>
+                            <div class="stat-label">Universities</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">400K+</div>
+                            <div class="stat-label">Intl Students</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="country-features">
+                        <li>Sunny climate and beaches</li>
+                        <li>Work while studying</li>
+                        <li>Post-study work visas</li>
+                        <li>High quality education</li>
+                    </ul>
+                    
+                    <div class="universities-list">
+                        <div class="university-item">
+                            <div class="university-info">
+                                <h4>University of Melbourne</h4>
+                                <p>Melbourne, Australia</p>
+                            </div>
+                            <div class="university-ranking">#14</div>
+                        </div>
+                        <div class="university-item">
+                            <div class="university-info">
+                                <h4>University of Sydney</h4>
+                                <p>Sydney, Australia</p>
+                            </div>
+                            <div class="university-ranking">#19</div>
+                        </div>
+                        <div class="university-item">
+                            <div class="university-info">
+                                <h4>ANU</h4>
+                                <p>Canberra, Australia</p>
+                            </div>
+                            <div class="university-ranking">#34</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Japan -->
+                <div class="country-card" data-region="asia" data-budget="medium">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='40' fill='%23FFF'/%3E%3Ccircle cx='30' cy='20' r='10' fill='%23BC002D'/%3E%3C/svg%3E" 
+                         alt="Japan Flag" class="country-flag">
+                    <h3 class="country-name">Japan</h3>
+                    <p class="country-region">Asia</p>
+                    
+                    <div class="country-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">800+</div>
+                            <div class="stat-label">Universities</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">300K+</div>
+                            <div class="stat-label">Intl Students</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="country-features">
+                        <li>Advanced technology</li>
+                        <li>Rich cultural experience</li>
+                        <li>High safety standards</li>
+                        <li>Scholarship opportunities</li>
+                    </ul>
+                    
+                    <div class="universities-list">
+                        <div class="university-item">
+                            <div class="university-info">
+                                <h4>University of Tokyo</h4>
+                                <p>Tokyo, Japan</p>
+                            </div>
+                            <div class="university-ranking">#23</div>
+                        </div>
+                        <div class="university-item">
+                            <div class="university-info">
+                                <h4>Kyoto University</h4>
+                                <p>Kyoto, Japan</p>
+                            </div>
+                            <div class="university-ranking">#36</div>
+                        </div>
+                        <div class="university-item">
+                            <div class="university-info">
+                                <h4>Osaka University</h4>
+                                <p>Osaka, Japan</p>
+                            </div>
+                            <div class="university-ranking">#68</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Destinations -->
+    <section class="popular-section">
+        <div class="popular-container">
+            <h2 class="section-title">Why Study Abroad?</h2>
+            <div class="popular-grid">
+                <div class="popular-card">
+                    <div class="popular-icon">🎓</div>
+                    <h3 class="popular-title">World-Class Education</h3>
+                    <p class="popular-description">
+                        Access to top-ranked universities and cutting-edge research facilities with global recognition.
+                    </p>
+                </div>
+                <div class="popular-card">
+                    <div class="popular-icon">🌍</div>
+                    <h3 class="popular-title">Cultural Experience</h3>
+                    <p class="popular-description">
+                        Immerse yourself in diverse cultures, languages, and perspectives that broaden your worldview.
+                    </p>
+                </div>
+                <div class="popular-card">
+                    <div class="popular-icon">💼</div>
+                    <h3 class="popular-title">Career Opportunities</h3>
+                    <p class="popular-description">
+                        Build international networks and enhance your employability in the global job market.
+                    </p>
+                </div>
+                <div class="popular-card">
+                    <div class="popular-icon">🗣️</div>
+                    <h3 class="popular-title">Language Skills</h3>
+                    <p class="popular-description">
+                        Develop multilingual capabilities and improve communication skills in international settings.
+                    </p>
+                </div>
+                <div class="popular-card">
+                    <div class="popular-icon">🚀</div>
+                    <h3 class="popular-title">Personal Growth</h3>
+                    <p class="popular-description">
+                        Gain independence, adaptability, and confidence through challenging experiences abroad.
+                    </p>
+                </div>
+                <div class="popular-card">
+                    <div class="popular-icon">🤝</div>
+                    <h3 class="popular-title">Global Network</h3>
+                    <p class="popular-description">
+                        Connect with students and professionals from around the world, building lifelong relationships.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Guide -->
+    <section class="guide-section">
+        <div class="guide-container">
+            <h2 class="section-title">Application Process</h2>
+            <div class="guide-steps">
+                <div class="guide-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Research & Choose</h3>
+                    <p class="step-description">
+                        Research universities and programs that match your academic goals and career aspirations.
+                    </p>
+                </div>
+                <div class="guide-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Prepare Documents</h3>
+                    <p class="step-description">
+                        Gather required documents including transcripts, recommendation letters, and language certificates.
+                    </p>
+                </div>
+                <div class="guide-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Apply</h3>
+                    <p class="step-description">
+                        Submit applications through university portals or centralized application systems.
+                    </p>
+                </div>
+                <div class="guide-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Visa & Funding</h3>
+                    <p class="step-description">
+                        Apply for student visa and secure funding through scholarships, loans, or personal resources.
+                    </p>
+                </div>
+                <div class="guide-step">
+                    <div class="step-number">5</div>
+                    <h3 class="step-title">Prepare & Travel</h3>
+                    <p class="step-description">
+                        Arrange accommodation, book flights, and prepare for your international education journey.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--secondary-bg); padding: 2rem 0; text-align: center; border-top: 1px solid var(--border-color);">
+        <div class="container">
+            <p style="color: var(--text-secondary);">&copy; 2025 Assyl DataHub. Empowering educational choices through technology.</p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="main.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter functionality
+            const searchInput = document.getElementById('searchInput');
+            const regionFilter = document.getElementById('regionFilter');
+            const programFilter = document.getElementById('programFilter');
+            const budgetFilter = document.getElementById('budgetFilter');
+            const countryCards = document.querySelectorAll('.country-card');
+
+            function filterCountries() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedRegion = regionFilter.value;
+                const selectedProgram = programFilter.value;
+                const selectedBudget = budgetFilter.value;
+
+                countryCards.forEach(card => {
+                    const countryName = card.querySelector('.country-name').textContent.toLowerCase();
+                    const cardRegion = card.dataset.region;
+                    const cardBudget = card.dataset.budget;
+                    
+                    let showCard = true;
+
+                    // Search filter
+                    if (searchTerm && !countryName.includes(searchTerm)) {
+                        showCard = false;
+                    }
+
+                    // Region filter
+                    if (selectedRegion && cardRegion !== selectedRegion) {
+                        showCard = false;
+                    }
+
+                    // Budget filter
+                    if (selectedBudget && cardBudget !== selectedBudget) {
+                        showCard = false;
+                    }
+
+                    // Show/hide card
+                    if (showCard) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeIn 0.5s ease-in-out';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            // Add event listeners
+            searchInput.addEventListener('input', filterCountries);
+            regionFilter.addEventListener('change', filterCountries);
+            programFilter.addEventListener('change', filterCountries);
+            budgetFilter.addEventListener('change', filterCountries);
+
+            // Initialize animations
+            if (typeof anime !== 'undefined') {
+                anime({
+                    targets: '.country-card',
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    duration: 800,
+                    delay: anime.stagger(100),
+                    easing: 'easeOutExpo'
+                });
+
+                anime({
+                    targets: '.popular-card, .guide-step',
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    duration: 800,
+                    delay: anime.stagger(100, {start: 500}),
+                    easing: 'easeOutExpo'
+                });
+            }
+        });
+    </script>
+</body>
+</html>

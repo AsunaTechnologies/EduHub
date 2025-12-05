@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assyl DataHub - Follow Your Dreams</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.3.2/pixi.min.js"></script>
+    
+    <!-- Splitting CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --primary-bg: #0B1426;
+            --secondary-bg: #1a2332;
+            --accent-cyan: #00D4FF;
+            --accent-green: #39FF14;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-color: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        .font-orbitron {
+            font-family: 'Orbitron', monospace;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(11, 20, 38, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-cyan);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-cyan);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(rgba(11, 20, 38, 0.7), rgba(11, 20, 38, 0.7)), url('resources/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 0 2rem;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            min-height: 60px;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--accent-cyan), var(--accent-green));
+            color: var(--primary-bg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--accent-cyan);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .lang-btn:hover,
+        .lang-btn.active {
+            background: var(--accent-cyan);
+            color: var(--primary-bg);
+            border-color: var(--accent-cyan);
+        }
+
+        /* University Cards */
+        .universities-section {
+            padding: 5rem 0;
+            background: var(--secondary-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+        }
+
+        .universities-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .university-card {
+            background: rgba(26, 35, 50, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .university-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+        }
+
+        .university-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+            border-color: var(--accent-cyan);
+        }
+
+        .university-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .university-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .university-location {
+            color: var(--accent-cyan);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .university-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        .university-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            flex: 1;
+            text-align: center;
+        }
+
+        /* Comparison Panel */
+        .comparison-panel {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--secondary-bg);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 12px;
+            padding: 1rem;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .comparison-panel.show {
+            display: block;
+        }
+
+        /* Modals */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 90vw;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .close-modal:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            display: grid;
+            gap: 1rem;
+            min-width: 600px;
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 150px repeat(var(--uni-count, 3), 1fr);
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .comparison-cell {
+            padding: 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .comparison-row.header .comparison-cell {
+            background: var(--accent-cyan);
+            color: var(--primary-bg);
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .universities-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+
+            .comparison-panel {
+                bottom: 1rem;
+                right: 1rem;
+                left: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Notifications */
+        .notification {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            padding: 1rem 2rem;
+            background: var(--secondary-bg);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 8px;
+            color: var(--text-primary);
+            z-index: 3000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.success {
+            border-color: var(--accent-green);
+        }
+
+        .notification.error {
+            border-color: #ff4444;
+        }
+
+        /* Loading States */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            border-top-color: var(--accent-cyan);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo font-orbitron">Assyl DataHub</a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link" data-translate="followDreams">FOLLOW YOUR DREAMS</a></li>
+                <li><a href="study-in-kazakhstan.html" class="nav-link" data-translate="studyKazakhstan">STUDY IN KAZAKHSTAN</a></li>
+                <li><a href="study-abroad.html" class="nav-link" data-translate="studyAbroad">STUDY ABROAD</a></li>
+                <li><a href="pricing.html" class="nav-link" data-translate="pricing">PRICING</a></li>
+                <li><a href="contact.html" class="nav-link" data-translate="contact">CONTACT</a></li>
+                <li><a href="profile.html" class="nav-link" id="profileBtn" style="display: none;" data-translate="profile">PROFILE</a></li>
+                <li><a href="#" class="nav-link" id="loginBtn" onclick="showLoginModal()" data-translate="login">LOGIN</a></li>
+                <li><a href="#" class="nav-link" id="logoutBtn" style="display: none;" onclick="window.assylDataHub.logout()" data-translate="logout">LOGOUT</a></li>
+            </ul>
+
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="kz">KZ</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title font-orbitron" data-translate="followDreams">FOLLOW YOUR DREAMS</h1>
+            <div class="hero-subtitle">
+                <span id="typed-text"></span>
+            </div>
+            <p class="hero-description">
+                Discover world-class universities in Kazakhstan and abroad. Compare programs, explore campuses in 3D, 
+                and make informed decisions about your educational future with our comprehensive data hub.
+            </p>
+            <div class="cta-buttons">
+                <a href="study-in-kazakhstan.html" class="btn btn-primary" data-translate="studyKazakhstan">STUDY IN KAZAKHSTAN</a>
+                <a href="study-abroad.html" class="btn btn-secondary" data-translate="studyAbroad">STUDY ABROAD</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Universities -->
+    <section class="universities-section">
+        <div class="container">
+            <h2 class="section-title" data-translate="compare">Compare Top Universities</h2>
+            
+            <div class="universities-grid">
+                <!-- Al-Farabi Kazakh National University -->
+                <div class="university-card fade-in-up">
+                    <img src="https://kimi-web-img.moonshot.cn/img/argroupofeducation.com/511392b3adf8cd1d6e79bc2a39df307261dd6482.jpg" 
+                         alt="Al-Farabi Kazakh National University" class="university-image">
+                    <h3 class="university-name">Al-Farabi Kazakh National University</h3>
+                    <p class="university-location">Almaty, Kazakhstan</p>
+                    
+                    <div class="university-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">20,000</div>
+                            <div class="stat-label" data-translate="students">Students</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">#166</div>
+                            <div class="stat-label" data-translate="world">World Ranking</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">3,000</div>
+                            <div class="stat-label" data-translate="international">International</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">1934</div>
+                            <div class="stat-label" data-translate="founded">Founded</div>
+                        </div>
+                    </div>
+                    
+                    <div class="university-actions">
+                        <a href="study-in-kazakhstan.html#kaznu" class="btn btn-primary btn-small">View Details</a>
+                        <label class="btn btn-secondary btn-small">
+                            <input type="checkbox" class="university-select" data-university-id="kaznu" style="display: none;">
+                            <span data-translate="selectUniversity">Select</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Nazarbayev University -->
+                <div class="university-card fade-in-up">
+                    <img src="https://kimi-web-img.moonshot.cn/img/airial.travel/b413baf6646e349f9c926b4b782a8a5a1b8a5870" 
+                         alt="Nazarbayev University" class="university-image">
+                    <h3 class="university-name">Nazarbayev University</h3>
+                    <p class="university-location">Astana, Kazakhstan</p>
+                    
+                    <div class="university-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">9,000</div>
+                            <div class="stat-label" data-translate="students">Students</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">#400</div>
+                            <div class="stat-label" data-translate="world">World Ranking</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">1,200</div>
+                            <div class="stat-label" data-translate="international">International</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">2010</div>
+                            <div class="stat-label" data-translate="founded">Founded</div>
+                        </div>
+                    </div>
+                    
+                    <div class="university-actions">
+                        <a href="study-in-kazakhstan.html#nazarbayev" class="btn btn-primary btn-small">View Details</a>
+                        <label class="btn btn-secondary btn-small">
+                            <input type="checkbox" class="university-select" data-university-id="nazarbayev" style="display: none;">
+                            <span data-translate="selectUniversity">Select</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Kazakh National Medical University -->
+                <div class="university-card fade-in-up">
+                    <img src="https://kimi-web-img.moonshot.cn/img/nissanstudyservices.com/721e2876de3ed1da40552a05041125f80fe6aacb.webp" 
+                         alt="Kazakh National Medical University" class="university-image">
+                    <h3 class="university-name">Asfendiyarov Kazakh National Medical University</h3>
+                    <p class="university-location">Almaty, Kazakhstan</p>
+                    
+                    <div class="university-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">10,378</div>
+                            <div class="stat-label" data-translate="students">Students</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">#1000</div>
+                            <div class="stat-label" data-translate="world">World Ranking</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">1,773</div>
+                            <div class="stat-label" data-translate="international">International</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">1930</div>
+                            <div class="stat-label" data-translate="founded">Founded</div>
+                        </div>
+                    </div>
+                    
+                    <div class="university-actions">
+                        <a href="study-in-kazakhstan.html#kaznmu" class="btn btn-primary btn-small">View Details</a>
+                        <label class="btn btn-secondary btn-small">
+                            <input type="checkbox" class="university-select" data-university-id="kaznmu" style="display: none;">
+                            <span data-translate="selectUniversity">Select</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Panel -->
+    <div class="comparison-panel" id="compareBtn">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <span data-translate="compareSelected">Compare Selected</span>
+            <span id="selectedCount" style="background: var(--accent-cyan); color: var(--primary-bg); padding: 0.2rem 0.5rem; border-radius: 50%; font-size: 0.8rem;">0</span>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content" style="max-width: 400px;">
+            <button class="close-modal" onclick="hideLoginModal()">&times;</button>
+            <h2 style="margin-bottom: 2rem; text-align: center;" data-translate="login">Login</h2>
+            <form id="loginForm">
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary);">Email or Phone</label>
+                    <input type="text" id="emailOrPhone" required 
+                           style="width: 100%; padding: 0.8rem; background: var(--primary-bg); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary);">
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary);">Password</label>
+                    <input type="password" id="password" required 
+                           style="width: 100%; padding: 0.8rem; background: var(--primary-bg); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary);">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;" data-translate="login">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Comparison Modal -->
+    <div class="modal" id="comparisonModal">
+        <div class="modal-content" style="width: 90%; max-width: 1000px;">
+            <button class="close-modal">&times;</button>
+            <h2 style="margin-bottom: 2rem; text-align: center;" data-translate="compare">University Comparison</h2>
+            <div id="comparisonContent"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: var(--secondary-bg); padding: 2rem 0; text-align: center; border-top: 1px solid var(--border-color);">
+        <div class="container">
+            <p style="color: var(--text-secondary);">&copy; 2025 Assyl DataHub. Empowering educational choices through technology.</p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="main.js"></script>
+    
+    <script>
+        // Additional page-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize university selection
+            document.querySelectorAll('.university-select').forEach(checkbox => {
+                checkbox.addEventListener('change', function(e) {
+                    const universityId = e.target.dataset.universityId;
+                    if (window.assylDataHub) {
+                        window.assylDataHub.toggleUniversitySelection(universityId);
+                    }
+                });
+            });
+
+            // Initialize comparison modal
+            const compareBtn = document.getElementById('compareBtn');
+            if (compareBtn) {
+                compareBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (window.assylDataHub) {
+                        window.assylDataHub.showComparison();
+                    }
+                });
+            }
+
+            // Close modal functionality
+            document.querySelectorAll('.close-modal').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const modal = this.closest('.modal');
+                    if (modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            });
+
+            // Close modal on outside click
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

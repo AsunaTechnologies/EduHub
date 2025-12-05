@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Assyl DataHub</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --primary-bg: #0B1426;
+            --secondary-bg: #1a2332;
+            --accent-cyan: #00D4FF;
+            --accent-green: #39FF14;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-color: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        .font-orbitron {
+            font-family: 'Orbitron', monospace;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(11, 20, 38, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-cyan);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-cyan);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--accent-cyan);
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-top: 80px;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, var(--secondary-bg), var(--primary-bg));
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 5rem 0;
+            background: var(--secondary-bg);
+        }
+
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .pricing-toggle {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .toggle-group {
+            display: flex;
+            background: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 0.5rem;
+        }
+
+        .toggle-btn {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .toggle-btn.active {
+            background: var(--accent-cyan);
+            color: var(--primary-bg);
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent-cyan);
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-cyan);
+            color: var(--primary-bg);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .plan-description {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .price-period {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .plan-features li {
+            padding: 0.8rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            color: var(--accent-green);
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+
+        .plan-features li.unavailable::before {
+            content: '✗';
+            color: #ff4444;
+        }
+
+        .cta-button {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, var(--accent-cyan), var(--accent-green));
+            color: var(--primary-bg);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--accent-cyan);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--accent-cyan);
+            color: var(--primary-bg);
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            padding: 3rem 0;
+            background: var(--primary-bg);
+        }
+
+        .comparison-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .comparison-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .comparison-table {
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .table-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            background: var(--primary-bg);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .table-cell {
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.3);
+        }
+
+        .table-row:last-child {
+            border-bottom: none;
+        }
+
+        .table-row:nth-child(even) {
+            background: rgba(26, 35, 50, 0.3);
+        }
+
+        .feature-name {
+            text-align: left;
+            color: var(--text-primary);
+        }
+
+        .feature-check {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+        }
+
+        .feature-cross {
+            color: #ff4444;
+            font-size: 1.2rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 3rem 0;
+            background: var(--secondary-bg);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .faq-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .faq-item {
+            background: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--secondary-bg);
+        }
+
+        .faq-icon {
+            font-size: 1.2rem;
+            color: var(--accent-cyan);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.5rem;
+            max-height: 200px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .table-header,
+            .table-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .table-cell {
+                text-align: left;
+                padding: 0.5rem;
+            }
+
+            .toggle-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .toggle-btn {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo font-orbitron">Assyl DataHub</a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link" data-translate="followDreams">FOLLOW YOUR DREAMS</a></li>
+                <li><a href="study-in-kazakhstan.html" class="nav-link" data-translate="studyKazakhstan">STUDY IN KAZAKHSTAN</a></li>
+                <li><a href="study-abroad.html" class="nav-link" data-translate="studyAbroad">STUDY ABROAD</a></li>
+                <li><a href="pricing.html" class="nav-link active" data-translate="pricing">PRICING</a></li>
+                <li><a href="contact.html" class="nav-link" data-translate="contact">CONTACT</a></li>
+                <li><a href="profile.html" class="nav-link" id="profileBtn" style="display: none;" data-translate="profile">PROFILE</a></li>
+                <li><a href="#" class="nav-link" id="loginBtn" onclick="showLoginModal()" data-translate="login">LOGIN</a></li>
+                <li><a href="#" class="nav-link" id="logoutBtn" style="display: none;" onclick="window.assylDataHub.logout()" data-translate="logout">LOGOUT</a></li>
+            </ul>
+
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="kz">KZ</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title font-orbitron" data-translate="pricing">PRICING</h1>
+            <p class="page-subtitle">
+                Choose the perfect plan for your educational journey. Access premium features, 
+                detailed analytics, and personalized support to make informed decisions.
+            </p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="pricing-container">
+            <div class="pricing-toggle">
+                <div class="toggle-group">
+                    <button class="toggle-btn active" data-category="students">For Students</button>
+                    <button class="toggle-btn" data-category="business">For Business</button>
+                </div>
+            </div>
+
+            <!-- Student Pricing -->
+            <div class="pricing-grid" id="studentPricing">
+                <div class="pricing-card">
+                    <h3 class="plan-name">Basic</h3>
+                    <p class="plan-description">Perfect for students starting their university research journey</p>
+                    <div class="plan-price">Free</div>
+                    <div class="price-period">Forever</div>
+                    
+                    <ul class="plan-features">
+                        <li>Access to basic university information</li>
+                        <li>Compare up to 2 universities</li>
+                        <li>Basic search and filters</li>
+                        <li>Community support</li>
+                        <li class="unavailable">3D campus tours</li>
+                        <li class="unavailable">Advanced analytics</li>
+                        <li class="unavailable">Personal advisor</li>
+                    </ul>
+                    
+                    <button class="cta-button secondary">Get Started</button>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3 class="plan-name">Premium</h3>
+                    <p class="plan-description">Comprehensive tools for serious university applicants</p>
+                    <div class="plan-price">$9.99</div>
+                    <div class="price-period">per month</div>
+                    
+                    <ul class="plan-features">
+                        <li>All Basic features</li>
+                        <li>Compare up to 5 universities</li>
+                        <li>3D virtual campus tours</li>
+                        <li>Advanced comparison tools</li>
+                        <li>Application tracking</li>
+                        <li>Priority email support</li>
+                        <li>Download comparison reports</li>
+                        <li class="unavailable">Personal admission advisor</li>
+                    </ul>
+                    
+                    <button class="cta-button">Start Free Trial</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 class="plan-name">Ultimate</h3>
+                    <p class="plan-description">Complete support for your educational journey</p>
+                    <div class="plan-price">$19.99</div>
+                    <div class="price-period">per month</div>
+                    
+                    <ul class="plan-features">
+                        <li>All Premium features</li>
+                        <li>Unlimited university comparisons</li>
+                        <li>Personal admission advisor</li>
+                        <li>Essay review service</li>
+                        <li>Interview preparation</li>
+                        <li>Scholarship matching</li>
+                        <li>24/7 phone support</li>
+                        <li>Guaranteed admission support</li>
+                    </ul>
+                    
+                    <button class="cta-button secondary">Contact Sales</button>
+                </div>
+            </div>
+
+            <!-- Business Pricing -->
+            <div class="pricing-grid" id="businessPricing" style="display: none;">
+                <div class="pricing-card">
+                    <h3 class="plan-name">Basic</h3>
+                    <p class="plan-description">Essential tools for educational consultants</p>
+                    <div class="plan-price">$49.99</div>
+                    <div class="price-period">per month</div>
+                    
+                    <ul class="plan-features">
+                        <li>Access to all university data</li>
+                        <li>Client management system</li>
+                        <li>Basic reporting tools</li>
+                        <li>Email support</li>
+                        <li>Up to 10 clients</li>
+                        <li class="unavailable">White-label solutions</li>
+                        <li class="unavailable">API access</li>
+                        <li class="unavailable">Custom integrations</li>
+                    </ul>
+                    
+                    <button class="cta-button secondary">Start Free Trial</button>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="popular-badge">Recommended</div>
+                    <h3 class="plan-name">Professional</h3>
+                    <p class="plan-description">Advanced tools for growing educational agencies</p>
+                    <div class="plan-price">$149.99</div>
+                    <div class="price-period">per month</div>
+                    
+                    <ul class="plan-features">
+                        <li>All Basic features</li>
+                        <li>Up to 50 clients</li>
+                        <li>White-label platform</li>
+                        <li>Advanced analytics</li>
+                        <li>Custom reporting</li>
+                        <li>Priority support</li>
+                        <li>API access</li>
+                        <li>Team collaboration tools</li>
+                    </ul>
+                    
+                    <button class="cta-button">Start Free Trial</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 class="plan-name">Enterprise</h3>
+                    <p class="plan-description">Complete solution for large educational organizations</p>
+                    <div class="plan-price">Custom</div>
+                    <div class="price-period">pricing</div>
+                    
+                    <ul class="plan-features">
+                        <li>All Professional features</li>
+                        <li>Unlimited clients</li>
+                        <li>Custom integrations</li>
+                        <li>Dedicated account manager</li>
+                        <li>24/7 phone support</li>
+                        <li>Custom development</li>
+                        <li>SLA guarantee</li>
+                        <li>Onboarding assistance</li>
+                    </ul>
+                    
+                    <button class="cta-button secondary">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison-section">
+        <div class="comparison-container">
+            <h2 class="comparison-title">Compare All Features</h2>
+            <div class="comparison-table">
+                <div class="table-header">
+                    <div class="table-cell feature-name">Features</div>
+                    <div class="table-cell">Basic</div>
+                    <div class="table-cell">Premium</div>
+                    <div class="table-cell">Ultimate</div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="table-cell feature-name">University Database Access</div>
+                    <div class="table-cell feature-check">✓</div>
+                    <div class="table-cell feature-check">✓</div>
+                    <div class="table-cell feature-check">✓</div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="table-cell feature-name">University Comparison</div>
+                    <div class="table-cell feature-check">2 universities</div>
+                    <div class="table-cell feature-check">5 universities</div>
+                    <div class="table-cell feature-check">Unlimited</div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="table-cell feature-name">3D Virtual Tours</div>
+                    <div class="table-cell feature-cross">✗</div>
+                    <div class="table-cell feature-check">✓</div>
+                    <div class="table-cell feature-check">✓</div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="table-cell feature-name">Application Tracking</div>
+                    <div class="table-cell feature-cross">✗</div>
+                    <div class="table-cell feature-check">✓</div>
+                    <div class="table-cell feature-check">✓</div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="table-cell feature-name">Personal Advisor</div>
+                    <div class="table-cell feature-cross">✗</div>
+                    <div class="table-cell feature-cross">✗</div>
+                    <div class="table-cell feature-check">✓</div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="table-cell feature-name">Essay Review Service</div>
+                    <div class="table-cell feature-cross">✗</div>
+                    <div class="table-cell feature-cross">✗</div>
+                    <div class="table-cell feature-check">✓</div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="table-cell feature-name">24/7 Phone Support</div>
+                    <div class="table-cell feature-cross">✗</div>
+                    <div class="table-cell feature-cross">✗</div>
+                    <div class="table-cell feature-check">✓</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I change my plan anytime?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any billing differences.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is there a free trial?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer a 14-day free trial for our Premium and Business plans. No credit card required to start your trial.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What payment methods do you accept?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We accept all major credit cards, PayPal, and bank transfers. For Enterprise plans, we can also arrange custom payment terms.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I cancel my subscription?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, you can cancel your subscription at any time. You'll continue to have access until the end of your current billing period.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you offer student discounts?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer a 50% discount for students with valid student ID. Contact our support team to claim your discount.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--secondary-bg); padding: 2rem 0; text-align: center; border-top: 1px solid var(--border-color);">
+        <div class="container">
+            <p style="color: var(--text-secondary);">&copy; 2025 Assyl DataHub. Empowering educational choices through technology.</p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="main.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Pricing toggle functionality
+            const toggleButtons = document.querySelectorAll('.toggle-btn');
+            const studentPricing = document.getElementById('studentPricing');
+            const businessPricing = document.getElementById('businessPricing');
+
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const category = button.dataset.category;
+                    
+                    // Remove active class from all buttons
+                    toggleButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    // Show/hide pricing grids
+                    if (category === 'students') {
+                        studentPricing.style.display = 'grid';
+                        businessPricing.style.display = 'none';
+                    } else {
+                        studentPricing.style.display = 'none';
+                        businessPricing.style.display = 'grid';
+                    }
+                });
+            });
+
+            // FAQ functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Initialize animations
+            if (typeof anime !== 'undefined') {
+                anime({
+                    targets: '.pricing-card',
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    duration: 800,
+                    delay: anime.stagger(100),
+                    easing: 'easeOutExpo'
+                });
+
+                anime({
+                    targets: '.faq-item',
+                    opacity: [0, 1],
+                    translateY: [20, 0],
+                    duration: 600,
+                    delay: anime.stagger(50, {start: 500}),
+                    easing: 'easeOutExpo'
+                });
+            }
+
+            // CTA button functionality
+            document.querySelectorAll('.cta-button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    if (this.textContent.includes('Start Free Trial')) {
+                        e.preventDefault();
+                        showNotification('Free trial started! Welcome to Assyl DataHub.', 'success');
+                    } else if (this.textContent.includes('Contact Sales')) {
+                        e.preventDefault();
+                        showNotification('Sales team will contact you within 24 hours.', 'info');
+                    } else if (this.textContent.includes('Get Started')) {
+                        e.preventDefault();
+                        showNotification('Welcome to Assyl DataHub Basic plan!', 'success');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
