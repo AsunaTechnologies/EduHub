@@ -1,4 +1,4 @@
-// Assyl DataHub - Main JavaScript File
+// Asyl DataHub - Main JavaScript File
 // Handles all interactive functionality, user profiles, and data management
 
 class AssylDataHub {
@@ -327,7 +327,7 @@ class AssylDataHub {
                         // Navigation
                         home: 'Home',
                         studyKz: 'Study in Kazakhstan',
-                        dualDiploma: '1+1 Programs',
+                        dualDiploma: 'Double Degree',
                         compare: 'Compare',
                         eduHelper: 'Edu Helper',
                         pricing: 'Pricing',
@@ -349,7 +349,7 @@ class AssylDataHub {
                         studentBlog: 'Student Blog',
                         blog: 'Student Blog',
                         faq: 'FAQ',
-                        copyright: '© 2025 Assyl DataHub. All rights reserved. Empowering educational choices through technology.',
+                        copyright: '© 2025 Asyl DataHub. All rights reserved. Empowering educational choices through technology.',
                         location: 'Almaty, Kazakhstan',
                         // Buttons
                         viewDetails: 'View Details',
@@ -370,7 +370,7 @@ class AssylDataHub {
                     ru: {
                         home: 'Главная',
                         studyKz: 'Учеба в Казахстане',
-                        dualDiploma: 'Программы 1+1',
+                        dualDiploma: 'Двойной диплом',
                         compare: 'Сравнить',
                         eduHelper: 'Edu Helper',
                         pricing: 'Цены',
@@ -391,7 +391,7 @@ class AssylDataHub {
                         studentBlog: 'Блог студентов',
                         blog: 'Блог студентов',
                         faq: 'Вопросы и ответы',
-                        copyright: '© 2025 Assyl DataHub. Все права защищены. Развиваем образовательный выбор через технологии.',
+                        copyright: '© 2025 Asyl DataHub. Все права защищены. Развиваем образовательный выбор через технологии.',
                         location: 'Алматы, Казахстан',
                         viewDetails: 'Подробнее',
                         compare: 'Сравнить',
@@ -410,7 +410,7 @@ class AssylDataHub {
                     kz: {
                         home: 'Басты бет',
                         studyKz: 'Қазақстанда оқу',
-                        dualDiploma: '1+1 бағдарламалары',
+                        dualDiploma: 'Қос диплом',
                         compare: 'Салыстыру',
                         eduHelper: 'Edu Helper',
                         pricing: 'Бағалар',
@@ -431,7 +431,7 @@ class AssylDataHub {
                         studentBlog: 'Студенттер блогы',
                         blog: 'Студенттер блогы',
                         faq: 'Сұрақ-жауап',
-                        copyright: '© 2025 Assyl DataHub. Барлық құқықтар қорғалған. Технология арқылы білім таңдауын дамытамыз.',
+                        copyright: '© 2025 Asyl DataHub. Барлық құқықтар қорғалған. Технология арқылы білім таңдауын дамытамыз.',
                         location: 'Алматы, Қазақстан',
                         viewDetails: 'Толығырақ',
                         compare: 'Салыстыру',
@@ -465,7 +465,7 @@ class AssylDataHub {
                         expertCounselors: 'Expert counselors',
                         successRate: '98% Success Rate',
                         admissionResults: 'Admission results',
-                        whyChoose: 'Why Choose Assyl DataHub?',
+                        whyChoose: 'Why Choose Asyl DataHub?',
                         whyChooseDesc: 'We make the university search and application process simple, transparent, and stress-free for students and families.',
                         feature1Title: 'Comprehensive Database',
                         feature1Desc: 'Access detailed information about universities in Kazakhstan and 25+ countries worldwide, all in one place.',
@@ -484,7 +484,7 @@ class AssylDataHub {
                         viewAll: 'View All Universities',
                         testimonials: 'What Families Say',
                         testimonialsDesc: 'Hear from students and parents who found their perfect university match with our help.',
-                        testimonial1: 'Assyl DataHub made the overwhelming process of choosing a university so much easier. The comparison tools helped us understand exactly what each school offered.',
+                        testimonial1: 'Asyl DataHub made the overwhelming process of choosing a university so much easier. The comparison tools helped us understand exactly what each school offered.',
                         testimonial1Author: 'Aigerim Kenzhebekova',
                         testimonial1Role: 'Parent • Almaty',
                         testimonial2: 'The counselors understood my goals and helped me find universities I never would have discovered on my own. I\'m now studying at my dream school in Germany!',
@@ -521,7 +521,7 @@ class AssylDataHub {
                         expertCounselors: 'Опытные консультанты',
                         successRate: '98% Успешность',
                         admissionResults: 'Результаты поступления',
-                        whyChoose: 'Почему выбирают Assyl DataHub?',
+                        whyChoose: 'Почему выбирают Asyl DataHub?',
                         whyChooseDesc: 'Мы делаем процесс поиска и поступления в университет простым, прозрачным и без стресса для студентов и семей.',
                         feature1Title: 'Полная база данных',
                         feature1Desc: 'Доступ к подробной информации об университетах Казахстана и 25+ стран мира в одном месте.',
@@ -540,7 +540,7 @@ class AssylDataHub {
                         viewAll: 'Все университеты',
                         testimonials: 'Отзывы семей',
                         testimonialsDesc: 'Узнайте от студентов и родителей, которые нашли идеальный университет с нашей помощью.',
-                        testimonial1: 'Assyl DataHub сделал сложный процесс выбора университета намного проще. Инструменты сравнения помогли нам понять, что предлагает каждый вуз.',
+                        testimonial1: 'Asyl DataHub сделал сложный процесс выбора университета намного проще. Инструменты сравнения помогли нам понять, что предлагает каждый вуз.',
                         testimonial1Author: 'Айгерим Кенжебекова',
                         testimonial1Role: 'Родитель • Алматы',
                         testimonial2: 'Консультанты поняли мои цели и помогли найти университеты, которые я бы никогда не нашел сам. Теперь я учусь в своем университете мечты в Германии!',
@@ -577,7 +577,7 @@ class AssylDataHub {
                         expertCounselors: 'Тәжірибелі кеңесшілер',
                         successRate: '98% Сәттілік',
                         admissionResults: 'Түсу нәтижелері',
-                        whyChoose: 'Неге Assyl DataHub таңдайсыз?',
+                        whyChoose: 'Неге Asyl DataHub таңдайсыз?',
                         whyChooseDesc: 'Біз университетті іздеу және түсу процесін студенттер мен отбасылар үшін қарапайым, ашық және стресссіз етеміз.',
                         feature1Title: 'Толық деректер базасы',
                         feature1Desc: 'Қазақстан мен 25+ елдің университеттері туралы толық ақпаратты бір жерден алыңыз.',
@@ -596,7 +596,7 @@ class AssylDataHub {
                         viewAll: 'Барлық университеттер',
                         testimonials: 'Отбасылар не дейді',
                         testimonialsDesc: 'Біздің көмегімізбен тамаша университет тапқан студенттер мен ата-аналардан естіңіз.',
-                        testimonial1: 'Assyl DataHub университетті таңдаудың күрделі процесін әлдеқайда жеңілдетті. Салыстыру құралдары әр мектептің не ұсынатынын түсінуге көмектесті.',
+                        testimonial1: 'Asyl DataHub университетті таңдаудың күрделі процесін әлдеқайда жеңілдетті. Салыстыру құралдары әр мектептің не ұсынатынын түсінуге көмектесті.',
                         testimonial1Author: 'Айгерім Кенжебекова',
                         testimonial1Role: 'Ата-ана • Алматы',
                         testimonial2: 'Кеңесшілер менің мақсаттарымды түсініп, өзім ешқашан таппайтын университеттерді табуға көмектесті. Қазір мен Германиядағы арманымдағы мектепте оқып жатырмын!',
@@ -2221,7 +2221,7 @@ class AssylDataHub {
                 if (href.includes('index.html') || href === 'index.html') link.textContent = common.home;
                 else if (href.includes('study-in-kazakhstan')) link.textContent = common.studyKz;
                 // Removed study-abroad link
-                else if (href.includes('dual-diploma')) link.textContent = '2+2';
+                else if (href.includes('dual-diploma')) link.textContent = 'Double Degree';
                 else if (href.includes('edu-helper')) link.textContent = 'Edu Helper';
                 else if (href.includes('pricing')) link.textContent = common.pricing;
                 else if (href.includes('contact')) link.textContent = common.contact;
