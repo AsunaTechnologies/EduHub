@@ -1920,6 +1920,123 @@ class AssylDataHub {
                         noAccount: 'Тіркелгіңіз жоқ па?',
                         signUp: 'Тіркелу'
                     }
+                },
+                // Profile page
+                profile: {
+                    en: {
+                        dashboard: 'Dashboard',
+                        savedUnis: 'Saved Universities',
+                        myComparisons: 'My Comparisons',
+                        applications: 'Applications',
+                        settings: 'Settings',
+                        dashboardOverview: 'Dashboard Overview',
+                        exportData: 'Export Data',
+                        savedUniversities: 'Saved Universities',
+                        comparisonsMade: 'Comparisons Made',
+                        activeApplications: 'Active Applications',
+                        daysSinceJoined: 'Days Since Joined',
+                        recentActivity: 'Recent Activity',
+                        activity1: 'Viewed Al-Farabi Kazakh National University',
+                        activity2: 'Compared 3 universities',
+                        activity3: 'Updated profile preferences',
+                        activity4: 'Searched for Computer Science programs',
+                        findMore: 'Find More',
+                        newComparison: 'New Comparison',
+                        viewComparison: 'View Comparison',
+                        exportPdf: 'Export PDF',
+                        applicationTracking: 'Application Tracking',
+                        addApplication: 'Add Application',
+                        noApplications: 'No Applications Yet',
+                        noApplicationsDesc: 'Start tracking your university applications to stay organized throughout the process.',
+                        addFirstApplication: 'Add Your First Application',
+                        accountSettings: 'Account Settings',
+                        saveChanges: 'Save Changes',
+                        notifications: 'Notifications',
+                        emailNotifications: 'Email Notifications',
+                        emailNotificationsDesc: 'Receive updates about new universities and features',
+                        applicationReminders: 'Application Reminders',
+                        applicationRemindersDesc: 'Get reminded about upcoming deadlines',
+                        newsletter: 'Newsletter',
+                        newsletterDesc: 'Weekly tips and university news',
+                        viewDetails: 'View Details',
+                        compare: 'Compare'
+                    },
+                    ru: {
+                        dashboard: 'Панель',
+                        savedUnis: 'Сохраненные университеты',
+                        myComparisons: 'Мои сравнения',
+                        applications: 'Заявки',
+                        settings: 'Настройки',
+                        dashboardOverview: 'Обзор панели',
+                        exportData: 'Экспорт данных',
+                        savedUniversities: 'Сохраненные университеты',
+                        comparisonsMade: 'Сравнений сделано',
+                        activeApplications: 'Активные заявки',
+                        daysSinceJoined: 'Дней с регистрации',
+                        recentActivity: 'Недавняя активность',
+                        activity1: 'Просмотрен КазНУ им. аль-Фараби',
+                        activity2: 'Сравнено 3 университета',
+                        activity3: 'Обновлены настройки профиля',
+                        activity4: 'Поиск программ по Computer Science',
+                        findMore: 'Найти ещё',
+                        newComparison: 'Новое сравнение',
+                        viewComparison: 'Посмотреть',
+                        exportPdf: 'Экспорт PDF',
+                        applicationTracking: 'Отслеживание заявок',
+                        addApplication: 'Добавить заявку',
+                        noApplications: 'Заявок пока нет',
+                        noApplicationsDesc: 'Начните отслеживать заявки в университеты, чтобы быть организованными.',
+                        addFirstApplication: 'Добавить первую заявку',
+                        accountSettings: 'Настройки аккаунта',
+                        saveChanges: 'Сохранить изменения',
+                        notifications: 'Уведомления',
+                        emailNotifications: 'Email уведомления',
+                        emailNotificationsDesc: 'Получайте обновления о новых университетах и функциях',
+                        applicationReminders: 'Напоминания о заявках',
+                        applicationRemindersDesc: 'Напоминания о приближающихся дедлайнах',
+                        newsletter: 'Рассылка',
+                        newsletterDesc: 'Еженедельные советы и новости университетов',
+                        viewDetails: 'Подробнее',
+                        compare: 'Сравнить'
+                    },
+                    kz: {
+                        dashboard: 'Панель',
+                        savedUnis: 'Сақталған университеттер',
+                        myComparisons: 'Менің салыстыруларым',
+                        applications: 'Өтініштер',
+                        settings: 'Баптаулар',
+                        dashboardOverview: 'Панельге шолу',
+                        exportData: 'Деректерді экспорттау',
+                        savedUniversities: 'Сақталған университеттер',
+                        comparisonsMade: 'Салыстырулар жасалды',
+                        activeApplications: 'Белсенді өтініштер',
+                        daysSinceJoined: 'Тіркелгеннен бері күндер',
+                        recentActivity: 'Соңғы әрекеттер',
+                        activity1: 'Әл-Фараби атындағы ҚазҰУ қаралды',
+                        activity2: '3 университет салыстырылды',
+                        activity3: 'Профиль параметрлері жаңартылды',
+                        activity4: 'Computer Science бағдарламалары ізделді',
+                        findMore: 'Көбірек табу',
+                        newComparison: 'Жаңа салыстыру',
+                        viewComparison: 'Қарау',
+                        exportPdf: 'PDF экспорт',
+                        applicationTracking: 'Өтініштерді бақылау',
+                        addApplication: 'Өтініш қосу',
+                        noApplications: 'Өтініштер әлі жоқ',
+                        noApplicationsDesc: 'Университеттерге өтініштерді бақылауды бастаңыз.',
+                        addFirstApplication: 'Алғашқы өтінішті қосу',
+                        accountSettings: 'Есептік жазба баптаулары',
+                        saveChanges: 'Өзгерістерді сақтау',
+                        notifications: 'Хабарландырулар',
+                        emailNotifications: 'Email хабарландырулары',
+                        emailNotificationsDesc: 'Жаңа университеттер мен мүмкіндіктер туралы жаңартуларды алыңыз',
+                        applicationReminders: 'Өтініш еске салулары',
+                        applicationRemindersDesc: 'Жақын мерзімдер туралы еске салулар',
+                        newsletter: 'Ақпараттық бюллетень',
+                        newsletterDesc: 'Апта сайынғы кеңестер және университет жаңалықтары',
+                        viewDetails: 'Толығырақ',
+                        compare: 'Салыстыру'
+                    }
                 }
             }
         };
@@ -3115,29 +3232,16 @@ class AssylDataHub {
         const t = this.translations.pages.profile[this.currentLanguage];
         if (!t) return;
 
-        const pageTitle = document.querySelector('.profile-title');
-        const pageSubtitle = document.querySelector('.profile-subtitle');
-        if (pageTitle) pageTitle.textContent = t.pageTitle;
-        if (pageSubtitle) pageSubtitle.textContent = t.pageSubtitle;
-
-        // Login required section
-        const loginTitle = document.querySelector('.login-title');
-        const loginDesc = document.querySelector('.login-description');
-        const loginBtn = document.querySelector('.login-btn');
-        if (loginTitle) loginTitle.textContent = t.loginRequired;
-        if (loginDesc) loginDesc.textContent = t.loginRequiredDesc;
-        if (loginBtn) loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> ' + t.loginBtn;
-
-        // Menu items
-        const menuLinks = document.querySelectorAll('.profile-menu a');
-        menuLinks.forEach(link => {
-            const section = link.dataset.section;
-            if (section === 'dashboard') link.innerHTML = '<i class="fas fa-th-large"></i> ' + t.dashboard;
-            else if (section === 'saved') link.innerHTML = '<i class="fas fa-bookmark"></i> ' + t.savedUnis;
-            else if (section === 'comparisons') link.innerHTML = '<i class="fas fa-balance-scale"></i> ' + t.comparisons;
-            else if (section === 'applications') link.innerHTML = '<i class="fas fa-file-alt"></i> ' + t.applications;
-            else if (section === 'settings') link.innerHTML = '<i class="fas fa-cog"></i> ' + t.settings;
+        // Translate all elements with data-i18n starting with "profile."
+        document.querySelectorAll('[data-i18n^="profile."]').forEach(el => {
+            const key = el.getAttribute('data-i18n').replace('profile.', '');
+            if (t[key]) {
+                el.textContent = t[key];
+            }
         });
+
+        // Footer
+        this.translateFooter();
     }
 
     // Edu Helper page translation

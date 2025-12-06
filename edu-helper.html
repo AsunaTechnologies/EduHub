@@ -378,6 +378,43 @@
             cursor: not-allowed;
         }
 
+        /* Voice Button */
+        .voice-btn {
+            padding: 0 1rem;
+            background: var(--bg-light);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .voice-btn:hover {
+            background: var(--accent-gold);
+            color: white;
+            border-color: var(--accent-gold);
+        }
+
+        .voice-btn.recording {
+            background: #ef4444;
+            color: white;
+            border-color: #ef4444;
+            animation: pulse-recording 1s infinite;
+        }
+
+        @keyframes pulse-recording {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .voice-btn.not-supported {
+            display: none;
+        }
+
         /* Quick Questions */
         .quick-questions {
             padding: 1rem 1.5rem;
@@ -955,6 +992,9 @@
 
                 <div class="chat-input">
                     <textarea id="userInput" placeholder="Ask me anything about universities, programs, or career paths..." rows="1"></textarea>
+                    <button class="voice-btn" id="voiceBtn" onclick="toggleVoiceInput()" title="Voice input">
+                        <i class="fas fa-microphone"></i>
+                    </button>
                     <button class="send-btn" id="sendBtn" onclick="sendMessage()">
                         <i class="fas fa-paper-plane"></i>
                     </button>
@@ -1114,8 +1154,107 @@
         const chatMessages = document.getElementById('chatMessages');
         const userInput = document.getElementById('userInput');
         const sendBtn = document.getElementById('sendBtn');
+        const voiceBtn = document.getElementById('voiceBtn');
         const paymentModal = document.getElementById('paymentModal');
         const chatPanel = document.querySelector('.chat-panel');
+
+        // Speech Recognition Setup
+        let recognition = null;
+        let isRecording = false;
+
+        // Check if browser supports speech recognition
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        
+        if (SpeechRecognition) {
+            recognition = new SpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = true;
+            recognition.lang = 'en-US'; // Default language
+            
+            recognition.onstart = function() {
+                isRecording = true;
+                voiceBtn.classList.add('recording');
+                voiceBtn.innerHTML = '<i class="fas fa-stop"></i>';
+                userInput.placeholder = 'Listening... Speak now';
+            };
+            
+            recognition.onend = function() {
+                isRecording = false;
+                voiceBtn.classList.remove('recording');
+                voiceBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+                userInput.placeholder = 'Ask me anything about universities, programs, or career paths...';
+            };
+            
+            recognition.onresult = function(event) {
+                let finalTranscript = '';
+                let interimTranscript = '';
+                
+                for (let i = event.resultIndex; i < event.results.length; i++) {
+                    const transcript = event.results[i][0].transcript;
+                    if (event.results[i].isFinal) {
+                        finalTranscript += transcript;
+                    } else {
+                        interimTranscript += transcript;
+                    }
+                }
+                
+                if (finalTranscript) {
+                    userInput.value = finalTranscript;
+                } else if (interimTranscript) {
+                    userInput.value = interimTranscript;
+                }
+            };
+            
+            recognition.onerror = function(event) {
+                console.error('Speech recognition error:', event.error);
+                isRecording = false;
+                voiceBtn.classList.remove('recording');
+                voiceBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+                
+                if (event.error === 'not-allowed') {
+                    alert('Microphone access denied. Please allow microphone access to use voice input.');
+                } else if (event.error === 'no-speech') {
+                    // Silent error - just stop recording
+                } else {
+                    userInput.placeholder = 'Voice input error. Try again or type your message.';
+                }
+            };
+        } else {
+            // Hide voice button if not supported
+            if (voiceBtn) {
+                voiceBtn.classList.add('not-supported');
+            }
+        }
+
+        // Toggle voice input
+        function toggleVoiceInput() {
+            if (!recognition) {
+                alert('Sorry, your browser does not support voice input. Please use Chrome or Edge for voice features.');
+                return;
+            }
+            
+            // Check payment first
+            if (!hasPaid()) {
+                showPaymentModal();
+                return;
+            }
+            
+            if (isRecording) {
+                recognition.stop();
+            } else {
+                // Set language based on current UI language
+                const savedLang = localStorage.getItem('assylLanguage') || 'en';
+                if (savedLang === 'ru') {
+                    recognition.lang = 'ru-RU';
+                } else if (savedLang === 'kz') {
+                    recognition.lang = 'kk-KZ';
+                } else {
+                    recognition.lang = 'en-US';
+                }
+                
+                recognition.start();
+            }
+        }
         
         let selectedInterests = [];
         let isLoading = false;

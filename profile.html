@@ -557,11 +557,11 @@
                     <p class="profile-email" id="profileEmail">demo@example.com</p>
 
                     <ul class="profile-menu">
-                        <li><a href="#" class="active" data-section="dashboard"><i class="fas fa-th-large"></i> Dashboard</a></li>
-                        <li><a href="#" data-section="saved"><i class="fas fa-heart"></i> Saved Universities</a></li>
-                        <li><a href="#" data-section="comparisons"><i class="fas fa-balance-scale"></i> My Comparisons</a></li>
-                        <li><a href="#" data-section="applications"><i class="fas fa-file-alt"></i> Applications</a></li>
-                        <li><a href="#" data-section="settings"><i class="fas fa-cog"></i> Settings</a></li>
+                        <li><a href="#" class="active" data-section="dashboard"><i class="fas fa-th-large"></i> <span data-i18n="profile.dashboard">Dashboard</span></a></li>
+                        <li><a href="#" data-section="saved"><i class="fas fa-heart"></i> <span data-i18n="profile.savedUnis">Saved Universities</span></a></li>
+                        <li><a href="#" data-section="comparisons"><i class="fas fa-balance-scale"></i> <span data-i18n="profile.myComparisons">My Comparisons</span></a></li>
+                        <li><a href="#" data-section="applications"><i class="fas fa-file-alt"></i> <span data-i18n="profile.applications">Applications</span></a></li>
+                        <li><a href="#" data-section="settings"><i class="fas fa-cog"></i> <span data-i18n="profile.settings">Settings</span></a></li>
                     </ul>
                 </div>
 
@@ -570,36 +570,36 @@
                     <!-- Dashboard Section -->
                     <div class="content-section active" id="dashboard">
                         <div class="section-header">
-                            <h2 class="section-title">Dashboard Overview</h2>
-                            <button class="btn btn-secondary btn-small"><i class="fas fa-download"></i> Export Data</button>
+                            <h2 class="section-title" data-i18n="profile.dashboardOverview">Dashboard Overview</h2>
+                            <button class="btn btn-secondary btn-small"><i class="fas fa-download"></i> <span data-i18n="profile.exportData">Export Data</span></button>
                         </div>
 
                         <div class="stats-grid">
                             <div class="stat-card">
                                 <div class="stat-value" id="savedCount">3</div>
-                                <div class="stat-label">Saved Universities</div>
+                                <div class="stat-label" data-i18n="profile.savedUniversities">Saved Universities</div>
                             </div>
                             <div class="stat-card">
                                 <div class="stat-value" id="comparisonCount">2</div>
-                                <div class="stat-label">Comparisons Made</div>
+                                <div class="stat-label" data-i18n="profile.comparisonsMade">Comparisons Made</div>
                             </div>
                             <div class="stat-card">
                                 <div class="stat-value" id="applicationCount">0</div>
-                                <div class="stat-label">Active Applications</div>
+                                <div class="stat-label" data-i18n="profile.activeApplications">Active Applications</div>
                             </div>
                             <div class="stat-card">
                                 <div class="stat-value">14</div>
-                                <div class="stat-label">Days Since Joined</div>
+                                <div class="stat-label" data-i18n="profile.daysSinceJoined">Days Since Joined</div>
                             </div>
                         </div>
 
                         <div class="activity-card">
-                            <h3><i class="fas fa-clock"></i> Recent Activity</h3>
+                            <h3><i class="fas fa-clock"></i> <span data-i18n="profile.recentActivity">Recent Activity</span></h3>
                             <ul class="activity-list">
-                                <li><i class="fas fa-eye"></i> Viewed Al-Farabi Kazakh National University</li>
-                                <li><i class="fas fa-balance-scale"></i> Compared 3 universities</li>
-                                <li><i class="fas fa-user-edit"></i> Updated profile preferences</li>
-                                <li><i class="fas fa-search"></i> Searched for Computer Science programs</li>
+                                <li><i class="fas fa-eye"></i> <span data-i18n="profile.activity1">Viewed Al-Farabi Kazakh National University</span></li>
+                                <li><i class="fas fa-balance-scale"></i> <span data-i18n="profile.activity2">Compared 3 universities</span></li>
+                                <li><i class="fas fa-user-edit"></i> <span data-i18n="profile.activity3">Updated profile preferences</span></li>
+                                <li><i class="fas fa-search"></i> <span data-i18n="profile.activity4">Searched for Computer Science programs</span></li>
                             </ul>
                         </div>
                     </div>
@@ -607,8 +607,8 @@
                     <!-- Saved Universities Section -->
                     <div class="content-section" id="saved">
                         <div class="section-header">
-                            <h2 class="section-title">Saved Universities</h2>
-                            <a href="study-in-kazakhstan.html" class="btn btn-primary btn-small"><i class="fas fa-plus"></i> Find More</a>
+                            <h2 class="section-title" data-i18n="profile.savedUniversities">Saved Universities</h2>
+                            <a href="study-in-kazakhstan.html" class="btn btn-primary btn-small"><i class="fas fa-plus"></i> <span data-i18n="profile.findMore">Find More</span></a>
                         </div>
 
                         <div class="universities-grid" id="savedUniversities">
@@ -662,8 +662,8 @@
                     <!-- Comparisons Section -->
                     <div class="content-section" id="comparisons">
                         <div class="section-header">
-                            <h2 class="section-title">My Comparisons</h2>
-                            <button class="btn btn-primary btn-small"><i class="fas fa-plus"></i> New Comparison</button>
+                            <h2 class="section-title" data-i18n="profile.myComparisons">My Comparisons</h2>
+                            <button class="btn btn-primary btn-small"><i class="fas fa-plus"></i> <span data-i18n="profile.newComparison">New Comparison</span></button>
                         </div>
 
                         <div id="comparisonsList">
@@ -703,45 +703,45 @@
                     <!-- Applications Section -->
                     <div class="content-section" id="applications">
                         <div class="section-header">
-                            <h2 class="section-title">Application Tracking</h2>
-                            <button class="btn btn-primary btn-small"><i class="fas fa-plus"></i> Add Application</button>
+                            <h2 class="section-title" data-i18n="profile.applicationTracking">Application Tracking</h2>
+                            <button class="btn btn-primary btn-small"><i class="fas fa-plus"></i> <span data-i18n="profile.addApplication">Add Application</span></button>
                         </div>
 
                         <div class="empty-state">
                             <i class="fas fa-file-alt"></i>
-                            <h3>No Applications Yet</h3>
-                            <p>Start tracking your university applications to stay organized throughout the process.</p>
-                            <button class="btn btn-primary">Add Your First Application</button>
+                            <h3 data-i18n="profile.noApplications">No Applications Yet</h3>
+                            <p data-i18n="profile.noApplicationsDesc">Start tracking your university applications to stay organized throughout the process.</p>
+                            <button class="btn btn-primary" data-i18n="profile.addFirstApplication">Add Your First Application</button>
                         </div>
                     </div>
 
                     <!-- Settings Section -->
                     <div class="content-section" id="settings">
                         <div class="section-header">
-                            <h2 class="section-title">Account Settings</h2>
-                            <button class="btn btn-primary btn-small"><i class="fas fa-save"></i> Save Changes</button>
+                            <h2 class="section-title" data-i18n="profile.accountSettings">Account Settings</h2>
+                            <button class="btn btn-primary btn-small"><i class="fas fa-save"></i> <span data-i18n="profile.saveChanges">Save Changes</span></button>
                         </div>
 
                         <div class="settings-section">
-                            <h3>Notifications</h3>
+                            <h3 data-i18n="profile.notifications">Notifications</h3>
                             <div class="setting-item">
                                 <div class="setting-info">
-                                    <h4>Email Notifications</h4>
-                                    <p>Receive updates about new universities and features</p>
+                                    <h4 data-i18n="profile.emailNotifications">Email Notifications</h4>
+                                    <p data-i18n="profile.emailNotificationsDesc">Receive updates about new universities and features</p>
                                 </div>
                                 <div class="toggle-switch active" onclick="toggleSetting(this)"></div>
                             </div>
                             <div class="setting-item">
                                 <div class="setting-info">
-                                    <h4>Application Reminders</h4>
-                                    <p>Get reminded about upcoming deadlines</p>
+                                    <h4 data-i18n="profile.applicationReminders">Application Reminders</h4>
+                                    <p data-i18n="profile.applicationRemindersDesc">Get reminded about upcoming deadlines</p>
                                 </div>
                                 <div class="toggle-switch active" onclick="toggleSetting(this)"></div>
                             </div>
                             <div class="setting-item">
                                 <div class="setting-info">
-                                    <h4>Newsletter</h4>
-                                    <p>Weekly tips and university news</p>
+                                    <h4 data-i18n="profile.newsletter">Newsletter</h4>
+                                    <p data-i18n="profile.newsletterDesc">Weekly tips and university news</p>
                                 </div>
                                 <div class="toggle-switch" onclick="toggleSetting(this)"></div>
                             </div>
