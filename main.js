@@ -116,6 +116,202 @@ class AssylDataHub {
                 admission: {
                     fees: { tuition: 5700, accommodation: 800, total: 6500 }
                 }
+            },
+            kbtu: {
+                name: {
+                    en: "Kazakh-British Technical University",
+                    ru: "Казахстанско-Британский Технический Университет",
+                    kz: "Қазақстан-Британ Техникалық Университеті"
+                },
+                location: "Almaty, Kazakhstan",
+                founded: 2000,
+                students: 4800,
+                internationalStudents: 450,
+                ranking: { world: 561, asia: 120, centralAsia: 4 },
+                image: "https://via.placeholder.com/400x300?text=KBTU",
+                about: {
+                    mission: {
+                        en: "To provide world-class technical education and research in engineering, IT, and business, preparing graduates for global careers.",
+                        ru: "Предоставление технического образования и исследований мирового класса в области инженерии, IT и бизнеса, подготовка выпускников для международной карьеры.",
+                        kz: "Инженерия, IT және бизнес саласында әлемдік деңгейдегі техникалық білім беру және зерттеулер жүргізу, түлектерді халықаралық мансапқа дайындау."
+                    }
+                },
+                programs: [
+                    { name: { en: "Petroleum Engineering", ru: "Нефтегазовая инженерия", kz: "Мұнай-газ инженериясы" }, degree: "Bachelor", duration: "4 years", language: "English" },
+                    { name: { en: "Information Technology", ru: "Информационные технологии", kz: "Ақпараттық технологиялар" }, degree: "Bachelor", duration: "4 years", language: "English" },
+                    { name: { en: "Business Administration", ru: "Бизнес-администрирование", kz: "Бизнес әкімшілігі" }, degree: "MBA", duration: "2 years", language: "English" }
+                ],
+                admission: {
+                    fees: { tuition: 4500, accommodation: 900, total: 5400 }
+                }
+            },
+            sdu: {
+                name: {
+                    en: "Suleyman Demirel University",
+                    ru: "Университет имени Сулеймана Демиреля",
+                    kz: "Сүлейман Демирел атындағы Университет"
+                },
+                location: "Almaty, Kazakhstan",
+                founded: 1996,
+                students: 8500,
+                internationalStudents: 1200,
+                ranking: { world: 801, asia: 180, centralAsia: 5 },
+                image: "https://via.placeholder.com/400x300?text=SDU",
+                about: {
+                    mission: {
+                        en: "To provide quality education in engineering, business, and humanities, fostering innovation and international collaboration.",
+                        ru: "Предоставление качественного образования в области инженерии, бизнеса и гуманитарных наук, способствуя инновациям и международному сотрудничеству.",
+                        kz: "Инженерия, бизнес және гуманитарлық ғылымдар саласында сапалы білім беру, инновациялар мен халықаралық ынтымақтастықты дамыту."
+                    }
+                },
+                programs: [
+                    { name: { en: "Computer Engineering", ru: "Компьютерная инженерия", kz: "Компьютерлік инженерия" }, degree: "Bachelor", duration: "4 years", language: "English" },
+                    { name: { en: "International Relations", ru: "Международные отношения", kz: "Халықаралық қатынастар" }, degree: "Bachelor", duration: "4 years", language: "English" },
+                    { name: { en: "Business Administration", ru: "Бизнес-администрирование", kz: "Бизнес әкімшілігі" }, degree: "BBA", duration: "4 years", language: "English" }
+                ],
+                admission: {
+                    fees: { tuition: 3500, accommodation: 800, total: 4300 }
+                }
+            },
+            kimep: {
+                name: {
+                    en: "KIMEP University",
+                    ru: "Университет КИМЭП",
+                    kz: "КИМЭП Университеті"
+                },
+                location: "Almaty, Kazakhstan",
+                founded: 1992,
+                students: 3200,
+                internationalStudents: 500,
+                ranking: { world: 601, asia: 140, centralAsia: 6 },
+                image: "https://via.placeholder.com/400x300?text=KIMEP",
+                about: {
+                    mission: {
+                        en: "To be Central Asia's leading English-language university, providing world-class education in business, economics, and public policy.",
+                        ru: "Быть ведущим англоязычным университетом Центральной Азии, предоставляя образование мирового класса в области бизнеса, экономики и государственной политики.",
+                        kz: "Орталық Азиядағы жетекші ағылшын тілді университет болу, бизнес, экономика және мемлекеттік саясат саласында әлемдік деңгейдегі білім беру."
+                    }
+                },
+                programs: [
+                    { name: { en: "Business Administration", ru: "Бизнес-администрирование", kz: "Бизнес әкімшілігі" }, degree: "BBA/MBA", duration: "4/2 years", language: "English" },
+                    { name: { en: "Economics", ru: "Экономика", kz: "Экономика" }, degree: "Bachelor", duration: "4 years", language: "English" },
+                    { name: { en: "Public Administration", ru: "Государственное управление", kz: "Мемлекеттік басқару" }, degree: "Master", duration: "2 years", language: "English" }
+                ],
+                admission: {
+                    fees: { tuition: 8000, accommodation: 1000, total: 9000 }
+                }
+            },
+            satbayev: {
+                name: {
+                    en: "Satbayev University",
+                    ru: "Университет имени Сатпаева",
+                    kz: "Сәтбаев атындағы Университет"
+                },
+                location: "Almaty, Kazakhstan",
+                founded: 1934,
+                students: 15000,
+                internationalStudents: 800,
+                ranking: { world: 480, asia: 110, centralAsia: 7 },
+                image: "https://via.placeholder.com/400x300?text=Satbayev",
+                about: {
+                    mission: {
+                        en: "To train highly qualified engineers and scientists in mining, metallurgy, and technical sciences for Kazakhstan's industrial development.",
+                        ru: "Подготовка высококвалифицированных инженеров и ученых в области горного дела, металлургии и технических наук для промышленного развития Казахстана.",
+                        kz: "Қазақстанның өнеркәсіптік дамуы үшін тау-кен, металлургия және техникалық ғылымдар саласында жоғары білікті инженерлер мен ғалымдар дайындау."
+                    }
+                },
+                programs: [
+                    { name: { en: "Mining Engineering", ru: "Горное дело", kz: "Тау-кен инженериясы" }, degree: "Bachelor", duration: "4 years", language: "English/Russian" },
+                    { name: { en: "Metallurgical Engineering", ru: "Металлургия", kz: "Металлургия" }, degree: "Bachelor", duration: "4 years", language: "English/Russian" },
+                    { name: { en: "Mechanical Engineering", ru: "Машиностроение", kz: "Машина жасау" }, degree: "Bachelor", duration: "4 years", language: "English/Russian" }
+                ],
+                admission: {
+                    fees: { tuition: 1800, accommodation: 700, total: 2500 }
+                }
+            },
+            enu: {
+                name: {
+                    en: "L.N. Gumilyov Eurasian National University",
+                    ru: "Евразийский Национальный Университет имени Л.Н. Гумилева",
+                    kz: "Л.Н. Гумилев атындағы Еуразия Ұлттық Университеті"
+                },
+                location: "Astana, Kazakhstan",
+                founded: 1996,
+                students: 18000,
+                internationalStudents: 2000,
+                ranking: { world: 450, asia: 100, centralAsia: 8 },
+                image: "https://via.placeholder.com/400x300?text=ENU",
+                about: {
+                    mission: {
+                        en: "To be a leading research university in Central Asia, providing quality education in humanities, natural sciences, and engineering.",
+                        ru: "Быть ведущим исследовательским университетом в Центральной Азии, предоставляя качественное образование в области гуманитарных, естественных наук и инженерии.",
+                        kz: "Орталық Азиядағы жетекші зерттеу университеті болу, гуманитарлық, жаратылыстану және инженерия саласында сапалы білім беру."
+                    }
+                },
+                programs: [
+                    { name: { en: "International Relations", ru: "Международные отношения", kz: "Халықаралық қатынастар" }, degree: "Bachelor", duration: "4 years", language: "Kazakh/Russian/English" },
+                    { name: { en: "Journalism", ru: "Журналистика", kz: "Журналистика" }, degree: "Bachelor", duration: "4 years", language: "Kazakh/Russian" },
+                    { name: { en: "Mathematics", ru: "Математика", kz: "Математика" }, degree: "Bachelor", duration: "4 years", language: "Kazakh/Russian" }
+                ],
+                admission: {
+                    fees: { tuition: 2000, accommodation: 600, total: 2600 }
+                }
+            },
+            aitu: {
+                name: {
+                    en: "Astana IT University",
+                    ru: "Астана IT Университет",
+                    kz: "Астана IT Университеті"
+                },
+                location: "Astana, Kazakhstan",
+                founded: 2019,
+                students: 4500,
+                internationalStudents: 300,
+                ranking: { world: 999, asia: 250, centralAsia: 9 },
+                image: "https://via.placeholder.com/400x300?text=AITU",
+                about: {
+                    mission: {
+                        en: "To train IT specialists and innovators for Kazakhstan's digital economy, focusing on cutting-edge technologies and entrepreneurship.",
+                        ru: "Подготовка IT-специалистов и новаторов для цифровой экономики Казахстана, с акцентом на передовые технологии и предпринимательство.",
+                        kz: "Қазақстанның цифрлық экономикасы үшін IT мамандары мен инноваторлар дайындау, заманауи технологиялар мен кәсіпкерлікке назар аудару."
+                    }
+                },
+                programs: [
+                    { name: { en: "Computer Science", ru: "Информатика", kz: "Компьютерлік ғылым" }, degree: "Bachelor", duration: "4 years", language: "English" },
+                    { name: { en: "Software Engineering", ru: "Программная инженерия", kz: "Бағдарламалық инженерия" }, degree: "Bachelor", duration: "4 years", language: "English" },
+                    { name: { en: "Data Science", ru: "Наука о данных", kz: "Деректер ғылымы" }, degree: "Master", duration: "2 years", language: "English" }
+                ],
+                admission: {
+                    fees: { tuition: 2000, accommodation: 800, total: 2800 }
+                }
+            },
+            abay: {
+                name: {
+                    en: "Abay Kazakh National Pedagogical University",
+                    ru: "Казахский Национальный Педагогический Университет имени Абая",
+                    kz: "Абай атындағы Қазақ Ұлттық Педагогикалық Университеті"
+                },
+                location: "Almaty, Kazakhstan",
+                founded: 1928,
+                students: 12000,
+                internationalStudents: 600,
+                ranking: { world: 800, asia: 170, centralAsia: 10 },
+                image: "https://via.placeholder.com/400x300?text=Abay+University",
+                about: {
+                    mission: {
+                        en: "To train highly qualified teachers and educators, contributing to the development of Kazakhstan's education system.",
+                        ru: "Подготовка высококвалифицированных учителей и педагогов, способствуя развитию системы образования Казахстана.",
+                        kz: "Жоғары білікті мұғалімдер мен педагогтар дайындау, Қазақстанның білім беру жүйесінің дамуына үлес қосу."
+                    }
+                },
+                programs: [
+                    { name: { en: "Pedagogy", ru: "Педагогика", kz: "Педагогика" }, degree: "Bachelor", duration: "4 years", language: "Kazakh/Russian" },
+                    { name: { en: "Philology", ru: "Филология", kz: "Филология" }, degree: "Bachelor", duration: "4 years", language: "Kazakh/Russian" },
+                    { name: { en: "Mathematics Education", ru: "Математическое образование", kz: "Математика білім беру" }, degree: "Bachelor", duration: "4 years", language: "Kazakh/Russian" }
+                ],
+                admission: {
+                    fees: { tuition: 1500, accommodation: 600, total: 2100 }
+                }
             }
         };
     }
@@ -960,6 +1156,7 @@ class AssylDataHub {
                         pageTitle: '1+1 Dual Diploma Programs',
                         pageSubtitle: 'Get two Master\'s degrees from Kazakhstan and international partner universities. Study 1 year locally, then 1 year abroad.',
                         heroTitle: '1+1 Dual Diploma Programs',
+                        heroSubtitle: 'Get two Master\'s degrees from Kazakhstan and international partner universities. Study 1 year locally, then 1 year abroad — graduate with diplomas from both institutions.',
                         heroDesc: 'Get two Master\'s degrees from Kazakhstan and international partner universities. Study 1 year locally, then 1 year abroad — graduate with diplomas from both institutions.',
                         badge1: 'Two Diplomas',
                         badge2: 'Global Recognition',
@@ -1020,12 +1217,24 @@ class AssylDataHub {
                         ctaSubtitle: 'Get personalized guidance on choosing the right 1+1 program for your career goals',
                         ctaBtn1: 'Book Free Consultation',
                         ctaBtn2: 'Ask AI Advisor',
+                        prog1Name: 'SDU → University of Warsaw',
                         prog1Sub: 'Business Administration MBA',
+                        prog2Name: 'KIMEP → University of Manchester',
                         prog2Sub: 'MSc Finance & Economics',
+                        prog3Name: 'KazNU → Politecnico di Milano',
                         prog3Sub: 'MSc Computer Engineering',
+                        prog4Name: 'AITU → TU Munich',
                         prog4Sub: 'MSc Data Science',
+                        prog5Name: 'Satbayev → Czech Technical University',
                         prog5Sub: 'MSc Mechanical Engineering',
+                        prog6Name: 'NU → KAIST',
                         prog6Sub: 'MSc Biotechnology',
+                        countryPoland: 'Poland',
+                        countryUK: 'UK',
+                        countryItaly: 'Italy',
+                        countryGermany: 'Germany',
+                        countryCzech: 'Czech Republic',
+                        countryKorea: 'South Korea',
                         dualDegree: 'Dual Degree',
                         costEffective: 'Cost Effective',
                         globalRecognition: 'Global Recognition',
@@ -1064,6 +1273,7 @@ class AssylDataHub {
                         pageTitle: 'Программы 1+1 Двойной диплом',
                         pageSubtitle: 'Получите два диплома магистра от университетов Казахстана и международных партнеров. Учитесь 1 год в Казахстане, затем 1 год за рубежом.',
                         heroTitle: 'Программы 1+1 Двойной диплом',
+                        heroSubtitle: 'Получите два диплома магистра от университетов Казахстана и международных партнеров. Учитесь 1 год в Казахстане, затем 1 год за рубежом — выпуститесь с дипломами обоих вузов.',
                         heroDesc: 'Получите два диплома магистра от университетов Казахстана и международных партнеров. Учитесь 1 год в Казахстане, затем 1 год за рубежом — выпуститесь с дипломами обоих вузов.',
                         badge1: 'Два диплома',
                         badge2: 'Мировое признание',
@@ -1124,12 +1334,24 @@ class AssylDataHub {
                         ctaSubtitle: 'Получите персональные рекомендации по выбору подходящей программы 1+1 для ваших карьерных целей',
                         ctaBtn1: 'Записаться на консультацию',
                         ctaBtn2: 'Спросить AI-советника',
+                        prog1Name: 'SDU → Варшавский Университет',
                         prog1Sub: 'MBA Бизнес-администрирование',
+                        prog2Name: 'КИМЭП → Манчестерский Университет',
                         prog2Sub: 'MSc Финансы и Экономика',
+                        prog3Name: 'КазНУ → Политехнический Университет Милана',
                         prog3Sub: 'MSc Компьютерная инженерия',
+                        prog4Name: 'АИТУ → Мюнхенский Технический Университет',
                         prog4Sub: 'MSc Наука о данных',
+                        prog5Name: 'Сатбаев → Чешский Технический Университет',
                         prog5Sub: 'MSc Машиностроение',
+                        prog6Name: 'НУ → KAIST',
                         prog6Sub: 'MSc Биотехнология',
+                        countryPoland: 'Польша',
+                        countryUK: 'Великобритания',
+                        countryItaly: 'Италия',
+                        countryGermany: 'Германия',
+                        countryCzech: 'Чехия',
+                        countryKorea: 'Южная Корея',
                         dualDegree: 'Двойной диплом',
                         costEffective: 'Экономично',
                         globalRecognition: 'Мировое признание',
@@ -1168,6 +1390,7 @@ class AssylDataHub {
                         pageTitle: '1+1 Қос диплом бағдарламалары',
                         pageSubtitle: 'Қазақстан және халықаралық серіктес университеттерден екі магистр дипломы алыңыз. 1 жыл Қазақстанда, содан кейін 1 жыл шетелде оқыңыз.',
                         heroTitle: '1+1 Қос диплом бағдарламалары',
+                        heroSubtitle: 'Қазақстан және халықаралық серіктес университеттерден екі магистр дипломы алыңыз. 1 жыл Қазақстанда, содан кейін 1 жыл шетелде оқыңыз — екі мекеменің де дипломдарымен бітіресіз.',
                         heroDesc: 'Қазақстан және халықаралық серіктес университеттерден екі магистр дипломы алыңыз. 1 жыл Қазақстанда, содан кейін 1 жыл шетелде оқыңыз — екі мекеменің де дипломдарымен бітіресіз.',
                         badge1: 'Екі диплом',
                         badge2: 'Әлемдік мойындау',
@@ -1228,12 +1451,24 @@ class AssylDataHub {
                         ctaSubtitle: 'Мансап мақсаттарыңызға сәйкес дұрыс 1+1 бағдарламасын таңдау бойынша жеке кеңес алыңыз',
                         ctaBtn1: 'Тегін кеңесқа жазылу',
                         ctaBtn2: 'AI-кеңесшіден сұрау',
+                        prog1Name: 'SDU → Варшава Университеті',
                         prog1Sub: 'MBA Бизнес әкімшілігі',
+                        prog2Name: 'КИМЭП → Манчестер Университеті',
                         prog2Sub: 'MSc Қаржы және Экономика',
+                        prog3Name: 'ҚазҰУ → Милан Политехникалық Университеті',
                         prog3Sub: 'MSc Компьютерлік инженерия',
+                        prog4Name: 'АИТУ → Мюнхен Техникалық Университеті',
                         prog4Sub: 'MSc Деректер ғылымы',
+                        prog5Name: 'Сәтбаев → Чехия Техникалық Университеті',
                         prog5Sub: 'MSc Механикалық инженерия',
+                        prog6Name: 'НУ → KAIST',
                         prog6Sub: 'MSc Биотехнология',
+                        countryPoland: 'Польша',
+                        countryUK: 'Ұлыбритания',
+                        countryItaly: 'Италия',
+                        countryGermany: 'Германия',
+                        countryCzech: 'Чехия',
+                        countryKorea: 'Оңтүстік Корея',
                         dualDegree: 'Қос диплом',
                         costEffective: 'Үнемді',
                         globalRecognition: 'Әлемдік мойындау',
@@ -2664,7 +2899,7 @@ class AssylDataHub {
             const key = el.getAttribute('data-i18n').replace('dual.', '');
             if (t[key]) {
                 if (el.tagName === 'H1' && key === 'heroTitle') {
-                    el.innerHTML = t[key].replace('<span>', '<span>').replace('1+1', '<span>1+1</span>');
+                    el.innerHTML = t[key].replace('1+1', '<span>1+1</span>');
                 } else {
                     el.textContent = t[key];
                 }
@@ -2673,11 +2908,16 @@ class AssylDataHub {
 
         // Hero section fallback
         const heroTitle = document.querySelector('.dual-hero-content h1');
-        const heroDesc = document.querySelector('.dual-hero-content p');
+        const heroSubtitle = document.querySelector('.dual-hero-content p[data-i18n="dual.heroSubtitle"]');
+        const heroDesc = document.querySelector('.dual-hero-content p:not([data-i18n])');
+        
         if (heroTitle && !heroTitle.hasAttribute('data-i18n')) {
             heroTitle.innerHTML = t.heroTitle.replace('1+1', '<span>1+1</span>');
         }
-        if (heroDesc && !heroDesc.hasAttribute('data-i18n')) {
+        if (heroSubtitle && t.heroSubtitle) {
+            heroSubtitle.textContent = t.heroSubtitle;
+        }
+        if (heroDesc && !heroDesc.hasAttribute('data-i18n') && t.heroDesc) {
             heroDesc.textContent = t.heroDesc;
         }
 
@@ -2731,23 +2971,74 @@ class AssylDataHub {
             });
         });
 
-        // Program features
-        document.querySelectorAll('.program-features li').forEach(li => {
-            const text = li.textContent.trim();
+        // Program features - translate by data-i18n or content matching
+        document.querySelectorAll('.program-features li span[data-i18n]').forEach(span => {
+            const key = span.getAttribute('data-i18n').replace('dual.', '');
+            if (t[key]) {
+                span.textContent = t[key];
+            }
+        });
+
+        // Fallback: translate features by content matching
+        document.querySelectorAll('.program-features li:not([data-i18n])').forEach(li => {
+            const span = li.querySelector('span:not([data-i18n])');
+            if (!span) return;
+            const text = span.textContent.trim();
             const featKeys = ['feat1', 'feat2', 'feat3', 'feat4', 'feat5', 'feat6', 'feat7', 'feat8', 'feat9', 'feat10', 'feat11', 'feat12', 'feat13', 'feat14', 'feat15', 'feat16', 'feat17', 'feat18'];
             featKeys.forEach(key => {
-                if (t[key] && (text.includes(t[key].substring(0, 20)) || this.matchFeature(text, t[key]))) {
+                if (t[key] && this.matchFeature(text, t[key])) {
                     const icon = li.querySelector('i');
-                    li.innerHTML = (icon ? icon.outerHTML + ' ' : '<i class="fas fa-check"></i> ') + '<span>' + t[key] + '</span>';
+                    span.textContent = t[key];
                 }
             });
         });
 
-        // Stat labels
+        // Translate country names in program stats
         document.querySelectorAll('.stat-label').forEach(label => {
             const text = label.textContent.trim();
-            if (text.includes('Year') || text.includes('Год') || text.includes('Жыл')) label.textContent = t.years;
-            else if (text.includes('Per Year') || text.includes('В год') || text.includes('Жылына')) label.textContent = t.perYear;
+            if (text === 'Poland' || text === 'Польша' || text === 'Польша') {
+                label.textContent = t.countryPoland;
+            } else if (text === 'UK' || text === 'Великобритания' || text === 'Ұлыбритания') {
+                label.textContent = t.countryUK;
+            } else if (text === 'Italy' || text === 'Италия' || text === 'Италия') {
+                label.textContent = t.countryItaly;
+            } else if (text === 'Germany' || text === 'Германия' || text === 'Германия') {
+                label.textContent = t.countryGermany;
+            } else if (text === 'Czech Republic' || text === 'Чехия' || text === 'Чехия') {
+                label.textContent = t.countryCzech;
+            } else if (text === 'South Korea' || text === 'Южная Корея' || text === 'Оңтүстік Корея') {
+                label.textContent = t.countryKorea;
+            }
+        });
+
+        // Stat labels - translate by data-i18n first
+        document.querySelectorAll('.stat-label[data-i18n]').forEach(label => {
+            const key = label.getAttribute('data-i18n').replace('dual.', '');
+            if (t[key]) {
+                label.textContent = t[key];
+            }
+        });
+
+        // Stat labels - fallback translation
+        document.querySelectorAll('.stat-label:not([data-i18n])').forEach(label => {
+            const text = label.textContent.trim();
+            if (text.includes('Year') || text.includes('Год') || text.includes('Жыл')) {
+                label.textContent = t.years;
+            } else if (text.includes('Per Year') || text.includes('В год') || text.includes('Жылына')) {
+                label.textContent = t.perYear;
+            } else if (text === 'Poland' || text === 'Польша') {
+                label.textContent = t.countryPoland;
+            } else if (text === 'UK' || text === 'Великобритания' || text === 'Ұлыбритания') {
+                label.textContent = t.countryUK;
+            } else if (text === 'Italy' || text === 'Италия') {
+                label.textContent = t.countryItaly;
+            } else if (text === 'Germany' || text === 'Германия') {
+                label.textContent = t.countryGermany;
+            } else if (text === 'Czech Republic' || text === 'Czechia' || text === 'Чехия') {
+                label.textContent = t.countryCzech;
+            } else if (text === 'South Korea' || text === 'S. Korea' || text === 'Южная Корея' || text === 'Оңтүстік Корея') {
+                label.textContent = t.countryKorea;
+            }
         });
 
         // Partners section
@@ -2835,8 +3126,16 @@ class AssylDataHub {
             btn.textContent = t.viewDetails;
         });
 
-        // Stat labels
-        document.querySelectorAll('.uni-stat-label').forEach(label => {
+        // Stat labels - translate by data-i18n first
+        document.querySelectorAll('.uni-stat-label[data-i18n]').forEach(label => {
+            const key = label.getAttribute('data-i18n');
+            if (key && t[key.replace('compare.', '')]) {
+                label.textContent = t[key.replace('compare.', '')];
+            }
+        });
+
+        // Fallback for stat labels without data-i18n
+        document.querySelectorAll('.uni-stat-label:not([data-i18n])').forEach(label => {
             const text = label.textContent.trim();
             if (text.includes('QS World') || text.includes('QS Мировой') || text.includes('QS Әлемдік')) {
                 label.textContent = t.qsWorld;
