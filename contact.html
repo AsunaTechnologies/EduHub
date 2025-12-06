@@ -343,7 +343,7 @@
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <span class="logo-icon">A</span>
-                <span>A</span>ssyl DataHub
+                Assyl DataHub
             </a>
             
             <ul class="nav-menu">
@@ -367,8 +367,8 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1 class="page-title">Contact <span class="page-title-accent">Us</span></h1>
-            <p class="page-subtitle">
+            <h1 class="page-title" data-i18n="contact.pageTitle">Contact <span class="page-title-accent">Us</span></h1>
+            <p class="page-subtitle" data-i18n="contact.pageSubtitle">
                 Have questions about your educational journey? Our team is here to help you 
                 find the right path to your dream university.
             </p>
@@ -381,15 +381,15 @@
             <div class="contact-grid">
                 <!-- Contact Information -->
                 <div class="contact-info">
-                    <h2>Get in Touch</h2>
+                    <h2 data-i18n="contact.getInTouch">Get in Touch</h2>
                     
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>Email Us</h3>
-                            <p>For general inquiries and support</p>
+                            <h3 data-i18n="contact.emailUs">Email Us</h3>
+                            <p data-i18n="contact.emailUsDesc">For general inquiries and support</p>
                             <a href="mailto:abulkasimovbahtiar3@gmail.com">abulkasimovbahtiar3@gmail.com</a>
                         </div>
                     </div>
@@ -399,8 +399,8 @@
                             <i class="fas fa-phone"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>Call Us</h3>
-                            <p>For urgent matters and consultations</p>
+                            <h3 data-i18n="contact.callUs">Call Us</h3>
+                            <p data-i18n="contact.callUsDesc">For urgent matters and consultations</p>
                             <a href="tel:+77271234567">+7 (747) 403-9869</a>
                         </div>
                     </div>
@@ -410,9 +410,9 @@
                             <i class="fas fa-comments"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>Live Chat</h3>
-                            <p>Instant support during business hours</p>
-                            <a href="#" onclick="openLiveChat(); return false;">Start a conversation</a>
+                            <h3 data-i18n="contact.liveChat">Live Chat</h3>
+                            <p data-i18n="contact.liveChatDesc">Instant support during business hours</p>
+                            <a href="#" onclick="openLiveChat(); return false;" data-i18n="contact.startConversation">Start a conversation</a>
                         </div>
                     </div>
 
@@ -421,60 +421,60 @@
                             <i class="fas fa-clock"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>Office Hours</h3>
-                            <p><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM</p>
-                            <p><strong>Saturday:</strong> 10:00 AM - 4:00 PM</p>
-                            <p><strong>Sunday:</strong> Closed</p>
+                            <h3 data-i18n="contact.officeHours">Office Hours</h3>
+                            <p><strong data-i18n="contact.mondayFriday">Monday - Friday</strong>: 9:00 - 18:00</p>
+                            <p><strong data-i18n="contact.saturday">Saturday</strong>: 10:00 - 16:00</p>
+                            <p><strong data-i18n="contact.sunday">Sunday</strong>: <span data-i18n="contact.closed">Closed</span></p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Contact Form -->
                 <div class="contact-form-wrapper">
-                    <h2>Send Us a Message</h2>
+                    <h2 data-i18n="contact.sendUsMessage">Send Us a Message</h2>
                     
                     <form id="contactForm">
                         <div class="form-row">
                             <div class="form-group">
-                                <label class="form-label" for="firstName">First Name *</label>
-                                <input type="text" id="firstName" name="firstName" class="form-input" required placeholder="Your first name">
+                                <label class="form-label" for="firstName" data-i18n="contact.firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" class="form-input" required>
                             </div>
                             <div class="form-group">
-                                <label class="form-label" for="lastName">Last Name *</label>
-                                <input type="text" id="lastName" name="lastName" class="form-input" required placeholder="Your last name">
+                                <label class="form-label" for="lastName" data-i18n="contact.lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" class="form-input" required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label" for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" class="form-input" required placeholder="your.email@example.com">
+                            <label class="form-label" for="email" data-i18n="contact.emailAddress">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label" for="phone">Phone Number</label>
+                            <label class="form-label" for="phone" data-i18n="contact.phoneNumber">Phone Number</label>
                             <input type="tel" id="phone" name="phone" class="form-input" placeholder="+7 (XXX) XXX-XXXX">
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label" for="subject">Subject *</label>
+                            <label class="form-label" for="subject" data-i18n="contact.subject">Subject *</label>
                             <select id="subject" name="subject" class="form-input" required>
-                                <option value="">Select a subject</option>
-                                <option value="general">General Inquiry</option>
-                                <option value="consultation">Request Consultation</option>
-                                <option value="university">University Information</option>
-                                <option value="application">Application Help</option>
-                                <option value="partnership">Partnership Opportunity</option>
-                                <option value="other">Other</option>
+                                <option value="" data-i18n="contact.selectSubject">Select a subject</option>
+                                <option value="general" data-i18n="contact.generalInquiry">General Inquiry</option>
+                                <option value="consultation" data-i18n="contact.requestConsultation">Request Consultation</option>
+                                <option value="university" data-i18n="contact.universityInfo">University Information</option>
+                                <option value="application" data-i18n="contact.applicationHelp">Application Help</option>
+                                <option value="partnership" data-i18n="contact.partnership">Partnership Opportunity</option>
+                                <option value="other" data-i18n="contact.other">Other</option>
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label" for="message">Message *</label>
-                            <textarea id="message" name="message" class="form-textarea" placeholder="How can we help you?" required></textarea>
+                            <label class="form-label" for="message" data-i18n="contact.message">Message *</label>
+                            <textarea id="message" name="message" class="form-textarea" required></textarea>
                         </div>
 
                         <button type="submit" class="submit-btn" id="submitBtn">
-                            <i class="fas fa-paper-plane"></i> Send Message
+                            <i class="fas fa-paper-plane"></i> <span data-i18n="contact.sendMessage">Send Message</span>
                         </button>
                     </form>
                 </div>
@@ -486,8 +486,8 @@
     <section class="support-section">
         <div class="support-container">
             <div class="section-title">
-                <h2>How Can We Help?</h2>
-                <p>Choose the support option that works best for you</p>
+                <h2 data-i18n="contact.howCanWeHelp">How Can We Help?</h2>
+                <p data-i18n="contact.howCanWeHelpDesc">Choose the support option that works best for you</p>
             </div>
 
             <div class="support-grid">
@@ -495,44 +495,44 @@
                     <div class="support-icon">
                         <i class="fas fa-book-open"></i>
                     </div>
-                    <h3 class="support-title">Help Center</h3>
-                    <p class="support-description">
+                    <h3 class="support-title" data-i18n="contact.helpCenter">Help Center</h3>
+                    <p class="support-description" data-i18n="contact.helpCenterDesc">
                         Find answers to common questions, tutorials, and step-by-step guides.
                     </p>
-                    <a href="#" class="support-button">Browse Articles</a>
+                    <a href="#" class="support-button" data-i18n="contact.browseArticles">Browse Articles</a>
                 </div>
 
                 <div class="support-card">
                     <div class="support-icon">
                         <i class="fas fa-video"></i>
                     </div>
-                    <h3 class="support-title">Video Guides</h3>
-                    <p class="support-description">
+                    <h3 class="support-title" data-i18n="contact.videoGuides">Video Guides</h3>
+                    <p class="support-description" data-i18n="contact.videoGuidesDesc">
                         Watch detailed tutorials on how to use our platform and services.
                     </p>
-                    <a href="#" class="support-button">Watch Videos</a>
+                    <a href="#" class="support-button" data-i18n="contact.watchVideos">Watch Videos</a>
                 </div>
 
                 <div class="support-card">
                     <div class="support-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3 class="support-title">Community</h3>
-                    <p class="support-description">
+                    <h3 class="support-title" data-i18n="contact.community">Community</h3>
+                    <p class="support-description" data-i18n="contact.communityDesc">
                         Connect with other students and families to share experiences.
                     </p>
-                    <a href="#" class="support-button">Join Community</a>
+                    <a href="#" class="support-button" data-i18n="contact.joinCommunity">Join Community</a>
                 </div>
 
                 <div class="support-card">
                     <div class="support-icon">
                         <i class="fas fa-calendar-check"></i>
                     </div>
-                    <h3 class="support-title">Book Consultation</h3>
-                    <p class="support-description">
+                    <h3 class="support-title" data-i18n="contact.bookConsultation">Book Consultation</h3>
+                    <p class="support-description" data-i18n="contact.bookConsultationDesc">
                         Schedule a free consultation with our education counselors.
                     </p>
-                    <a href="#" class="support-button">Schedule Now</a>
+                    <a href="#" class="support-button" data-i18n="contact.scheduleNow">Schedule Now</a>
                 </div>
             </div>
         </div>
@@ -542,8 +542,8 @@
     <section class="locations-section">
         <div class="locations-container">
             <div class="section-title">
-                <h2>Our Offices</h2>
-                <p>Visit us at one of our locations</p>
+                <h2 data-i18n="contact.ourOffices">Our Offices</h2>
+                <p data-i18n="contact.ourOfficesDesc">Visit us at one of our locations</p>
             </div>
 
             <div class="locations-grid">
