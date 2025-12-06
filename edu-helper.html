@@ -612,6 +612,98 @@
             background: var(--bg-warm-gray);
         }
 
+       .payment-btn-paypal {
+            background: #0070ba;
+            color: white;
+        }
+
+        .payment-btn-paypal:hover {
+            background: #005ea6;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-large);
+        }
+
+        .promocode-section {
+            margin: 1.5rem 0;
+            padding: 1.25rem;
+            background: var(--bg-light);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+        }
+
+        .promocode-input-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .promocode-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            transition: all var(--transition-fast);
+        }
+
+        .promocode-input:focus {
+            outline: none;
+            border-color: var(--primary-navy);
+            box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.1);
+        }
+
+        .promocode-btn {
+            padding: 0.75rem 1.25rem;
+            background: var(--primary-navy);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .promocode-btn:hover {
+            background: #0f1729;
+            transform: translateY(-1px);
+        }
+
+        .promocode-message {
+            margin-top: 0.75rem;
+            font-size: 0.875rem;
+            min-height: 1.25rem;
+        }
+
+        .promocode-message.success {
+            color: var(--success);
+        }
+
+        .promocode-message.error {
+            color: #dc2626;
+        }
+
+        .payment-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 1.5rem 0;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .payment-divider::before,
+        .payment-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .payment-divider span {
+            padding: 0 1rem;
+        }
+
         .modal-close-btn {
             position: absolute;
             top: 1rem;
@@ -899,10 +991,25 @@
                     <li><i class="fas fa-check-circle"></i> Priority support</li>
                 </ul>
 
+                <!-- Promocode Section -->
+                <div class="promocode-section">
+                    <div class="promocode-input-group">
+                        <input type="text" id="promocodeInput" class="promocode-input" placeholder="Enter promocode (e.g., asuna)" />
+                        <button class="promocode-btn" onclick="applyPromocode()">
+                            <i class="fas fa-ticket-alt"></i> Apply
+                        </button>
+                    </div>
+                    <div id="promocodeMessage" class="promocode-message"></div>
+                </div>
+
+                <div class="payment-divider">
+                    <span>or</span>
+                </div>
+
                 <div class="payment-actions">
-                    <button class="payment-btn payment-btn-primary" onclick="processPayment()">
-                        <i class="fas fa-credit-card"></i>
-                        <span>Pay with Card</span>
+                    <button class="payment-btn payment-btn-paypal" onclick="processPayPalPayment()">
+                        <i class="fab fa-paypal"></i>
+                        <span>Pay with PayPal</span>
                     </button>
                     <button class="payment-btn payment-btn-secondary" onclick="closePaymentModal()">
                         Maybe Later
@@ -1015,7 +1122,15 @@
 
         // Check payment status
         function hasPaid() {
-            return localStorage.getItem('eduHelperPaid') === 'true';
+            const paid = localStorage.getItem('eduHelperPaid') === 'true';
+            const promocode = localStorage.getItem('eduHelperPromocode');
+            
+            // If user has promocode "asuna", they have free access
+            if (promocode === 'asuna') {
+                return true;
+            }
+            
+            return paid;
         }
 
         // Initialize payment check
@@ -1070,19 +1185,76 @@
             document.body.style.overflow = '';
         }
 
-        // Process payment (simulated - integrate with real payment gateway)
-        function processPayment() {
-            // Simulate payment processing
-            const paymentBtn = event.target.closest('.payment-btn-primary');
-            if (paymentBtn) {
-                paymentBtn.disabled = true;
-                paymentBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+        // Apply promocode
+        function applyPromocode() {
+            const promocodeInput = document.getElementById('promocodeInput');
+            const promocodeMessage = document.getElementById('promocodeMessage');
+            const code = promocodeInput.value.trim().toLowerCase();
+            
+            if (!code) {
+                promocodeMessage.textContent = 'Please enter a promocode';
+                promocodeMessage.className = 'promocode-message error';
+                return;
+            }
+            
+            // Check if promocode is valid
+            if (code === 'asuna') {
+                // Valid promocode - unlock for free
+                promocodeMessage.textContent = '✓ Promocode applied! Unlocking AI assistant...';
+                promocodeMessage.className = 'promocode-message success';
+                
+                // Mark as paid with promocode
+                localStorage.setItem('eduHelperPaid', 'true');
+                localStorage.setItem('eduHelperPromocode', 'asuna');
+                
+                // Unlock chat
+                unlockChat();
+                
+                // Close modal after short delay
+                setTimeout(() => {
+                    closePaymentModal();
+                    promocodeInput.value = '';
+                    promocodeMessage.textContent = '';
+                    promocodeMessage.className = 'promocode-message';
+                }, 1500);
+            } else {
+                // Invalid promocode
+                promocodeMessage.textContent = 'Invalid promocode. Please try again or proceed with payment.';
+                promocodeMessage.className = 'promocode-message error';
+            }
+        }
+
+
+        // Process PayPal payment
+        function processPayPalPayment() {
+            const paypalBtn = event.target.closest('.payment-btn-paypal');
+            if (paypalBtn) {
+                paypalBtn.disabled = true;
+                paypalBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting to PayPal...';
             }
 
-            // Simulate payment API call
+            // PayPal payment amount: $6.50 USD (₸2,990)
+            const amount = 6.50;
+            const currency = 'USD';
+            const description = 'Edu Helper AI - Unlimited Access';
+            
+            // PayPal Checkout integration
+            // Note: Replace with your actual PayPal Client ID
+            // For production, use your PayPal Business account credentials
+            const paypalClientId = 'YOUR_PAYPAL_CLIENT_ID'; // Replace with actual PayPal Client ID
+            
+            // Create PayPal order
+            // This is a simplified version - in production, you'd create the order on your backend
+            // and handle the payment confirmation securely
+            
+            // For now, simulate PayPal payment flow
             setTimeout(() => {
+                // In production, this would be handled by PayPal SDK
+                // After successful payment confirmation from PayPal:
+                
                 // Mark as paid
                 localStorage.setItem('eduHelperPaid', 'true');
+                localStorage.setItem('eduHelperPaymentMethod', 'paypal');
                 
                 // Show success
                 document.getElementById('paymentForm').style.display = 'none';
@@ -1097,12 +1269,43 @@
                     // Reset modal for next time
                     document.getElementById('paymentForm').style.display = 'block';
                     document.getElementById('paymentSuccess').style.display = 'none';
-                    if (paymentBtn) {
-                        paymentBtn.disabled = false;
-                        paymentBtn.innerHTML = '<i class="fas fa-credit-card"></i><span>Pay with Card</span>';
+                    if (paypalBtn) {
+                        paypalBtn.disabled = false;
+                        paypalBtn.innerHTML = '<i class="fab fa-paypal"></i><span>Pay with PayPal</span>';
                     }
                 }, 2000);
-            }, 1500);
+            }, 2000);
+            
+            // TODO: Integrate actual PayPal SDK
+            // Example PayPal integration code:
+            /*
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: amount.toString(),
+                                currency_code: currency
+                            },
+                            description: description
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        // Payment successful
+                        localStorage.setItem('eduHelperPaid', 'true');
+                        localStorage.setItem('eduHelperPaymentMethod', 'paypal');
+                        unlockChat();
+                        closePaymentModal();
+                    });
+                },
+                onError: function(err) {
+                    console.error('PayPal error:', err);
+                    alert('Payment failed. Please try again.');
+                }
+            }).render('#paypal-button-container');
+            */
         }
 
         // Close modal on outside click
@@ -1304,7 +1507,7 @@
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        promt: message
+                        prompt: message
                     })
                 });
 
@@ -1342,6 +1545,16 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Check payment status
             initPaymentCheck();
+            
+            // Handle Enter key in promocode input
+            const promocodeInput = document.getElementById('promocodeInput');
+            if (promocodeInput) {
+                promocodeInput.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter') {
+                        applyPromocode();
+                    }
+                });
+            }
             
             // Focus on input if unlocked
             if (hasPaid()) {
