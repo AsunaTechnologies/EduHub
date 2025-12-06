@@ -1,4 +1,4 @@
-// Assyl DataHub - Main JavaScript File
+// Asyl DataHub - Main JavaScript File
 // Handles all interactive functionality, user profiles, and data management
 
 class AssylDataHub {
@@ -327,7 +327,7 @@ class AssylDataHub {
                         // Navigation
                         home: 'Home',
                         studyKz: 'Study in Kazakhstan',
-                        dualDiploma: '1+1 Programs',
+                        dualDiploma: 'Double Degree',
                         compare: 'Compare',
                         eduHelper: 'Edu Helper',
                         pricing: 'Pricing',
@@ -349,7 +349,7 @@ class AssylDataHub {
                         studentBlog: 'Student Blog',
                         blog: 'Student Blog',
                         faq: 'FAQ',
-                        copyright: '© 2025 Assyl DataHub. All rights reserved. Empowering educational choices through technology.',
+                        copyright: '© 2025 Asyl DataHub. All rights reserved. Empowering educational choices through technology.',
                         location: 'Almaty, Kazakhstan',
                         // Buttons
                         viewDetails: 'View Details',
@@ -370,7 +370,7 @@ class AssylDataHub {
                     ru: {
                         home: 'Главная',
                         studyKz: 'Учеба в Казахстане',
-                        dualDiploma: 'Программы 1+1',
+                        dualDiploma: 'Двойной диплом',
                         compare: 'Сравнить',
                         eduHelper: 'Edu Helper',
                         pricing: 'Цены',
@@ -391,7 +391,7 @@ class AssylDataHub {
                         studentBlog: 'Блог студентов',
                         blog: 'Блог студентов',
                         faq: 'Вопросы и ответы',
-                        copyright: '© 2025 Assyl DataHub. Все права защищены. Развиваем образовательный выбор через технологии.',
+                        copyright: '© 2025 Asyl DataHub. Все права защищены. Развиваем образовательный выбор через технологии.',
                         location: 'Алматы, Казахстан',
                         viewDetails: 'Подробнее',
                         compare: 'Сравнить',
@@ -410,7 +410,7 @@ class AssylDataHub {
                     kz: {
                         home: 'Басты бет',
                         studyKz: 'Қазақстанда оқу',
-                        dualDiploma: '1+1 бағдарламалары',
+                        dualDiploma: 'Қос диплом',
                         compare: 'Салыстыру',
                         eduHelper: 'Edu Helper',
                         pricing: 'Бағалар',
@@ -431,7 +431,7 @@ class AssylDataHub {
                         studentBlog: 'Студенттер блогы',
                         blog: 'Студенттер блогы',
                         faq: 'Сұрақ-жауап',
-                        copyright: '© 2025 Assyl DataHub. Барлық құқықтар қорғалған. Технология арқылы білім таңдауын дамытамыз.',
+                        copyright: '© 2025 Asyl DataHub. Барлық құқықтар қорғалған. Технология арқылы білім таңдауын дамытамыз.',
                         location: 'Алматы, Қазақстан',
                         viewDetails: 'Толығырақ',
                         compare: 'Салыстыру',
@@ -465,7 +465,7 @@ class AssylDataHub {
                         expertCounselors: 'Expert counselors',
                         successRate: '98% Success Rate',
                         admissionResults: 'Admission results',
-                        whyChoose: 'Why Choose Assyl DataHub?',
+                        whyChoose: 'Why Choose Asyl DataHub?',
                         whyChooseDesc: 'We make the university search and application process simple, transparent, and stress-free for students and families.',
                         feature1Title: 'Comprehensive Database',
                         feature1Desc: 'Access detailed information about universities in Kazakhstan and 25+ countries worldwide, all in one place.',
@@ -484,7 +484,7 @@ class AssylDataHub {
                         viewAll: 'View All Universities',
                         testimonials: 'What Families Say',
                         testimonialsDesc: 'Hear from students and parents who found their perfect university match with our help.',
-                        testimonial1: 'Assyl DataHub made the overwhelming process of choosing a university so much easier. The comparison tools helped us understand exactly what each school offered.',
+                        testimonial1: 'Asyl DataHub made the overwhelming process of choosing a university so much easier. The comparison tools helped us understand exactly what each school offered.',
                         testimonial1Author: 'Aigerim Kenzhebekova',
                         testimonial1Role: 'Parent • Almaty',
                         testimonial2: 'The counselors understood my goals and helped me find universities I never would have discovered on my own. I\'m now studying at my dream school in Germany!',
@@ -508,9 +508,9 @@ class AssylDataHub {
                     },
                     ru: {
                         badge: 'Ваше будущее начинается здесь',
-                        heroTitle1: 'Найдите свой идеальный',
-                        heroTitle2: 'Университет',
-                        heroTitle3: 'Путь',
+                        heroTitle1: 'Найдите идеальный',
+                        heroTitle2: 'университет',
+                        heroTitle3: 'для вас',
                         heroDesc: 'Мы помогаем студентам и семьям ориентироваться на пути к высшему образованию. Сравнивайте университеты, изучайте программы и принимайте обоснованные решения о вашем академическом будущем в Казахстане и за рубежом.',
                         exploreBtn: 'Исследовать университеты',
                         consultBtn: 'Бесплатная консультация',
@@ -521,7 +521,7 @@ class AssylDataHub {
                         expertCounselors: 'Опытные консультанты',
                         successRate: '98% Успешность',
                         admissionResults: 'Результаты поступления',
-                        whyChoose: 'Почему выбирают Assyl DataHub?',
+                        whyChoose: 'Почему выбирают Asyl DataHub?',
                         whyChooseDesc: 'Мы делаем процесс поиска и поступления в университет простым, прозрачным и без стресса для студентов и семей.',
                         feature1Title: 'Полная база данных',
                         feature1Desc: 'Доступ к подробной информации об университетах Казахстана и 25+ стран мира в одном месте.',
@@ -540,7 +540,7 @@ class AssylDataHub {
                         viewAll: 'Все университеты',
                         testimonials: 'Отзывы семей',
                         testimonialsDesc: 'Узнайте от студентов и родителей, которые нашли идеальный университет с нашей помощью.',
-                        testimonial1: 'Assyl DataHub сделал сложный процесс выбора университета намного проще. Инструменты сравнения помогли нам понять, что предлагает каждый вуз.',
+                        testimonial1: 'Asyl DataHub сделал сложный процесс выбора университета намного проще. Инструменты сравнения помогли нам понять, что предлагает каждый вуз.',
                         testimonial1Author: 'Айгерим Кенжебекова',
                         testimonial1Role: 'Родитель • Алматы',
                         testimonial2: 'Консультанты поняли мои цели и помогли найти университеты, которые я бы никогда не нашел сам. Теперь я учусь в своем университете мечты в Германии!',
@@ -564,9 +564,9 @@ class AssylDataHub {
                     },
                     kz: {
                         badge: 'Сіздің болашағыңыз осы жерден басталады',
-                        heroTitle1: 'Өзіңіздің керемет',
-                        heroTitle2: 'Университет',
-                        heroTitle3: 'Жолыңызды табыңыз',
+                        heroTitle1: 'Өзіңізге тамаша',
+                        heroTitle2: 'университет',
+                        heroTitle3: 'табыңыз',
                         heroDesc: 'Біз студенттер мен отбасыларға жоғары білімге бару жолында көмектесеміз. Университеттерді салыстырыңыз, бағдарламаларды зерттеңіз және Қазақстанда және шетелде академиялық болашағыңыз туралы шешім қабылдаңыз.',
                         exploreBtn: 'Университеттерді қарау',
                         consultBtn: 'Тегін кеңес алу',
@@ -577,7 +577,7 @@ class AssylDataHub {
                         expertCounselors: 'Тәжірибелі кеңесшілер',
                         successRate: '98% Сәттілік',
                         admissionResults: 'Түсу нәтижелері',
-                        whyChoose: 'Неге Assyl DataHub таңдайсыз?',
+                        whyChoose: 'Неге Asyl DataHub таңдайсыз?',
                         whyChooseDesc: 'Біз университетті іздеу және түсу процесін студенттер мен отбасылар үшін қарапайым, ашық және стресссіз етеміз.',
                         feature1Title: 'Толық деректер базасы',
                         feature1Desc: 'Қазақстан мен 25+ елдің университеттері туралы толық ақпаратты бір жерден алыңыз.',
@@ -596,7 +596,7 @@ class AssylDataHub {
                         viewAll: 'Барлық университеттер',
                         testimonials: 'Отбасылар не дейді',
                         testimonialsDesc: 'Біздің көмегімізбен тамаша университет тапқан студенттер мен ата-аналардан естіңіз.',
-                        testimonial1: 'Assyl DataHub университетті таңдаудың күрделі процесін әлдеқайда жеңілдетті. Салыстыру құралдары әр мектептің не ұсынатынын түсінуге көмектесті.',
+                        testimonial1: 'Asyl DataHub университетті таңдаудың күрделі процесін әлдеқайда жеңілдетті. Салыстыру құралдары әр мектептің не ұсынатынын түсінуге көмектесті.',
                         testimonial1Author: 'Айгерім Кенжебекова',
                         testimonial1Role: 'Ата-ана • Алматы',
                         testimonial2: 'Кеңесшілер менің мақсаттарымды түсініп, өзім ешқашан таппайтын университеттерді табуға көмектесті. Қазір мен Германиядағы арманымдағы мектепте оқып жатырмын!',
@@ -845,7 +845,20 @@ class AssylDataHub {
                         bfeat16: 'Custom development',
                         compareTitle: 'Compare Plans',
                         feature: 'Feature',
-                        faqTitle: 'Frequently Asked Questions'
+                        faqTitle: 'Frequently Asked Questions',
+                        faqSubtitle: 'Everything you need to know about our plans',
+                        guaranteeTitle: '30-Day Money-Back Guarantee',
+                        guaranteeDesc: "We're confident you'll love our service. If you're not completely satisfied within the first 30 days, we'll give you a full refund—no questions asked.",
+                        faq1q: 'Can I change my plan anytime?',
+                        faq1a: "Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any billing differences.",
+                        faq2q: 'Is there a free trial?',
+                        faq2a: 'Yes! We offer a 14-day free trial for our Premium plan. No credit card required to start your trial.',
+                        faq3q: 'What payment methods do you accept?',
+                        faq3a: 'We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers for annual plans.',
+                        faq4q: 'Can I cancel my subscription?',
+                        faq4a: "Yes, you can cancel your subscription at any time. You'll continue to have access until the end of your current billing period.",
+                        faq5q: 'Do you offer student discounts?',
+                        faq5a: 'Yes! Students with a valid student ID can get 20% off any paid plan. Contact our support team to claim your discount.'
                     },
                     ru: {
                         pageTitle: 'Наши <span class="page-title-accent">Услуги</span>',
@@ -918,7 +931,20 @@ class AssylDataHub {
                         bfeat16: 'Кастомная разработка',
                         compareTitle: 'Сравнение планов',
                         feature: 'Функция',
-                        faqTitle: 'Часто задаваемые вопросы'
+                        faqTitle: 'Часто задаваемые вопросы',
+                        faqSubtitle: 'Всё, что вам нужно знать о наших планах',
+                        guaranteeTitle: '30-дневная гарантия возврата',
+                        guaranteeDesc: 'Мы уверены, что вам понравится наш сервис. Если вы не полностью довольны в течение первых 30 дней, мы вернём вам деньги — без лишних вопросов.',
+                        faq1q: 'Могу ли я изменить свой план в любое время?',
+                        faq1a: 'Да, вы можете повысить или понизить свой план в любое время. Изменения вступают в силу немедленно, и мы пропорционально пересчитаем разницу в оплате.',
+                        faq2q: 'Есть ли бесплатный пробный период?',
+                        faq2a: 'Да! Мы предлагаем 14-дневный бесплатный пробный период для плана Premium. Кредитная карта не требуется.',
+                        faq3q: 'Какие способы оплаты вы принимаете?',
+                        faq3a: 'Мы принимаем все основные кредитные карты (Visa, MasterCard, American Express), PayPal и банковские переводы для годовых планов.',
+                        faq4q: 'Могу ли я отменить подписку?',
+                        faq4a: 'Да, вы можете отменить подписку в любое время. Доступ сохранится до конца текущего расчётного периода.',
+                        faq5q: 'Есть ли скидки для студентов?',
+                        faq5a: 'Да! Студенты с действующим студенческим билетом могут получить скидку 20% на любой платный план. Свяжитесь с нашей службой поддержки.'
                     },
                     kz: {
                         pageTitle: 'Біздің <span class="page-title-accent">Қызметтер</span>',
@@ -991,7 +1017,20 @@ class AssylDataHub {
                         bfeat16: 'Арнайы әзірлеу',
                         compareTitle: 'Жоспарларды салыстыру',
                         feature: 'Мүмкіндік',
-                        faqTitle: 'Жиі қойылатын сұрақтар'
+                        faqTitle: 'Жиі қойылатын сұрақтар',
+                        faqSubtitle: 'Жоспарларымыз туралы білуіңіз керек барлығы',
+                        guaranteeTitle: '30 күндік ақшаны қайтару кепілдігі',
+                        guaranteeDesc: 'Біз сізге қызметіміз ұнайтынына сенімдіміз. Алғашқы 30 күн ішінде толық қанағаттанбасаңыз, ақшаңызды сұрақсыз қайтарамыз.',
+                        faq1q: 'Жоспарымды кез келген уақытта өзгерте аламын ба?',
+                        faq1a: 'Иә, жоспарыңызды кез келген уақытта жоғарылатуға немесе төмендетуге болады. Өзгерістер бірден күшіне енеді.',
+                        faq2q: 'Тегін сынақ кезеңі бар ма?',
+                        faq2a: 'Иә! Premium жоспарына 14 күндік тегін сынақ ұсынамыз. Кредит картасы қажет емес.',
+                        faq3q: 'Қандай төлем әдістерін қабылдайсыздар?',
+                        faq3a: 'Біз барлық негізгі кредит карталарын (Visa, MasterCard, American Express), PayPal және жылдық жоспарлар үшін банк аударымдарын қабылдаймыз.',
+                        faq4q: 'Жазылымымды тоқтата аламын ба?',
+                        faq4a: 'Иә, жазылымыңызды кез келген уақытта тоқтатуға болады. Ағымдағы есеп айырысу кезеңінің соңына дейін қол жетімділік сақталады.',
+                        faq5q: 'Студенттерге жеңілдіктер бар ма?',
+                        faq5a: 'Иә! Жарамды студенттік билеті бар студенттер кез келген ақылы жоспарға 20% жеңілдік ала алады. Қолдау тобымызбен байланысыңыз.'
                     }
                 },
                 // Study in Kazakhstan page
@@ -2182,7 +2221,7 @@ class AssylDataHub {
                 if (href.includes('index.html') || href === 'index.html') link.textContent = common.home;
                 else if (href.includes('study-in-kazakhstan')) link.textContent = common.studyKz;
                 // Removed study-abroad link
-                else if (href.includes('dual-diploma')) link.textContent = '2+2';
+                else if (href.includes('dual-diploma')) link.textContent = 'Double Degree';
                 else if (href.includes('edu-helper')) link.textContent = 'Edu Helper';
                 else if (href.includes('pricing')) link.textContent = common.pricing;
                 else if (href.includes('contact')) link.textContent = common.contact;
