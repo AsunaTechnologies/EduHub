@@ -86,6 +86,46 @@
             margin-bottom: 2rem;
             padding-bottom: 2rem;
             border-bottom: 1px solid var(--border-light);
+            position: relative;
+        }
+
+        /* Bookmark Button */
+        .bookmark-btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--bg-cream);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 0.75rem 1.25rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: all var(--transition-normal);
+        }
+
+        .bookmark-btn:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            background: rgba(201, 162, 39, 0.1);
+        }
+
+        .bookmark-btn.bookmarked {
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--primary-navy);
+        }
+
+        .bookmark-btn.bookmarked:hover {
+            background: #d4a912;
+        }
+
+        .bookmark-btn i {
+            font-size: 1rem;
         }
 
         .university-image {
@@ -482,6 +522,9 @@
         <!-- Al-Farabi Kazakh National University -->
         <div class="tab-content active" id="kaznu">
             <div class="university-header">
+                <button class="bookmark-btn" id="bookmark-kaznu" onclick="toggleBookmark('kaznu', 'Al-Farabi Kazakh National University', 'Almaty, Kazakhstan', '#166', '20,000+')">
+                    <i class="far fa-bookmark"></i> <span data-i18n="profile.bookmark">Bookmark</span>
+                </button>
                 <img src="https://eduhubimagesost.s3.eu-north-1.amazonaws.com/kaznu.png" 
                      alt="Al-Farabi Kazakh National University" class="university-image">
                 <div class="university-info">
@@ -748,6 +791,9 @@
         <!-- Nazarbayev University -->
         <div class="tab-content" id="nazarbayev">
             <div class="university-header">
+                <button class="bookmark-btn" id="bookmark-nazarbayev" onclick="toggleBookmark('nazarbayev', 'Nazarbayev University', 'Astana, Kazakhstan', '#400', '9,000+')">
+                    <i class="far fa-bookmark"></i> <span data-i18n="profile.bookmark">Bookmark</span>
+                </button>
                 <img src="https://eduhubimagesost.s3.eu-north-1.amazonaws.com/nazarbayev.jpg" 
                      alt="Nazarbayev University" class="university-image">
                 <div class="university-info">
@@ -854,6 +900,9 @@
         <!-- Kazakh National Medical University -->
         <div class="tab-content" id="kaznmu">
             <div class="university-header">
+                <button class="bookmark-btn" id="bookmark-kaznmu" onclick="toggleBookmark('kaznmu', 'Asfendiyarov Kazakh National Medical University', 'Almaty, Kazakhstan', '#1000', '10,378')">
+                    <i class="far fa-bookmark"></i> <span data-i18n="profile.bookmark">Bookmark</span>
+                </button>
                 <img src="https://eduhubimagesost.s3.eu-north-1.amazonaws.com/kaznmu.png" 
                      alt="Kazakh National Medical University" class="university-image">
                 <div class="university-info">
@@ -1112,6 +1161,81 @@
                 hideLoginModal();
             }
         });
+
+        // Bookmark functionality
+        let bookmarkedUniversities = JSON.parse(localStorage.getItem('bookmarkedUniversities')) || [];
+
+        function toggleBookmark(uniId, name, location, ranking, students) {
+            const btn = document.getElementById('bookmark-' + uniId);
+            const existingIndex = bookmarkedUniversities.findIndex(u => u.id === uniId);
+
+            if (existingIndex > -1) {
+                // Remove bookmark
+                bookmarkedUniversities.splice(existingIndex, 1);
+                btn.classList.remove('bookmarked');
+                btn.innerHTML = '<i class="far fa-bookmark"></i> <span>Bookmark</span>';
+                showToast('Removed from bookmarks');
+            } else {
+                // Add bookmark
+                bookmarkedUniversities.push({
+                    id: uniId,
+                    name: name,
+                    location: location,
+                    ranking: ranking,
+                    students: students,
+                    addedAt: new Date().toISOString()
+                });
+                btn.classList.add('bookmarked');
+                btn.innerHTML = '<i class="fas fa-bookmark"></i> <span>Bookmarked</span>';
+                showToast('Added to bookmarks! View in your profile.');
+            }
+
+            localStorage.setItem('bookmarkedUniversities', JSON.stringify(bookmarkedUniversities));
+        }
+
+        function loadBookmarkStates() {
+            bookmarkedUniversities.forEach(uni => {
+                const btn = document.getElementById('bookmark-' + uni.id);
+                if (btn) {
+                    btn.classList.add('bookmarked');
+                    btn.innerHTML = '<i class="fas fa-bookmark"></i> <span>Bookmarked</span>';
+                }
+            });
+        }
+
+        function showToast(message) {
+            // Create toast if not exists
+            let toast = document.getElementById('toast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'toast';
+                toast.style.cssText = `
+                    position: fixed;
+                    bottom: 30px;
+                    left: 50%;
+                    transform: translateX(-50%) translateY(100px);
+                    background: var(--primary-navy);
+                    color: white;
+                    padding: 1rem 2rem;
+                    border-radius: var(--radius-md);
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                    z-index: 10000;
+                    transition: transform 0.3s ease;
+                    font-weight: 500;
+                `;
+                document.body.appendChild(toast);
+            }
+
+            toast.textContent = message;
+            toast.style.transform = 'translateX(-50%) translateY(0)';
+
+            setTimeout(() => {
+                toast.style.transform = 'translateX(-50%) translateY(100px)';
+            }, 3000);
+        }
+
+        // Load bookmark states on page load
+        document.addEventListener('DOMContentLoaded', loadBookmarkStates);
     </script>
 </body>
 </html>

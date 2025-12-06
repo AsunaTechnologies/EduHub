@@ -74,10 +74,15 @@
 
         .hero-content {
             color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .hero-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             background: rgba(201, 162, 39, 0.2);
             color: var(--accent-gold);
             padding: 0.5rem 1rem;
@@ -86,6 +91,9 @@
             font-weight: 600;
             margin-bottom: 1.5rem;
             border: 1px solid rgba(201, 162, 39, 0.3);
+            white-space: nowrap;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-title {
