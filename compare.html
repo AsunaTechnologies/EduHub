@@ -517,7 +517,7 @@
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <span class="logo-icon">A</span>
-                <span>A</span>syl DataHub
+                Assyl DataHub
             </a>
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link" data-i18n="nav.home">Home</a></li>
@@ -611,7 +611,7 @@
                             <span class="uni-stat-label" data-i18n="compare.tuitionLabel">Tuition/Year</span>
                         </div>
                         <div class="uni-stat">
-                            <span class="uni-stat-value">7,500</span>
+                            <span class="uni-stat-value">9,000</span>
                             <span class="uni-stat-label" data-i18n="compare.studentsLabel">Students</span>
                         </div>
                         <div class="uni-stat">
@@ -644,15 +644,15 @@
                 <div class="uni-card-body">
                     <div class="uni-stats">
                         <div class="uni-stat">
-                            <span class="uni-stat-value">230</span>
+                            <span class="uni-stat-value">166</span>
                             <span class="uni-stat-label">QS World</span>
                         </div>
                         <div class="uni-stat">
-                            <span class="uni-stat-value">$1.5k</span>
+                            <span class="uni-stat-value">$4.5k</span>
                             <span class="uni-stat-label" data-i18n="compare.tuitionLabel">Tuition/Year</span>
                         </div>
                         <div class="uni-stat">
-                            <span class="uni-stat-value">22,000</span>
+                            <span class="uni-stat-value">20,000</span>
                             <span class="uni-stat-label" data-i18n="compare.studentsLabel">Students</span>
                         </div>
                         <div class="uni-stat">
@@ -917,6 +917,88 @@
                     </div>
                 </div>
             </div>
+
+            <!-- L.N. Gumilyov ENU -->
+            <div class="uni-card" data-id="enu" data-city="astana" data-type="public">
+                <div class="uni-card-checkbox">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="uni-card-header">
+                    <div class="uni-rank"><i class="fas fa-globe"></i> Eurasian Leader</div>
+                    <h3 class="uni-name">L.N. Gumilyov Eurasian National University</h3>
+                    <p class="uni-location"><i class="fas fa-map-marker-alt"></i> Astana</p>
+                </div>
+                <div class="uni-card-body">
+                    <div class="uni-stats">
+                        <div class="uni-stat">
+                            <span class="uni-stat-value">450</span>
+                            <span class="uni-stat-label">QS World</span>
+                        </div>
+                        <div class="uni-stat">
+                            <span class="uni-stat-value">$2k</span>
+                            <span class="uni-stat-label" data-i18n="compare.tuitionLabel">Tuition/Year</span>
+                        </div>
+                        <div class="uni-stat">
+                            <span class="uni-stat-value">18,000</span>
+                            <span class="uni-stat-label" data-i18n="compare.studentsLabel">Students</span>
+                        </div>
+                        <div class="uni-stat">
+                            <span class="uni-stat-value">88%</span>
+                            <span class="uni-stat-label" data-i18n="compare.employment">Employment</span>
+                        </div>
+                    </div>
+                    <div class="uni-tags">
+                        <span class="uni-tag">Humanities</span>
+                        <span class="uni-tag">Research</span>
+                        <span class="uni-tag">Multilingual</span>
+                    </div>
+                    <div class="uni-card-actions">
+                        <a href="study-in-kazakhstan.html" class="btn btn-secondary btn-small" data-i18n="compare.viewDetails">Details</a>
+                        <button class="btn btn-primary btn-small select-uni-btn" data-i18n="compare.select">Select</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Abay University -->
+            <div class="uni-card" data-id="abay" data-city="almaty" data-type="public">
+                <div class="uni-card-checkbox">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="uni-card-header">
+                    <div class="uni-rank"><i class="fas fa-graduation-cap"></i> First University</div>
+                    <h3 class="uni-name">Abay Kazakh National Pedagogical University</h3>
+                    <p class="uni-location"><i class="fas fa-map-marker-alt"></i> Almaty</p>
+                </div>
+                <div class="uni-card-body">
+                    <div class="uni-stats">
+                        <div class="uni-stat">
+                            <span class="uni-stat-value">800</span>
+                            <span class="uni-stat-label">QS World</span>
+                        </div>
+                        <div class="uni-stat">
+                            <span class="uni-stat-value">$1.5k</span>
+                            <span class="uni-stat-label" data-i18n="compare.tuitionLabel">Tuition/Year</span>
+                        </div>
+                        <div class="uni-stat">
+                            <span class="uni-stat-value">12,000</span>
+                            <span class="uni-stat-label" data-i18n="compare.studentsLabel">Students</span>
+                        </div>
+                        <div class="uni-stat">
+                            <span class="uni-stat-value">85%</span>
+                            <span class="uni-stat-label" data-i18n="compare.employment">Employment</span>
+                        </div>
+                    </div>
+                    <div class="uni-tags">
+                        <span class="uni-tag">Education</span>
+                        <span class="uni-tag">Pedagogy</span>
+                        <span class="uni-tag">Historic</span>
+                    </div>
+                    <div class="uni-card-actions">
+                        <a href="study-in-kazakhstan.html" class="btn btn-secondary btn-small" data-i18n="compare.viewDetails">Details</a>
+                        <button class="btn btn-primary btn-small select-uni-btn" data-i18n="compare.select">Select</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -975,14 +1057,16 @@
 
             // University data
             const universityData = {
-                nu: { name: 'Nazarbayev University', city: 'Astana', qsRank: 207, tuition: 0, students: 7500, employment: 95, type: 'Public' },
-                kaznu: { name: 'Al-Farabi KazNU', city: 'Almaty', qsRank: 230, tuition: 1500, students: 22000, employment: 87, type: 'Public' },
+                nu: { name: 'Nazarbayev University', city: 'Astana', qsRank: 207, tuition: 0, students: 9000, employment: 95, type: 'Public' },
+                kaznu: { name: 'Al-Farabi KazNU', city: 'Almaty', qsRank: 166, tuition: 4500, students: 20000, employment: 87, type: 'Public' },
                 kimep: { name: 'KIMEP University', city: 'Almaty', qsRank: 601, tuition: 8000, students: 3200, employment: 92, type: 'Private' },
                 sdu: { name: 'SDU University', city: 'Almaty', qsRank: 801, tuition: 3500, students: 8500, employment: 89, type: 'Private' },
                 aitu: { name: 'Astana IT University', city: 'Astana', qsRank: 999, tuition: 2000, students: 4500, employment: 94, type: 'Public' },
                 satbayev: { name: 'Satbayev University', city: 'Almaty', qsRank: 480, tuition: 1800, students: 15000, employment: 86, type: 'Public' },
-                kazmu: { name: 'KazNMU', city: 'Almaty', qsRank: 551, tuition: 3000, students: 9500, employment: 91, type: 'Public' },
-                kbtu: { name: 'KBTU', city: 'Almaty', qsRank: 561, tuition: 4500, students: 4800, employment: 90, type: 'Private' }
+                kazmu: { name: 'KazNMU', city: 'Almaty', qsRank: 1000, tuition: 5700, students: 10378, employment: 91, type: 'Public' },
+                kbtu: { name: 'KBTU', city: 'Almaty', qsRank: 561, tuition: 4500, students: 4800, employment: 90, type: 'Private' },
+                enu: { name: 'L.N. Gumilyov ENU', city: 'Astana', qsRank: 450, tuition: 2000, students: 18000, employment: 88, type: 'Public' },
+                abay: { name: 'Abay University', city: 'Almaty', qsRank: 800, tuition: 1500, students: 12000, employment: 85, type: 'Public' }
             };
 
             // Click on card to select
