@@ -131,7 +131,9 @@ class AssylDataHub {
                         // Navigation
                         home: 'Home',
                         studyKz: 'Study in Kazakhstan',
-                        studyAbroad: 'Study Abroad',
+                        dualDiploma: '1+1 Programs',
+                        compare: 'Compare',
+                        eduHelper: 'Edu Helper',
                         pricing: 'Pricing',
                         contact: 'Contact',
                         profile: 'Profile',
@@ -166,7 +168,9 @@ class AssylDataHub {
                     ru: {
                         home: 'Главная',
                         studyKz: 'Учеба в Казахстане',
-                        studyAbroad: 'Учеба за рубежом',
+                        dualDiploma: 'Программы 1+1',
+                        compare: 'Сравнить',
+                        eduHelper: 'Edu Helper',
                         pricing: 'Цены',
                         contact: 'Контакты',
                         profile: 'Профиль',
@@ -198,7 +202,9 @@ class AssylDataHub {
                     kz: {
                         home: 'Басты бет',
                         studyKz: 'Қазақстанда оқу',
-                        studyAbroad: 'Шетелде оқу',
+                        dualDiploma: '1+1 бағдарламалары',
+                        compare: 'Салыстыру',
+                        eduHelper: 'Edu Helper',
                         pricing: 'Бағалар',
                         contact: 'Байланыс',
                         profile: 'Профиль',
@@ -822,6 +828,222 @@ class AssylDataHub {
                         deleteAccountDesc: 'Тіркелгі мен барлық деректерді біржола жою'
                     }
                 },
+                // Edu Helper page
+                eduHelper: {
+                    en: {
+                        pageTitle: 'Edu Helper',
+                        pageSubtitle: 'Your AI-powered education advisor. Share your test scores, interests, and goals to get personalized university and career recommendations.',
+                        yourProfile: 'Your Profile',
+                        profileSubtitle: 'Fill in your details for better recommendations',
+                        testScores: 'Test Scores',
+                        interests: 'Interests',
+                        studyPreferences: 'Study Preferences',
+                        preferredLocation: 'Preferred Location',
+                        kazakhstan: 'Kazakhstan',
+                        abroad: 'Abroad',
+                        dualDiploma: '2+2 Dual Diploma',
+                        noPreference: 'No Preference',
+                        budgetRange: 'Budget Range (per year)',
+                        generateBtn: 'Generate Recommendations',
+                        aiTitle: 'Edu Helper AI',
+                        aiSubtitle: 'Your personal education advisor',
+                        online: 'Online',
+                        quickQuestions: 'Quick questions:',
+                        inputPlaceholder: 'Ask me anything about universities, programs, or career paths...',
+                        howItWorks: 'How Edu Helper Works',
+                        howItWorksSubtitle: 'Get personalized guidance powered by AI technology',
+                        step1: 'Share Your Profile',
+                        step1Desc: 'Enter your test scores (ENT, IELTS, SAT), interests, and career goals',
+                        step2: 'AI Analysis',
+                        step2Desc: 'Our AI analyzes your profile against 150+ universities and programs',
+                        step3: 'University Match',
+                        step3Desc: 'Get matched with universities that fit your scores and preferences',
+                        step4: 'Career Pathway',
+                        step4Desc: 'Discover career paths and programs aligned with your interests'
+                    },
+                    ru: {
+                        pageTitle: 'Edu Helper',
+                        pageSubtitle: 'Ваш AI-советник по образованию. Расскажите о своих баллах, интересах и целях для персональных рекомендаций.',
+                        yourProfile: 'Ваш профиль',
+                        profileSubtitle: 'Заполните данные для лучших рекомендаций',
+                        testScores: 'Баллы тестов',
+                        interests: 'Интересы',
+                        studyPreferences: 'Предпочтения обучения',
+                        preferredLocation: 'Предпочитаемое место',
+                        kazakhstan: 'Казахстан',
+                        abroad: 'За рубежом',
+                        dualDiploma: '2+2 Двойной диплом',
+                        noPreference: 'Без предпочтений',
+                        budgetRange: 'Бюджет (в год)',
+                        generateBtn: 'Получить рекомендации',
+                        aiTitle: 'Edu Helper AI',
+                        aiSubtitle: 'Ваш персональный советник',
+                        online: 'Онлайн',
+                        quickQuestions: 'Быстрые вопросы:',
+                        inputPlaceholder: 'Спросите меня о университетах, программах или карьере...',
+                        howItWorks: 'Как работает Edu Helper',
+                        howItWorksSubtitle: 'Персональное руководство на основе AI',
+                        step1: 'Заполните профиль',
+                        step1Desc: 'Введите баллы тестов (ЕНТ, IELTS, SAT), интересы и цели',
+                        step2: 'AI анализ',
+                        step2Desc: 'AI анализирует ваш профиль среди 150+ университетов',
+                        step3: 'Подбор университета',
+                        step3Desc: 'Получите список университетов под ваши баллы',
+                        step4: 'Карьерный путь',
+                        step4Desc: 'Откройте карьерные пути и программы по интересам'
+                    },
+                    kz: {
+                        pageTitle: 'Edu Helper',
+                        pageSubtitle: 'AI-мен жұмыс істейтін білім кеңесшіңіз. Тест нәтижелерін, қызығушылықтарды және мақсаттарды бөлісіңіз.',
+                        yourProfile: 'Сіздің профиліңіз',
+                        profileSubtitle: 'Жақсы ұсыныстар үшін деректерді толтырыңыз',
+                        testScores: 'Тест балдары',
+                        interests: 'Қызығушылықтар',
+                        studyPreferences: 'Оқу қалаулары',
+                        preferredLocation: 'Қалаған орын',
+                        kazakhstan: 'Қазақстан',
+                        abroad: 'Шетелде',
+                        dualDiploma: '2+2 Қос диплом',
+                        noPreference: 'Қалаусыз',
+                        budgetRange: 'Бюджет (жылына)',
+                        generateBtn: 'Ұсыныстар алу',
+                        aiTitle: 'Edu Helper AI',
+                        aiSubtitle: 'Жеке білім кеңесшіңіз',
+                        online: 'Онлайн',
+                        quickQuestions: 'Жылдам сұрақтар:',
+                        inputPlaceholder: 'Университеттер, бағдарламалар немесе мансап туралы сұраңыз...',
+                        howItWorks: 'Edu Helper қалай жұмыс істейді',
+                        howItWorksSubtitle: 'AI технологиясымен жеке нұсқаулық',
+                        step1: 'Профильді толтырыңыз',
+                        step1Desc: 'Тест балдарын (ҰБТ, IELTS, SAT), қызығушылықтарды енгізіңіз',
+                        step2: 'AI талдау',
+                        step2Desc: 'AI профиліңізді 150+ университетпен талдайды',
+                        step3: 'Университет таңдау',
+                        step3Desc: 'Балдарыңызға сәйкес университеттер тізімін алыңыз',
+                        step4: 'Мансап жолы',
+                        step4Desc: 'Қызығушылықтарға сай мансап жолдарын табыңыз'
+                    }
+                },
+                // 2+2 Dual Diploma page
+                dualDiploma: {
+                    en: {
+                        pageTitle: '2+2 Dual Diploma Programs',
+                        pageSubtitle: 'Start your education in Kazakhstan, finish at a prestigious international university. Get two diplomas, one global experience.',
+                        heroTitle: 'Two Countries. Two Diplomas. One Amazing Journey.',
+                        heroDesc: 'Our 2+2 programs let you spend your first two years at a top Kazakh university, then transfer to complete your degree at partner universities abroad.',
+                        dualDegree: 'Dual Degree',
+                        costEffective: 'Cost Effective',
+                        globalRecognition: 'Global Recognition',
+                        explorePrograms: 'Explore Programs',
+                        askAI: 'Ask AI Advisor',
+                        howItWorks: 'How 2+2 Programs Work',
+                        howItWorksSubtitle: 'A seamless pathway to an international degree',
+                        step1: 'Apply',
+                        step1Desc: 'Apply to a participating Kazakh university with 2+2 agreements',
+                        step2: 'Study Years 1-2',
+                        step2Desc: 'Complete your first two years in Kazakhstan, building strong foundations',
+                        step3: 'Transfer',
+                        step3Desc: 'Transfer to your partner university abroad with guaranteed acceptance',
+                        step4: 'Graduate',
+                        step4Desc: 'Complete years 3-4 abroad and receive diplomas from both universities',
+                        featuredPrograms: 'Featured 2+2 Programs',
+                        featuredProgramsSubtitle: 'Explore our partnership programs with leading international universities',
+                        whyChoose: 'Why Choose a 2+2 Program?',
+                        whyChooseSubtitle: 'The smart way to get an international education',
+                        benefit1: 'Save 40-60% on Costs',
+                        benefit1Desc: 'Study your first two years at affordable Kazakh universities',
+                        benefit2: 'Two Recognized Diplomas',
+                        benefit2Desc: 'Graduate with degrees from both universities',
+                        benefit3: 'Smooth Transition',
+                        benefit3Desc: 'Adjust to university life in familiar surroundings first',
+                        benefit4: 'Global Network',
+                        benefit4Desc: 'Build connections in two countries',
+                        benefit5: 'Better Career Prospects',
+                        benefit5Desc: 'Access job markets in multiple countries',
+                        benefit6: 'Guaranteed Transfer',
+                        benefit6Desc: 'Pre-approved pathways to partner universities',
+                        partnerUnis: 'Our Partner Universities',
+                        partnerUnisSubtitle: 'Study at world-class institutions through our 2+2 programs'
+                    },
+                    ru: {
+                        pageTitle: 'Программы 2+2 Двойной диплом',
+                        pageSubtitle: 'Начните образование в Казахстане, закончите в престижном международном университете.',
+                        heroTitle: 'Две страны. Два диплома. Одно удивительное путешествие.',
+                        heroDesc: 'Наши программы 2+2 позволяют провести первые два года в топ-университете Казахстана, затем перевестись за рубеж.',
+                        dualDegree: 'Двойной диплом',
+                        costEffective: 'Экономично',
+                        globalRecognition: 'Мировое признание',
+                        explorePrograms: 'Программы',
+                        askAI: 'Спросить AI',
+                        howItWorks: 'Как работают программы 2+2',
+                        howItWorksSubtitle: 'Плавный путь к международному образованию',
+                        step1: 'Подайте заявку',
+                        step1Desc: 'Подайте заявку в университет Казахстана с соглашением 2+2',
+                        step2: 'Учитесь 1-2 курс',
+                        step2Desc: 'Пройдите первые два года в Казахстане',
+                        step3: 'Переведитесь',
+                        step3Desc: 'Переведитесь в партнерский университет с гарантированным зачислением',
+                        step4: 'Выпуститесь',
+                        step4Desc: 'Завершите 3-4 курс за рубежом и получите оба диплома',
+                        featuredPrograms: 'Программы 2+2',
+                        featuredProgramsSubtitle: 'Изучите партнерские программы с ведущими университетами',
+                        whyChoose: 'Почему выбирают 2+2?',
+                        whyChooseSubtitle: 'Умный способ получить международное образование',
+                        benefit1: 'Экономия 40-60%',
+                        benefit1Desc: 'Первые два года в доступных университетах Казахстана',
+                        benefit2: 'Два признанных диплома',
+                        benefit2Desc: 'Получите дипломы обоих университетов',
+                        benefit3: 'Плавная адаптация',
+                        benefit3Desc: 'Сначала адаптируйтесь в знакомой среде',
+                        benefit4: 'Глобальная сеть',
+                        benefit4Desc: 'Создайте связи в двух странах',
+                        benefit5: 'Лучшие карьерные перспективы',
+                        benefit5Desc: 'Доступ к рынкам труда нескольких стран',
+                        benefit6: 'Гарантированный перевод',
+                        benefit6Desc: 'Заранее одобренные пути в партнерские вузы',
+                        partnerUnis: 'Наши партнеры',
+                        partnerUnisSubtitle: 'Учитесь в мировых университетах через программы 2+2'
+                    },
+                    kz: {
+                        pageTitle: '2+2 Қос диплом бағдарламалары',
+                        pageSubtitle: 'Білімді Қазақстанда бастаңыз, беделді халықаралық университетте аяқтаңыз.',
+                        heroTitle: 'Екі ел. Екі диплом. Бір керемет саяхат.',
+                        heroDesc: 'Біздің 2+2 бағдарламалары алғашқы екі жылды Қазақстанда өткізіп, содан кейін шетелге ауысуға мүмкіндік береді.',
+                        dualDegree: 'Қос диплом',
+                        costEffective: 'Үнемді',
+                        globalRecognition: 'Әлемдік мойындау',
+                        explorePrograms: 'Бағдарламалар',
+                        askAI: 'AI сұрау',
+                        howItWorks: '2+2 бағдарламалары қалай жұмыс істейді',
+                        howItWorksSubtitle: 'Халықаралық білімге жол',
+                        step1: 'Өтініш беріңіз',
+                        step1Desc: '2+2 келісімі бар Қазақстан университетіне өтініш беріңіз',
+                        step2: '1-2 курс оқыңыз',
+                        step2Desc: 'Алғашқы екі жылды Қазақстанда аяқтаңыз',
+                        step3: 'Ауысыңыз',
+                        step3Desc: 'Серіктес университетке кепілдікпен ауысыңыз',
+                        step4: 'Бітіріңіз',
+                        step4Desc: '3-4 курсты шетелде аяқтап, екі диплом алыңыз',
+                        featuredPrograms: '2+2 бағдарламалары',
+                        featuredProgramsSubtitle: 'Жетекші университеттермен серіктестік бағдарламаларды зерттеңіз',
+                        whyChoose: 'Неге 2+2 таңдайсыз?',
+                        whyChooseSubtitle: 'Халықаралық білім алудың ақылды жолы',
+                        benefit1: '40-60% үнемдеу',
+                        benefit1Desc: 'Алғашқы екі жылды қолжетімді университеттерде оқыңыз',
+                        benefit2: 'Екі мойындалған диплом',
+                        benefit2Desc: 'Екі университеттің де дипломын алыңыз',
+                        benefit3: 'Тегіс бейімделу',
+                        benefit3Desc: 'Алдымен таныс ортада бейімделіңіз',
+                        benefit4: 'Жаһандық желі',
+                        benefit4Desc: 'Екі елде байланыстар орнатыңыз',
+                        benefit5: 'Жақсы мансап перспективалары',
+                        benefit5Desc: 'Бірнеше елдің еңбек нарықтарына қол жеткізіңіз',
+                        benefit6: 'Кепілдікті ауысу',
+                        benefit6Desc: 'Серіктес университеттерге алдын ала мақұлданған жолдар',
+                        partnerUnis: 'Біздің серіктестер',
+                        partnerUnisSubtitle: '2+2 бағдарламалары арқылы әлемдік университеттерде оқыңыз'
+                    }
+                },
                 // Login modal
                 loginModal: {
                     en: {
@@ -878,22 +1100,80 @@ class AssylDataHub {
             });
         });
         
-        // Load saved language preference
+        // Load saved language preference on page load
         const savedLang = localStorage.getItem('assylLanguage');
-        if (savedLang) {
+        if (savedLang && ['en', 'ru', 'kz'].includes(savedLang)) {
             this.currentLanguage = savedLang;
+            // Update HTML lang attribute
+            document.documentElement.lang = savedLang;
+            // Update active button state
             document.querySelectorAll('.lang-btn').forEach(b => {
                 b.classList.toggle('active', b.dataset.lang === savedLang);
             });
-            this.updateUI();
+            // Delay UI update to ensure DOM is ready
+            setTimeout(() => this.updateUI(), 100);
         }
     }
 
     switchLanguage(lang) {
+        if (!['en', 'ru', 'kz'].includes(lang)) return;
+        
         this.currentLanguage = lang;
         localStorage.setItem('assylLanguage', lang);
+        
+        // Update HTML lang attribute for proper text sizing
+        document.documentElement.lang = lang;
+        
+        // Add transition effect
+        document.body.style.opacity = '0.95';
+        
+        // Update all translations
         this.updateUI();
+        
+        // Restore opacity
+        setTimeout(() => {
+            document.body.style.opacity = '1';
+        }, 150);
+        
         this.saveUserPreference('language', lang);
+        
+        // Show notification
+        const langNames = { en: 'English', ru: 'Русский', kz: 'Қазақша' };
+        this.showLanguageNotification(langNames[lang]);
+    }
+    
+    showLanguageNotification(langName) {
+        // Remove existing notification if any
+        const existing = document.querySelector('.lang-notification');
+        if (existing) existing.remove();
+        
+        const notification = document.createElement('div');
+        notification.className = 'lang-notification';
+        notification.innerHTML = `<i class="fas fa-globe"></i> ${langName}`;
+        notification.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-navy, #1e3a5f);
+            color: white;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            z-index: 9999;
+            animation: slideInRight 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        `;
+        document.body.appendChild(notification);
+        
+        // Remove after 2 seconds
+        setTimeout(() => {
+            notification.style.animation = 'slideOutRight 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 2000);
     }
 
     t(key) {
@@ -1099,7 +1379,9 @@ class AssylDataHub {
                 const href = link.getAttribute('href') || '';
                 if (href.includes('index.html') || href === 'index.html') link.textContent = common.home;
                 else if (href.includes('study-in-kazakhstan')) link.textContent = common.studyKz;
-                else if (href.includes('study-abroad')) link.textContent = common.studyAbroad;
+                // Removed study-abroad link
+                else if (href.includes('dual-diploma')) link.textContent = '2+2';
+                else if (href.includes('edu-helper')) link.textContent = 'Edu Helper';
                 else if (href.includes('pricing')) link.textContent = common.pricing;
                 else if (href.includes('contact')) link.textContent = common.contact;
                 else if (link.id === 'profileBtn') link.textContent = common.profile;
@@ -1124,10 +1406,14 @@ class AssylDataHub {
             this.translatePricingPage();
         } else if (path.includes('study-in-kazakhstan')) {
             this.translateStudyKzPage();
-        } else if (path.includes('study-abroad')) {
+        } else if (path.includes('dual-diploma')) {
             this.translateStudyAbroadPage();
         } else if (path.includes('profile')) {
             this.translateProfilePage();
+        } else if (path.includes('edu-helper')) {
+            this.translateEduHelperPage();
+        } else if (path.includes('dual-diploma')) {
+            this.translateDualDiplomaPage();
         }
 
         this.updateProfileUI();
@@ -1828,6 +2114,134 @@ class AssylDataHub {
             else if (section === 'applications') link.innerHTML = '<i class="fas fa-file-alt"></i> ' + t.applications;
             else if (section === 'settings') link.innerHTML = '<i class="fas fa-cog"></i> ' + t.settings;
         });
+    }
+
+    // Edu Helper page translation
+    translateEduHelperPage() {
+        const t = this.translations.pages.eduHelper[this.currentLanguage];
+        if (!t) return;
+
+        // Page header
+        const pageTitle = document.querySelector('.page-title');
+        const pageSubtitle = document.querySelector('.page-subtitle');
+        if (pageTitle) pageTitle.innerHTML = 'Edu <span class="page-title-accent">Helper</span>';
+        if (pageSubtitle) pageSubtitle.textContent = t.pageSubtitle;
+
+        // Profile panel
+        const profilePanelTitle = document.querySelector('.profile-panel h2');
+        const profilePanelSubtitle = document.querySelector('.profile-panel .subtitle');
+        if (profilePanelTitle) profilePanelTitle.innerHTML = '<i class="fas fa-user-graduate" style="color: var(--accent-gold); margin-right: 0.5rem;"></i> ' + t.yourProfile;
+        if (profilePanelSubtitle) profilePanelSubtitle.textContent = t.profileSubtitle;
+
+        // Input section headers
+        const inputSections = document.querySelectorAll('.input-section h3');
+        if (inputSections[0]) inputSections[0].innerHTML = '<i class="fas fa-chart-bar" style="margin-right: 0.5rem;"></i> ' + t.testScores;
+        if (inputSections[1]) inputSections[1].innerHTML = '<i class="fas fa-heart" style="margin-right: 0.5rem;"></i> ' + t.interests;
+        if (inputSections[2]) inputSections[2].innerHTML = '<i class="fas fa-globe" style="margin-right: 0.5rem;"></i> ' + t.studyPreferences;
+
+        // Generate button
+        const generateBtn = document.querySelector('.profile-panel .btn-primary');
+        if (generateBtn) generateBtn.innerHTML = '<i class="fas fa-magic"></i> ' + t.generateBtn;
+
+        // Chat header
+        const chatTitle = document.querySelector('.chat-header-info h2');
+        const chatSubtitle = document.querySelector('.chat-header-info p');
+        const onlineBadge = document.querySelector('.online-badge');
+        if (chatTitle) chatTitle.textContent = t.aiTitle;
+        if (chatSubtitle) chatSubtitle.textContent = t.aiSubtitle;
+        if (onlineBadge) onlineBadge.textContent = t.online;
+
+        // Quick questions label
+        const quickQLabel = document.querySelector('.quick-questions p');
+        if (quickQLabel) quickQLabel.textContent = t.quickQuestions;
+
+        // Chat input placeholder
+        const chatInput = document.getElementById('userInput');
+        if (chatInput) chatInput.placeholder = t.inputPlaceholder;
+
+        // Features section
+        const featuresTitle = document.querySelector('.features-section .section-title h2');
+        const featuresSubtitle = document.querySelector('.features-section .section-title p');
+        if (featuresTitle) featuresTitle.textContent = t.howItWorks;
+        if (featuresSubtitle) featuresSubtitle.textContent = t.howItWorksSubtitle;
+
+        // Feature items
+        const featureItems = document.querySelectorAll('.feature-item');
+        const featureKeys = ['step1', 'step2', 'step3', 'step4'];
+        featureItems.forEach((item, index) => {
+            const h3 = item.querySelector('h3');
+            const p = item.querySelector('p');
+            if (h3 && t[featureKeys[index]]) h3.textContent = t[featureKeys[index]];
+            if (p && t[featureKeys[index] + 'Desc']) p.textContent = t[featureKeys[index] + 'Desc'];
+        });
+    }
+
+    // 2+2 Dual Diploma page translation
+    translateDualDiplomaPage() {
+        const t = this.translations.pages.dualDiploma[this.currentLanguage];
+        if (!t) return;
+
+        // Page header
+        const pageTitle = document.querySelector('.page-title');
+        const pageSubtitle = document.querySelector('.page-subtitle');
+        if (pageTitle) pageTitle.innerHTML = '2+2 <span class="page-title-accent">' + (this.currentLanguage === 'en' ? 'Dual Diploma' : this.currentLanguage === 'ru' ? 'Двойной диплом' : 'Қос диплом') + '</span> ' + (this.currentLanguage === 'en' ? 'Programs' : this.currentLanguage === 'ru' ? 'Программы' : 'Бағдарламалары');
+        if (pageSubtitle) pageSubtitle.textContent = t.pageSubtitle;
+
+        // Hero section
+        const heroTitle = document.querySelector('.dual-hero-content h1');
+        const heroDesc = document.querySelector('.dual-hero-content p');
+        if (heroTitle) heroTitle.innerHTML = t.heroTitle.replace('. ', '. <span>').replace(' Two Diplomas', '</span> Two Diplomas').replace(' Екі диплом', '</span> Екі диплом').replace(' Два диплома', '</span> Два диплома');
+        if (heroDesc) heroDesc.textContent = t.heroDesc;
+
+        // Hero badges
+        const heroBadges = document.querySelectorAll('.hero-badge');
+        if (heroBadges[0]) heroBadges[0].innerHTML = '<i class="fas fa-graduation-cap"></i> ' + t.dualDegree;
+        if (heroBadges[1]) heroBadges[1].innerHTML = '<i class="fas fa-dollar-sign"></i> ' + t.costEffective;
+        if (heroBadges[2]) heroBadges[2].innerHTML = '<i class="fas fa-globe"></i> ' + t.globalRecognition;
+
+        // How it works section
+        const howTitle = document.querySelector('.how-it-works .section-title h2');
+        const howSubtitle = document.querySelector('.how-it-works .section-title p');
+        if (howTitle) howTitle.textContent = t.howItWorks;
+        if (howSubtitle) howSubtitle.textContent = t.howItWorksSubtitle;
+
+        // Steps
+        const steps = document.querySelectorAll('.step-item');
+        const stepKeys = ['step1', 'step2', 'step3', 'step4'];
+        steps.forEach((step, index) => {
+            const h3 = step.querySelector('h3');
+            const p = step.querySelector('p');
+            if (h3 && t[stepKeys[index]]) h3.textContent = t[stepKeys[index]];
+            if (p && t[stepKeys[index] + 'Desc']) p.textContent = t[stepKeys[index] + 'Desc'];
+        });
+
+        // Programs section title
+        const programsTitle = document.querySelector('.programs-section .section-title h2');
+        const programsSubtitle = document.querySelector('.programs-section .section-title p');
+        if (programsTitle) programsTitle.textContent = t.featuredPrograms;
+        if (programsSubtitle) programsSubtitle.textContent = t.featuredProgramsSubtitle;
+
+        // Benefits section
+        const benefitsTitle = document.querySelector('.benefits-section .section-title h2');
+        const benefitsSubtitle = document.querySelector('.benefits-section .section-title p');
+        if (benefitsTitle) benefitsTitle.textContent = t.whyChoose;
+        if (benefitsSubtitle) benefitsSubtitle.textContent = t.whyChooseSubtitle;
+
+        // Benefit cards
+        const benefitCards = document.querySelectorAll('.benefit-card');
+        const benefitKeys = ['benefit1', 'benefit2', 'benefit3', 'benefit4', 'benefit5', 'benefit6'];
+        benefitCards.forEach((card, index) => {
+            const h3 = card.querySelector('h3');
+            const p = card.querySelector('p');
+            if (h3 && t[benefitKeys[index]]) h3.textContent = t[benefitKeys[index]];
+            if (p && t[benefitKeys[index] + 'Desc']) p.textContent = t[benefitKeys[index] + 'Desc'];
+        });
+
+        // Partners section
+        const partnersTitle = document.querySelector('.partners-section .section-title h2');
+        const partnersSubtitle = document.querySelector('.partners-section .section-title p');
+        if (partnersTitle) partnersTitle.textContent = t.partnerUnis;
+        if (partnersSubtitle) partnersSubtitle.textContent = t.partnerUnisSubtitle;
     }
 
     updateProfileUI() {
