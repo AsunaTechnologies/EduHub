@@ -1379,7 +1379,7 @@ class AssylDataHub {
                 const href = link.getAttribute('href') || '';
                 if (href.includes('index.html') || href === 'index.html') link.textContent = common.home;
                 else if (href.includes('study-in-kazakhstan')) link.textContent = common.studyKz;
-                else if (href.includes('study-abroad') && !href.includes('dual')) link.textContent = common.studyAbroad;
+                // Removed study-abroad link
                 else if (href.includes('dual-diploma')) link.textContent = '2+2';
                 else if (href.includes('edu-helper')) link.textContent = 'Edu Helper';
                 else if (href.includes('pricing')) link.textContent = common.pricing;
@@ -1406,7 +1406,7 @@ class AssylDataHub {
             this.translatePricingPage();
         } else if (path.includes('study-in-kazakhstan')) {
             this.translateStudyKzPage();
-        } else if (path.includes('study-abroad')) {
+        } else if (path.includes('dual-diploma')) {
             this.translateStudyAbroadPage();
         } else if (path.includes('profile')) {
             this.translateProfilePage();
