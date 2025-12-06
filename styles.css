@@ -247,23 +247,6 @@ a:hover {
     font-weight: 600;
 }
 
-.nav-profile {
-    background: var(--accent-gold);
-    color: var(--primary-navy) !important;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.nav-profile:hover {
-    background: #d4a912;
-    color: var(--primary-navy) !important;
-}
-
-.nav-profile i {
-    font-size: 1rem;
-}
 
 /* Language Switcher - Modern Pill Style */
 .lang-switcher {

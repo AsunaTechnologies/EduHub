@@ -74,9 +74,7 @@
 
         .hero-content {
             color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+            display: block;
         }
 
         .hero-badge {
@@ -92,8 +90,10 @@
             margin-bottom: 1.5rem;
             border: 1px solid rgba(201, 162, 39, 0.3);
             white-space: nowrap;
-            position: relative;
+            position: static;
             z-index: 1;
+            max-width: 100%;
+            flex-shrink: 0;
         }
 
         .hero-title {
@@ -638,7 +638,7 @@
                 <li><a href="edu-helper.html" class="nav-link" data-i18n="nav.eduHelper">Edu Helper</a></li>
                 <li><a href="pricing.html" class="nav-link" data-i18n="nav.pricing">Pricing</a></li>
                 <li><a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a></li>
-                <li><a href="profile.html" class="nav-link nav-profile" data-i18n="nav.profile"><i class="fas fa-user-circle"></i> Profile</a></li>
+                <li><a href="profile.html" class="nav-link" data-i18n="nav.profile">Profile</a></li>
             </ul>
 
             <div class="lang-switcher">
