@@ -845,7 +845,20 @@ class AssylDataHub {
                         bfeat16: 'Custom development',
                         compareTitle: 'Compare Plans',
                         feature: 'Feature',
-                        faqTitle: 'Frequently Asked Questions'
+                        faqTitle: 'Frequently Asked Questions',
+                        faqSubtitle: 'Everything you need to know about our plans',
+                        guaranteeTitle: '30-Day Money-Back Guarantee',
+                        guaranteeDesc: "We're confident you'll love our service. If you're not completely satisfied within the first 30 days, we'll give you a full refund—no questions asked.",
+                        faq1q: 'Can I change my plan anytime?',
+                        faq1a: "Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any billing differences.",
+                        faq2q: 'Is there a free trial?',
+                        faq2a: 'Yes! We offer a 14-day free trial for our Premium plan. No credit card required to start your trial.',
+                        faq3q: 'What payment methods do you accept?',
+                        faq3a: 'We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers for annual plans.',
+                        faq4q: 'Can I cancel my subscription?',
+                        faq4a: "Yes, you can cancel your subscription at any time. You'll continue to have access until the end of your current billing period.",
+                        faq5q: 'Do you offer student discounts?',
+                        faq5a: 'Yes! Students with a valid student ID can get 20% off any paid plan. Contact our support team to claim your discount.'
                     },
                     ru: {
                         pageTitle: 'Наши <span class="page-title-accent">Услуги</span>',
@@ -918,7 +931,20 @@ class AssylDataHub {
                         bfeat16: 'Кастомная разработка',
                         compareTitle: 'Сравнение планов',
                         feature: 'Функция',
-                        faqTitle: 'Часто задаваемые вопросы'
+                        faqTitle: 'Часто задаваемые вопросы',
+                        faqSubtitle: 'Всё, что вам нужно знать о наших планах',
+                        guaranteeTitle: '30-дневная гарантия возврата',
+                        guaranteeDesc: 'Мы уверены, что вам понравится наш сервис. Если вы не полностью довольны в течение первых 30 дней, мы вернём вам деньги — без лишних вопросов.',
+                        faq1q: 'Могу ли я изменить свой план в любое время?',
+                        faq1a: 'Да, вы можете повысить или понизить свой план в любое время. Изменения вступают в силу немедленно, и мы пропорционально пересчитаем разницу в оплате.',
+                        faq2q: 'Есть ли бесплатный пробный период?',
+                        faq2a: 'Да! Мы предлагаем 14-дневный бесплатный пробный период для плана Premium. Кредитная карта не требуется.',
+                        faq3q: 'Какие способы оплаты вы принимаете?',
+                        faq3a: 'Мы принимаем все основные кредитные карты (Visa, MasterCard, American Express), PayPal и банковские переводы для годовых планов.',
+                        faq4q: 'Могу ли я отменить подписку?',
+                        faq4a: 'Да, вы можете отменить подписку в любое время. Доступ сохранится до конца текущего расчётного периода.',
+                        faq5q: 'Есть ли скидки для студентов?',
+                        faq5a: 'Да! Студенты с действующим студенческим билетом могут получить скидку 20% на любой платный план. Свяжитесь с нашей службой поддержки.'
                     },
                     kz: {
                         pageTitle: 'Біздің <span class="page-title-accent">Қызметтер</span>',
@@ -991,7 +1017,20 @@ class AssylDataHub {
                         bfeat16: 'Арнайы әзірлеу',
                         compareTitle: 'Жоспарларды салыстыру',
                         feature: 'Мүмкіндік',
-                        faqTitle: 'Жиі қойылатын сұрақтар'
+                        faqTitle: 'Жиі қойылатын сұрақтар',
+                        faqSubtitle: 'Жоспарларымыз туралы білуіңіз керек барлығы',
+                        guaranteeTitle: '30 күндік ақшаны қайтару кепілдігі',
+                        guaranteeDesc: 'Біз сізге қызметіміз ұнайтынына сенімдіміз. Алғашқы 30 күн ішінде толық қанағаттанбасаңыз, ақшаңызды сұрақсыз қайтарамыз.',
+                        faq1q: 'Жоспарымды кез келген уақытта өзгерте аламын ба?',
+                        faq1a: 'Иә, жоспарыңызды кез келген уақытта жоғарылатуға немесе төмендетуге болады. Өзгерістер бірден күшіне енеді.',
+                        faq2q: 'Тегін сынақ кезеңі бар ма?',
+                        faq2a: 'Иә! Premium жоспарына 14 күндік тегін сынақ ұсынамыз. Кредит картасы қажет емес.',
+                        faq3q: 'Қандай төлем әдістерін қабылдайсыздар?',
+                        faq3a: 'Біз барлық негізгі кредит карталарын (Visa, MasterCard, American Express), PayPal және жылдық жоспарлар үшін банк аударымдарын қабылдаймыз.',
+                        faq4q: 'Жазылымымды тоқтата аламын ба?',
+                        faq4a: 'Иә, жазылымыңызды кез келген уақытта тоқтатуға болады. Ағымдағы есеп айырысу кезеңінің соңына дейін қол жетімділік сақталады.',
+                        faq5q: 'Студенттерге жеңілдіктер бар ма?',
+                        faq5a: 'Иә! Жарамды студенттік билеті бар студенттер кез келген ақылы жоспарға 20% жеңілдік ала алады. Қолдау тобымызбен байланысыңыз.'
                     }
                 },
                 // Study in Kazakhstan page
