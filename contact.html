@@ -222,77 +222,6 @@
             color: white;
         }
 
-        /* Office Locations */
-        .locations-section {
-            padding: 4rem 0;
-            background: var(--bg-cream);
-        }
-
-        .locations-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .locations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .location-card {
-            background: var(--bg-white);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            transition: all var(--transition-normal);
-        }
-
-        .location-card:hover {
-            box-shadow: var(--shadow-medium);
-        }
-
-        .location-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.25rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .location-flag {
-            width: 40px;
-            height: 28px;
-            border-radius: 4px;
-            margin-right: 1rem;
-            object-fit: cover;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-
-        .location-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary-navy);
-        }
-
-        .location-address {
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .location-details p {
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .location-details strong {
-            color: var(--text-primary);
-        }
-
         /* CTA Section */
         .cta-section {
             padding: 4rem 0;
@@ -328,10 +257,6 @@
             }
 
             .support-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .locations-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -538,76 +463,13 @@
         </div>
     </section>
 
-    <!-- Office Locations -->
-    <section class="locations-section">
-        <div class="locations-container">
-            <div class="section-title">
-                <h2 data-i18n="contact.ourOffices">Our Offices</h2>
-                <p data-i18n="contact.ourOfficesDesc">Visit us at one of our locations</p>
-            </div>
-
-            <div class="locations-grid">
-                <div class="location-card">
-                    <div class="location-header">
-                        <img src="https://flagcdn.com/w80/kz.png" alt="Kazakhstan Flag" class="location-flag">
-                        <h3 class="location-name">Kazakhstan - Headquarters</h3>
-                    </div>
-                    <div class="location-address">
-                        123 Nazarbayev Avenue<br>
-                        Astana 010000<br>
-                        Kazakhstan
-                    </div>
-                    <div class="location-details">
-                        <p><strong>Phone:</strong> +7 (7172) 123-456</p>
-                        <p><strong>Email:</strong> astana@assyldatahub.kz</p>
-                        <p><strong>Hours:</strong> Mon-Fri 9:00-18:00</p>
-                    </div>
-                </div>
-
-                <div class="location-card">
-                    <div class="location-header">
-                        <img src="https://flagcdn.com/w80/kz.png" alt="Kazakhstan Flag" class="location-flag">
-                        <h3 class="location-name">Almaty Office</h3>
-                    </div>
-                    <div class="location-address">
-                        45 Dostyk Avenue<br>
-                        Almaty 050010<br>
-                        Kazakhstan
-                    </div>
-                    <div class="location-details">
-                        <p><strong>Phone:</strong> +7 (747) 403-9869</p>
-                        <p><strong>Email:</strong> almaty@assyldatahub.kz</p>
-                        <p><strong>Hours:</strong> Mon-Fri 9:00-18:00</p>
-                    </div>
-                </div>
-
-                <div class="location-card">
-                    <div class="location-header">
-                        <img src="https://flagcdn.com/w80/ru.png" alt="Russia Flag" class="location-flag">
-                        <h3 class="location-name">Moscow Partner Office</h3>
-                    </div>
-                    <div class="location-address">
-                        78 Tverskaya Street<br>
-                        Moscow 125009<br>
-                        Russia
-                    </div>
-                    <div class="location-details">
-                        <p><strong>Phone:</strong> +7 (495) 123-4567</p>
-                        <p><strong>Email:</strong> moscow@assyldatahub.kz</p>
-                        <p><strong>Hours:</strong> Mon-Fri 10:00-19:00</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to Start Your Journey?</h2>
-                <p>Book a free consultation with our education experts and get personalized guidance for your university search.</p>
-                <a href="#" class="btn btn-accent btn-large">
+                <h2 data-i18n="contact.ctaTitle">Ready to Start Your Journey?</h2>
+                <p data-i18n="contact.ctaDesc">Book a free consultation with our education experts and get personalized guidance for your university search.</p>
+                <a href="#" class="btn btn-accent btn-large" data-i18n="contact.ctaBtn">
                     <i class="fas fa-calendar-alt"></i> Book Free Consultation
                 </a>
             </div>
@@ -615,34 +477,34 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand">
                     <h4>Assyl DataHub</h4>
-                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 0.5rem;">
-                        Empowering students and families to make informed decisions about higher education.
-                    </p>
+                    <p data-i18n="footer.description">Empowering students and families to make informed decisions about higher education since 2025.</p>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.quickLinks">Quick Links</h4>
                     <ul>
-                        <li><a href="study-in-kazakhstan.html">Study in Kazakhstan</a></li>
+                        <li><a href="study-in-kazakhstan.html" data-i18n="nav.studyKz">Study in Kazakhstan</a></li>
                         <li><a href="dual-diploma.html" data-i18n="nav.dualDiploma">1+1 Programs</a></li>
-                        <li><a href="pricing.html">Our Services</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="compare.html" data-i18n="nav.compare">Compare Universities</a></li>
+                        <li><a href="pricing.html" data-i18n="nav.pricing">Pricing</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.resources">Resources</h4>
                     <ul>
-                        <li><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> abulkasimovbahtiar3@gmail.com</li>
-                        <li><i class="fas fa-phone" style="margin-right: 0.5rem;"></i> +7 (747) 403-9869</li>
+                        <li><a href="edu-helper.html" data-i18n="nav.eduHelper">Edu Helper AI</a></li>
+                        <li><a href="#" data-i18n="footer.applicationGuide">Application Guide</a></li>
+                        <li><a href="#" data-i18n="footer.scholarships">Scholarship Database</a></li>
+                        <li><a href="contact.html" data-i18n="nav.contact">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Assyl DataHub. All rights reserved.</p>
+                <p data-i18n="footer.copyright">&copy; 2025 Assyl DataHub. All rights reserved.</p>
             </div>
         </div>
     </footer>

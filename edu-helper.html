@@ -1110,7 +1110,8 @@
     
     <script>
         // Edu Helper AI Chat Functionality
-        const API_URL = 'https://educational-datahub.onrender.com/api/v1/gemini/generate-educational';
+        // Using Vercel serverless proxy to avoid CORS issues
+        const API_URL = '/api/ai';
         const chatMessages = document.getElementById('chatMessages');
         const userInput = document.getElementById('userInput');
         const sendBtn = document.getElementById('sendBtn');
