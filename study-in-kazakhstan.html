@@ -434,7 +434,7 @@
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <span class="logo-icon">A</span>
-                Assyl DataHub
+                <span>A</span>ssyl DataHub
             </a>
             
             <ul class="nav-menu">
@@ -527,10 +527,11 @@
 
             <div class="sub-tabs">
                 <div class="sub-tabs-navigation">
-                    <button class="sub-tab-btn active" data-subtab="about">About</button>
-                    <button class="sub-tab-btn" data-subtab="programs">Programs</button>
-                    <button class="sub-tab-btn" data-subtab="admission">Admission</button>
-                    <button class="sub-tab-btn" data-subtab="campus">Campus Life</button>
+                    <button class="sub-tab-btn active" data-subtab="about" data-i18n="studyKz.aboutTab">About</button>
+                    <button class="sub-tab-btn" data-subtab="programs" data-i18n="studyKz.programsTab">Programs</button>
+                    <button class="sub-tab-btn" data-subtab="admission" data-i18n="studyKz.admissionTab">Admission</button>
+                    <button class="sub-tab-btn" data-subtab="campus" data-i18n="studyKz.campusLife">Campus Life</button>
+                    <button class="sub-tab-btn" data-subtab="tour" data-i18n="studyKz.tourTab">3D Tour</button>
                 </div>
 
                 <div class="sub-tab-content active" id="about">
@@ -699,6 +700,43 @@
                         Erasmus+, DAAD, and Fulbright. Students can earn dual degrees through partnerships with 
                         universities in the USA, UK, Germany, France, and South Korea.
                     </p>
+                </div>
+
+                <div class="sub-tab-content" id="tour">
+                    <h3 data-i18n="studyKz.virtualTour">Virtual Campus Tour</h3>
+                    <p data-i18n="studyKz.tourDesc" style="margin-bottom: 1.5rem;">
+                        Explore the campus of Al-Farabi Kazakh National University through our interactive 360° virtual tour.
+                    </p>
+                    
+                    <div class="tour-container" style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-medium);">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!4v1701849600000!6m8!1m7!1sCAoSLEFGMVFpcE1LR3F3eE5kQ2hhcUt5YndZbWNTd2pqOVFIMjZuWjlNLVNxdWRj!2m2!1d43.2371!2d76.9451!3f0!4f0!5f0.7820865974627469"
+                            width="100%" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem;">
+                        <div style="background: var(--bg-cream); padding: 1.5rem; border-radius: var(--radius-md); text-align: center;">
+                            <i class="fas fa-building" style="font-size: 2rem; color: var(--primary-navy); margin-bottom: 0.75rem;"></i>
+                            <h4 data-i18n="studyKz.mainBuilding" style="margin-bottom: 0.5rem;">Main Building</h4>
+                            <p data-i18n="studyKz.mainBuildingDesc" style="font-size: 0.9rem; color: var(--text-muted);">Historic main campus building with administrative offices</p>
+                        </div>
+                        <div style="background: var(--bg-cream); padding: 1.5rem; border-radius: var(--radius-md); text-align: center;">
+                            <i class="fas fa-flask" style="font-size: 2rem; color: var(--primary-navy); margin-bottom: 0.75rem;"></i>
+                            <h4 data-i18n="studyKz.scienceLabs" style="margin-bottom: 0.5rem;">Science Labs</h4>
+                            <p data-i18n="studyKz.scienceLabsDesc" style="font-size: 0.9rem; color: var(--text-muted);">Modern laboratories for research and experiments</p>
+                        </div>
+                        <div style="background: var(--bg-cream); padding: 1.5rem; border-radius: var(--radius-md); text-align: center;">
+                            <i class="fas fa-home" style="font-size: 2rem; color: var(--primary-navy); margin-bottom: 0.75rem;"></i>
+                            <h4 data-i18n="studyKz.dormitories" style="margin-bottom: 0.5rem;">Dormitories</h4>
+                            <p data-i18n="studyKz.dormitoriesDesc" style="font-size: 0.9rem; color: var(--text-muted);">Comfortable student housing on campus</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
