@@ -811,7 +811,7 @@
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <span class="logo-icon">A</span>
-                <span>A</span>ssyl DataHub
+                Assyl DataHub
             </a>
             
             <ul class="nav-menu">
@@ -1501,21 +1501,30 @@
             showTyping();
 
             try {
+                console.log('Sending message to AI:', message);
+                
                 const response = await fetch(API_URL, {
                     method: 'POST',
+                    mode: 'cors',
                     headers: {
                         'Content-Type': 'application/json',
+                        'Accept': 'application/json'
                     },
                     body: JSON.stringify({
                         prompt: message
                     })
                 });
 
+                console.log('Response status:', response.status);
+
                 if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('API Error:', errorText);
                     throw new Error(`API request failed: ${response.status}`);
                 }
 
                 const data = await response.json();
+                console.log('AI Response:', data);
                 
                 // Hide thinking indicator
                 hideTyping();
@@ -1528,10 +1537,10 @@
                 addMessage(aiResponse, 'ai');
 
             } catch (error) {
-                console.error('Error:', error);
+                console.error('Error calling AI:', error);
                 hideTyping();
                 addMessage(
-                    "I'm sorry, I'm having trouble connecting right now. Please try again in a moment, or contact our support team at abulkasimovbahtiar3@gmail.com for immediate assistance.",
+                    "I'm sorry, I'm having trouble connecting right now. Please check your internet connection and try again. If the problem persists, contact our support team at abulkasimovbahtiar3@gmail.com",
                     'ai'
                 );
             }

@@ -580,106 +580,157 @@ class AssylDataHub {
                 // Contact page
                 contact: {
                     en: {
-                        pageTitle: 'Contact Us',
-                        pageSubtitle: 'Have questions? We\'re here to help you on your educational journey.',
+                        pageTitle: 'Contact <span class="page-title-accent">Us</span>',
+                        pageSubtitle: 'Have questions about your educational journey? Our team is here to help you find the right path to your dream university.',
                         getInTouch: 'Get in Touch',
-                        getInTouchDesc: 'Fill out the form and our team will get back to you within 24 hours.',
-                        emailLabel: 'Email',
-                        phoneLabel: 'Phone',
-                        addressLabel: 'Address',
-                        address: 'Almaty, Kazakhstan',
-                        yourName: 'Your Name',
-                        yourEmail: 'Your Email',
+                        emailUs: 'Email Us',
+                        emailUsDesc: 'For general inquiries and support',
+                        callUs: 'Call Us',
+                        callUsDesc: 'For urgent matters and consultations',
+                        liveChat: 'Live Chat',
+                        liveChatDesc: 'Instant support during business hours',
+                        startConversation: 'Start a conversation',
+                        officeHours: 'Office Hours',
+                        mondayFriday: 'Monday - Friday',
+                        saturday: 'Saturday',
+                        sunday: 'Sunday',
+                        closed: 'Closed',
+                        sendUsMessage: 'Send Us a Message',
+                        firstName: 'First Name',
+                        lastName: 'Last Name',
+                        emailAddress: 'Email Address',
+                        phoneNumber: 'Phone Number',
                         subject: 'Subject',
                         selectSubject: 'Select a subject',
                         generalInquiry: 'General Inquiry',
-                        admissionHelp: 'Admission Help',
-                        scholarshipInfo: 'Scholarship Information',
-                        partnership: 'Partnership',
-                        yourMessage: 'Your Message',
-                        messagePlaceholder: 'Tell us how we can help you...',
+                        requestConsultation: 'Request Consultation',
+                        universityInfo: 'University Information',
+                        applicationHelp: 'Application Help',
+                        partnership: 'Partnership Opportunity',
+                        other: 'Other',
+                        message: 'Message',
+                        messagePlaceholder: 'How can we help you?',
                         sendMessage: 'Send Message',
-                        supportTitle: 'Support Options',
-                        liveChat: 'Live Chat',
-                        liveChatDesc: 'Chat with our team in real-time',
-                        startChat: 'Start Chat',
-                        emailSupport: 'Email Support',
-                        emailSupportDesc: 'Get a response within 24 hours',
-                        sendEmail: 'Send Email',
-                        phoneSupport: 'Phone Support',
-                        phoneSupportDesc: 'Mon-Fri, 9:00 AM - 6:00 PM',
-                        callNow: 'Call Now',
-                        officeLocations: 'Office Locations',
+                        howCanWeHelp: 'How Can We Help?',
+                        howCanWeHelpDesc: 'Choose the support option that works best for you',
+                        helpCenter: 'Help Center',
+                        helpCenterDesc: 'Find answers to common questions, tutorials, and step-by-step guides.',
+                        browseArticles: 'Browse Articles',
+                        videoGuides: 'Video Guides',
+                        videoGuidesDesc: 'Watch detailed tutorials on how to use our platform and services.',
+                        watchVideos: 'Watch Videos',
+                        community: 'Community',
+                        communityDesc: 'Connect with other students and families to share experiences.',
+                        joinCommunity: 'Join Community',
+                        bookConsultation: 'Book Consultation',
+                        bookConsultationDesc: 'Schedule a free consultation with our education counselors.',
+                        scheduleNow: 'Schedule Now',
+                        ourOffices: 'Our Offices',
+                        ourOfficesDesc: 'Visit us at one of our locations',
                         mainOffice: 'Main Office',
-                        hours: 'Hours'
+                        workingHours: 'Working Hours'
                     },
                     ru: {
-                        pageTitle: 'Свяжитесь с нами',
-                        pageSubtitle: 'Есть вопросы? Мы здесь, чтобы помочь вам в вашем образовательном пути.',
+                        pageTitle: 'Свяжитесь <span class="page-title-accent">с нами</span>',
+                        pageSubtitle: 'Есть вопросы о вашем образовательном пути? Наша команда поможет вам найти путь к университету вашей мечты.',
                         getInTouch: 'Связаться',
-                        getInTouchDesc: 'Заполните форму, и наша команда ответит вам в течение 24 часов.',
-                        emailLabel: 'Эл. почта',
-                        phoneLabel: 'Телефон',
-                        addressLabel: 'Адрес',
-                        address: 'Алматы, Казахстан',
-                        yourName: 'Ваше имя',
-                        yourEmail: 'Ваша почта',
+                        emailUs: 'Напишите нам',
+                        emailUsDesc: 'Для общих вопросов и поддержки',
+                        callUs: 'Позвоните нам',
+                        callUsDesc: 'Для срочных вопросов и консультаций',
+                        liveChat: 'Онлайн чат',
+                        liveChatDesc: 'Мгновенная поддержка в рабочее время',
+                        startConversation: 'Начать разговор',
+                        officeHours: 'Часы работы',
+                        mondayFriday: 'Понедельник - Пятница',
+                        saturday: 'Суббота',
+                        sunday: 'Воскресенье',
+                        closed: 'Закрыто',
+                        sendUsMessage: 'Отправьте нам сообщение',
+                        firstName: 'Имя',
+                        lastName: 'Фамилия',
+                        emailAddress: 'Электронная почта',
+                        phoneNumber: 'Номер телефона',
                         subject: 'Тема',
                         selectSubject: 'Выберите тему',
                         generalInquiry: 'Общий вопрос',
-                        admissionHelp: 'Помощь с поступлением',
-                        scholarshipInfo: 'Информация о стипендиях',
-                        partnership: 'Партнерство',
-                        yourMessage: 'Ваше сообщение',
-                        messagePlaceholder: 'Расскажите, как мы можем вам помочь...',
+                        requestConsultation: 'Запрос консультации',
+                        universityInfo: 'Информация об университете',
+                        applicationHelp: 'Помощь с заявкой',
+                        partnership: 'Возможность партнерства',
+                        other: 'Другое',
+                        message: 'Сообщение',
+                        messagePlaceholder: 'Как мы можем вам помочь?',
                         sendMessage: 'Отправить сообщение',
-                        supportTitle: 'Варианты поддержки',
-                        liveChat: 'Онлайн чат',
-                        liveChatDesc: 'Общайтесь с нашей командой в реальном времени',
-                        startChat: 'Начать чат',
-                        emailSupport: 'Поддержка по почте',
-                        emailSupportDesc: 'Ответ в течение 24 часов',
-                        sendEmail: 'Написать',
-                        phoneSupport: 'Поддержка по телефону',
-                        phoneSupportDesc: 'Пн-Пт, 9:00 - 18:00',
-                        callNow: 'Позвонить',
-                        officeLocations: 'Наши офисы',
+                        howCanWeHelp: 'Как мы можем помочь?',
+                        howCanWeHelpDesc: 'Выберите удобный способ поддержки',
+                        helpCenter: 'Справочный центр',
+                        helpCenterDesc: 'Найдите ответы на частые вопросы, руководства и пошаговые инструкции.',
+                        browseArticles: 'Смотреть статьи',
+                        videoGuides: 'Видео-руководства',
+                        videoGuidesDesc: 'Смотрите подробные уроки по использованию нашей платформы.',
+                        watchVideos: 'Смотреть видео',
+                        community: 'Сообщество',
+                        communityDesc: 'Общайтесь с другими студентами и семьями, делитесь опытом.',
+                        joinCommunity: 'Присоединиться',
+                        bookConsultation: 'Записаться на консультацию',
+                        bookConsultationDesc: 'Запланируйте бесплатную консультацию с нашими консультантами.',
+                        scheduleNow: 'Записаться',
+                        ourOffices: 'Наши офисы',
+                        ourOfficesDesc: 'Посетите нас в одном из наших офисов',
                         mainOffice: 'Главный офис',
-                        hours: 'Часы работы'
+                        workingHours: 'Часы работы'
                     },
                     kz: {
-                        pageTitle: 'Бізбен байланысыңыз',
-                        pageSubtitle: 'Сұрақтарыңыз бар ма? Біз сіздің білім жолыңызда көмектесуге дайынбыз.',
+                        pageTitle: 'Бізбен <span class="page-title-accent">байланысыңыз</span>',
+                        pageSubtitle: 'Білім жолыңыз туралы сұрақтарыңыз бар ма? Біздің команда арман университетіңізге жол табуға көмектеседі.',
                         getInTouch: 'Байланысу',
-                        getInTouchDesc: 'Форманы толтырыңыз, біздің команда 24 сағат ішінде жауап береді.',
-                        emailLabel: 'Эл. пошта',
-                        phoneLabel: 'Телефон',
-                        addressLabel: 'Мекенжай',
-                        address: 'Алматы, Қазақстан',
-                        yourName: 'Сіздің атыңыз',
-                        yourEmail: 'Сіздің поштаңыз',
+                        emailUs: 'Бізге жазыңыз',
+                        emailUsDesc: 'Жалпы сұрақтар мен қолдау үшін',
+                        callUs: 'Бізге қоңырау шалыңыз',
+                        callUsDesc: 'Шұғыл мәселелер мен кеңестер үшін',
+                        liveChat: 'Онлайн чат',
+                        liveChatDesc: 'Жұмыс уақытында жедел қолдау',
+                        startConversation: 'Сөйлесуді бастау',
+                        officeHours: 'Жұмыс сағаттары',
+                        mondayFriday: 'Дүйсенбі - Жұма',
+                        saturday: 'Сенбі',
+                        sunday: 'Жексенбі',
+                        closed: 'Жабық',
+                        sendUsMessage: 'Бізге хабарлама жіберіңіз',
+                        firstName: 'Аты',
+                        lastName: 'Тегі',
+                        emailAddress: 'Электрондық пошта',
+                        phoneNumber: 'Телефон нөмірі',
                         subject: 'Тақырып',
                         selectSubject: 'Тақырыпты таңдаңыз',
                         generalInquiry: 'Жалпы сұрақ',
-                        admissionHelp: 'Түсуге көмек',
-                        scholarshipInfo: 'Стипендия ақпараты',
-                        partnership: 'Серіктестік',
-                        yourMessage: 'Сіздің хабарламаңыз',
-                        messagePlaceholder: 'Қалай көмектесе алатынымызды айтыңыз...',
+                        requestConsultation: 'Кеңес сұрау',
+                        universityInfo: 'Университет туралы ақпарат',
+                        applicationHelp: 'Өтінішке көмек',
+                        partnership: 'Серіктестік мүмкіндігі',
+                        other: 'Басқа',
+                        message: 'Хабарлама',
+                        messagePlaceholder: 'Қалай көмектесе аламыз?',
                         sendMessage: 'Хабарлама жіберу',
-                        supportTitle: 'Қолдау опциялары',
-                        liveChat: 'Онлайн чат',
-                        liveChatDesc: 'Біздің командамен нақты уақытта сөйлесіңіз',
-                        startChat: 'Чат бастау',
-                        emailSupport: 'Пошта арқылы қолдау',
-                        emailSupportDesc: '24 сағат ішінде жауап',
-                        sendEmail: 'Жазу',
-                        phoneSupport: 'Телефон арқылы қолдау',
-                        phoneSupportDesc: 'Дс-Жм, 9:00 - 18:00',
-                        callNow: 'Қоңырау шалу',
-                        officeLocations: 'Біздің офистер',
+                        howCanWeHelp: 'Қалай көмектесе аламыз?',
+                        howCanWeHelpDesc: 'Сізге ыңғайлы қолдау әдісін таңдаңыз',
+                        helpCenter: 'Анықтама орталығы',
+                        helpCenterDesc: 'Жиі қойылатын сұрақтарға жауаптарды, нұсқаулықтарды табыңыз.',
+                        browseArticles: 'Мақалаларды қарау',
+                        videoGuides: 'Бейне нұсқаулықтар',
+                        videoGuidesDesc: 'Платформаны пайдалану бойынша толық сабақтарды көріңіз.',
+                        watchVideos: 'Бейнелерді көру',
+                        community: 'Қауымдастық',
+                        communityDesc: 'Басқа студенттермен және отбасылармен тәжірибе бөлісіңіз.',
+                        joinCommunity: 'Қосылу',
+                        bookConsultation: 'Кеңесге жазылу',
+                        bookConsultationDesc: 'Біздің кеңесшілермен тегін кеңесті жоспарлаңыз.',
+                        scheduleNow: 'Жазылу',
+                        ourOffices: 'Біздің офистер',
+                        ourOfficesDesc: 'Біздің офистердің біріне келіңіз',
                         mainOffice: 'Бас офис',
-                        hours: 'Жұмыс сағаттары'
+                        workingHours: 'Жұмыс сағаттары'
                     }
                 },
                 // Pricing page
@@ -2304,86 +2355,31 @@ class AssylDataHub {
         const t = this.translations.pages.contact[this.currentLanguage];
         if (!t) return;
 
-        const pageTitle = document.querySelector('.page-title');
-        const pageSubtitle = document.querySelector('.page-subtitle');
-        if (pageTitle) pageTitle.textContent = t.pageTitle;
-        if (pageSubtitle) pageSubtitle.textContent = t.pageSubtitle;
-
-        // Section title
-        const sectionTitle = document.querySelector('.contact-info .section-title h2');
-        if (sectionTitle) sectionTitle.textContent = t.getInTouch;
-        const sectionDesc = document.querySelector('.contact-info .section-title p');
-        if (sectionDesc) sectionDesc.textContent = t.getInTouchDesc;
-
-        // Form labels
-        const formLabels = document.querySelectorAll('.form-label');
-        formLabels.forEach(label => {
-            const forAttr = label.getAttribute('for') || '';
-            const text = label.textContent.toLowerCase();
-            if (forAttr.includes('name') || text.includes('name')) label.textContent = t.yourName;
-            else if (forAttr.includes('email') || text.includes('email')) label.textContent = t.yourEmail;
-            else if (forAttr.includes('subject') || text.includes('subject')) label.textContent = t.subject;
-            else if (forAttr.includes('message') || text.includes('message')) label.textContent = t.yourMessage;
-        });
-
-        // Form placeholders
-        const nameInput = document.getElementById('name');
-        const emailInput = document.getElementById('email');
-        const messageInput = document.getElementById('message');
-        if (nameInput) nameInput.placeholder = t.yourName;
-        if (emailInput) emailInput.placeholder = t.yourEmail;
-        if (messageInput) messageInput.placeholder = t.messagePlaceholder;
-
-        // Subject select options
-        const subjectSelect = document.getElementById('subject');
-        if (subjectSelect) {
-            const options = subjectSelect.querySelectorAll('option');
-            if (options[0]) options[0].textContent = t.selectSubject;
-            if (options[1]) options[1].textContent = t.generalInquiry;
-            if (options[2]) options[2].textContent = t.admissionHelp;
-            if (options[3]) options[3].textContent = t.scholarshipInfo;
-            if (options[4]) options[4].textContent = t.partnership;
-        }
-
-        const submitBtn = document.querySelector('.submit-btn');
-        if (submitBtn) submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ' + t.sendMessage;
-
-        // Contact items
-        const contactDetails = document.querySelectorAll('.contact-details h3');
-        contactDetails.forEach(h3 => {
-            const text = h3.textContent.toLowerCase();
-            if (text.includes('email')) h3.textContent = t.emailLabel;
-            else if (text.includes('phone') || text.includes('телефон')) h3.textContent = t.phoneLabel;
-            else if (text.includes('address') || text.includes('адрес') || text.includes('мекен')) h3.textContent = t.addressLabel;
-        });
-
-        // Support section
-        const supportTitle = document.querySelector('.support-section .section-title h2');
-        if (supportTitle) supportTitle.textContent = t.supportTitle;
-
-        const supportCards = document.querySelectorAll('.support-card');
-        supportCards.forEach((card, index) => {
-            const title = card.querySelector('.support-title');
-            const desc = card.querySelector('.support-description');
-            const btn = card.querySelector('.support-button');
-            if (index === 0) {
-                if (title) title.textContent = t.liveChat;
-                if (desc) desc.textContent = t.liveChatDesc;
-                if (btn) btn.textContent = t.startChat;
-            } else if (index === 1) {
-                if (title) title.textContent = t.emailSupport;
-                if (desc) desc.textContent = t.emailSupportDesc;
-                if (btn) btn.textContent = t.sendEmail;
-            } else if (index === 2) {
-                if (title) title.textContent = t.phoneSupport;
-                if (desc) desc.textContent = t.phoneSupportDesc;
-                if (btn) btn.textContent = t.callNow;
+        // Translate all elements with data-i18n starting with "contact."
+        document.querySelectorAll('[data-i18n^="contact."]').forEach(el => {
+            const key = el.getAttribute('data-i18n').replace('contact.', '');
+            if (t[key]) {
+                if (el.classList.contains('page-title')) {
+                    el.innerHTML = t[key];
+                } else if (el.tagName === 'OPTION') {
+                    el.textContent = t[key];
+                } else {
+                    el.textContent = t[key];
+                }
             }
         });
 
-        // Office locations
-        const locationsTitle = document.querySelector('.locations-section .section-title h2');
-        if (locationsTitle) locationsTitle.textContent = t.officeLocations;
+        // Fallback for page elements without data-i18n
+        const pageTitle = document.querySelector('.page-title:not([data-i18n])');
+        const pageSubtitle = document.querySelector('.page-subtitle:not([data-i18n])');
+        if (pageTitle) pageTitle.innerHTML = t.pageTitle;
+        if (pageSubtitle) pageSubtitle.textContent = t.pageSubtitle;
+
+        // Form placeholders
+        const messageTextarea = document.getElementById('message');
+        if (messageTextarea && t.messagePlaceholder) {
+            messageTextarea.placeholder = t.messagePlaceholder;
+        }
     }
 
     // Pricing page translation
