@@ -1,0 +1,57 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/study-in-kazakhstan",
+      "dest": "/study-in-kazakhstan.html"
+    },
+    {
+      "src": "/study-abroad",
+      "dest": "/study-abroad.html"
+    },
+    {
+      "src": "/dual-diploma",
+      "dest": "/dual-diploma.html"
+    },
+    {
+      "src": "/edu-helper",
+      "dest": "/edu-helper.html"
+    },
+    {
+      "src": "/pricing",
+      "dest": "/pricing.html"
+    },
+    {
+      "src": "/contact",
+      "dest": "/contact.html"
+    },
+    {
+      "src": "/profile",
+      "dest": "/profile.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ]
+}
+
