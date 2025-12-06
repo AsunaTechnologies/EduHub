@@ -563,7 +563,13 @@ class AssylDataHub {
                         admissionTab: 'Admission',
                         tourTab: '3D Tour',
                         mission: 'Mission',
+                        missionVision: 'Mission & Vision',
                         history: 'History',
+                        historyAchievements: 'History & Achievements',
+                        campusLife: 'Campus Life',
+                        campusFacilities: 'Campus Facilities',
+                        studentLife: 'Student Life',
+                        internationalExchange: 'International Exchange',
                         availablePrograms: 'Available Programs',
                         degree: 'Degree',
                         duration: 'Duration',
@@ -591,7 +597,19 @@ class AssylDataHub {
                         admissionTab: 'Поступление',
                         tourTab: '3D тур',
                         mission: 'Миссия',
+                        missionVision: 'Миссия и Видение',
+                        missionText: 'Быть ведущим исследовательским университетом, способствующим устойчивому развитию Казахстана и мирового сообщества через инновации, образование и исследовательское превосходство. КазНУ стремится войти в топ-100 университетов мира к 2030 году.',
                         history: 'История',
+                        historyAchievements: 'История и Достижения',
+                        historyText1: 'Основанный в 1934 году, Казахский Национальный Университет имени аль-Фараби является старейшим и крупнейшим университетом в Казахстане. Он подготовил более 100 000 специалистов, внесших значительный вклад в развитие Казахстана и других стран. Университет первым в Казахстане получил Президентскую премию за качество.',
+                        historyText2: 'Ключевые достижения включают звание лучшего университета в Центральной Азии, членство в международных ассоциациях университетов и партнерство с более чем 300 университетами по всему миру.',
+                        campusLife: 'Кампус',
+                        campusFacilities: 'Инфраструктура кампуса',
+                        campusText1: 'КазНУ предлагает современную инфраструктуру, включая передовые лаборатории, библиотеки, спортивные комплексы и студенческие общежития. Кампус расположен в красивом городе Алматы, окруженном горами и предлагающем яркую студенческую жизнь.',
+                        studentLife: 'Студенческая жизнь',
+                        studentLifeText: 'Студенты могут участвовать в более чем 50 клубах и организациях, включая спортивные команды, культурные группы и академические общества. Университет регулярно проводит мероприятия, конференции и культурные фестивали, объединяющие студентов со всего мира.',
+                        internationalExchange: 'Международный обмен',
+                        exchangeText: 'КазНУ имеет партнерство с более чем 300 университетами по всему миру, предлагая программы обмена, включая Erasmus+, DAAD и Fulbright. Студенты могут получить двойные степени через партнерство с международными учреждениями.',
                         availablePrograms: 'Доступные программы',
                         degree: 'Степень',
                         duration: 'Длительность',
@@ -619,7 +637,19 @@ class AssylDataHub {
                         admissionTab: 'Түсу',
                         tourTab: '3D тур',
                         mission: 'Миссия',
+                        missionVision: 'Миссия және Көзқарас',
+                        missionText: 'Қазақстан мен жаһандық қоғамның тұрақты дамуына инновациялар, білім және зерттеу жетістіктері арқылы үлес қосатын жетекші зерттеу университеті болу. ҚазҰУ 2030 жылға дейін әлемдегі топ-100 университеттер қатарына кіруге ұмтылады.',
                         history: 'Тарих',
+                        historyAchievements: 'Тарих және Жетістіктер',
+                        historyText1: '1934 жылы құрылған Әл-Фараби атындағы Қазақ Ұлттық Университеті Қазақстандағы ең ескі және ірі университет. Ол Қазақстан мен басқа елдердің дамуына елеулі үлес қосқан 100 000-нан астам маман дайындады. Университет Қазақстанда сапа үшін Президент сыйлығын алған алғашқы болды.',
+                        historyText2: 'Негізгі жетістіктерге Орталық Азиядағы ең жақсы университет ретінде рейтингтелу, халықаралық университет ассоциацияларына мүшелік және әлем бойынша 300-ден астам университеттермен серіктестік кіреді.',
+                        campusLife: 'Кампус',
+                        campusFacilities: 'Кампус инфрақұрылымы',
+                        campusText1: 'ҚазҰУ заманауи зертханалар, кітапханалар, спорт кешендері және студенттер жатақханаларын қоса алғанда заманауи инфрақұрылым ұсынады. Кампус таулармен қоршалған әдемі Алматы қаласында орналасқан және жанды студенттік өмір ұсынады.',
+                        studentLife: 'Студенттік өмір',
+                        studentLifeText: 'Студенттер спорт командалары, мәдени топтар және академиялық қоғамдарды қоса алғанда 50-ден астам клуб пен ұйымдарға қатыса алады. Университет әлемнің түкпір-түкпірінен келген студенттерді біріктіретін тұрақты іс-шаралар, конференциялар және мәдени фестивальдар өткізеді.',
+                        internationalExchange: 'Халықаралық алмасу',
+                        exchangeText: 'ҚазҰУ әлем бойынша 300-ден астам университеттермен серіктестікке ие, Erasmus+, DAAD және Fulbright қоса алғанда алмасу бағдарламаларын ұсынады. Студенттер халықаралық мекемелермен серіктестік арқылы қос диплом ала алады.',
                         availablePrograms: 'Қолжетімді бағдарламалар',
                         degree: 'Дәреже',
                         duration: 'Ұзақтығы',
@@ -927,10 +957,75 @@ class AssylDataHub {
                 // 2+2 Dual Diploma page
                 dualDiploma: {
                     en: {
-                        pageTitle: '2+2 Dual Diploma Programs',
-                        pageSubtitle: 'Start your education in Kazakhstan, finish at a prestigious international university. Get two diplomas, one global experience.',
-                        heroTitle: 'Two Countries. Two Diplomas. One Amazing Journey.',
-                        heroDesc: 'Our 2+2 programs let you spend your first two years at a top Kazakh university, then transfer to complete your degree at partner universities abroad.',
+                        pageTitle: '1+1 Dual Diploma Programs',
+                        pageSubtitle: 'Get two Master\'s degrees from Kazakhstan and international partner universities. Study 1 year locally, then 1 year abroad.',
+                        heroTitle: '1+1 Dual Diploma Programs',
+                        heroDesc: 'Get two Master\'s degrees from Kazakhstan and international partner universities. Study 1 year locally, then 1 year abroad — graduate with diplomas from both institutions.',
+                        badge1: 'Two Diplomas',
+                        badge2: 'Global Recognition',
+                        badge3: 'Cost Effective',
+                        year: 'Year',
+                        inKz: 'In Kazakhstan',
+                        abroad: 'Abroad',
+                        diplomas: 'Diplomas',
+                        graduate: 'Graduate',
+                        howTitle: 'How 1+1 Programs Work',
+                        howSubtitle: 'A streamlined pathway to international education and career success',
+                        step1Title: 'Apply',
+                        step1Desc: 'Submit application to Kazakh partner university',
+                        step2Title: 'Year 1',
+                        step2Desc: 'Study at university in Kazakhstan',
+                        step3Title: 'Year 2',
+                        step3Desc: 'Transfer to partner university abroad',
+                        step4Title: 'Graduate',
+                        step4Desc: 'Receive two recognized Master\'s degrees',
+                        programsTitle: 'Featured 1+1 Programs',
+                        programsSubtitle: 'Select partnerships between Kazakhstan and world-class international universities',
+                        popular: 'Popular',
+                        premium: 'Premium',
+                        tech: 'Tech',
+                        engineering: 'Engineering',
+                        industry: 'Industry',
+                        research: 'Research',
+                        years: 'Years',
+                        perYear: 'Per Year',
+                        feat1: 'AACSB accredited business school',
+                        feat2: 'English-taught program',
+                        feat3: 'EU recognized degree',
+                        feat4: 'Top 30 UK university',
+                        feat5: 'CFA partnership',
+                        feat6: 'Post-study work visa',
+                        feat7: '#1 Technical university in Italy',
+                        feat8: 'Strong industry connections',
+                        feat9: 'Low tuition fees',
+                        feat10: 'Top 50 global university',
+                        feat11: 'Free public education',
+                        feat12: '18-month post-study visa',
+                        feat13: 'Historic technical university',
+                        feat14: 'Affordable living costs',
+                        feat15: 'EU work permit eligible',
+                        feat16: 'World-class research facilities',
+                        feat17: 'Strong scholarship support',
+                        feat18: 'Innovation hub environment',
+                        apply: 'Apply Now',
+                        details: 'Details',
+                        partnersTitle: 'Partner Countries',
+                        partnersSubtitle: 'Our 1+1 programs connect you with top universities worldwide',
+                        uk: 'United Kingdom',
+                        germany: 'Germany',
+                        poland: 'Poland',
+                        italy: 'Italy',
+                        korea: 'South Korea',
+                        ctaTitle: 'Ready to Start Your International Journey?',
+                        ctaSubtitle: 'Get personalized guidance on choosing the right 1+1 program for your career goals',
+                        ctaBtn1: 'Book Free Consultation',
+                        ctaBtn2: 'Ask AI Advisor',
+                        prog1Sub: 'Business Administration MBA',
+                        prog2Sub: 'MSc Finance & Economics',
+                        prog3Sub: 'MSc Computer Engineering',
+                        prog4Sub: 'MSc Data Science',
+                        prog5Sub: 'MSc Mechanical Engineering',
+                        prog6Sub: 'MSc Biotechnology',
                         dualDegree: 'Dual Degree',
                         costEffective: 'Cost Effective',
                         globalRecognition: 'Global Recognition',
@@ -966,10 +1061,75 @@ class AssylDataHub {
                         partnerUnisSubtitle: 'Study at world-class institutions through our 2+2 programs'
                     },
                     ru: {
-                        pageTitle: 'Программы 2+2 Двойной диплом',
-                        pageSubtitle: 'Начните образование в Казахстане, закончите в престижном международном университете.',
-                        heroTitle: 'Две страны. Два диплома. Одно удивительное путешествие.',
-                        heroDesc: 'Наши программы 2+2 позволяют провести первые два года в топ-университете Казахстана, затем перевестись за рубеж.',
+                        pageTitle: 'Программы 1+1 Двойной диплом',
+                        pageSubtitle: 'Получите два диплома магистра от университетов Казахстана и международных партнеров. Учитесь 1 год в Казахстане, затем 1 год за рубежом.',
+                        heroTitle: 'Программы 1+1 Двойной диплом',
+                        heroDesc: 'Получите два диплома магистра от университетов Казахстана и международных партнеров. Учитесь 1 год в Казахстане, затем 1 год за рубежом — выпуститесь с дипломами обоих вузов.',
+                        badge1: 'Два диплома',
+                        badge2: 'Мировое признание',
+                        badge3: 'Экономично',
+                        year: 'Год',
+                        inKz: 'В Казахстане',
+                        abroad: 'За рубежом',
+                        diplomas: 'Дипломы',
+                        graduate: 'Выпуск',
+                        howTitle: 'Как работают программы 1+1',
+                        howSubtitle: 'Эффективный путь к международному образованию и карьерному успеху',
+                        step1Title: 'Подать заявку',
+                        step1Desc: 'Подайте заявку в казахстанский партнерский университет',
+                        step2Title: 'Год 1',
+                        step2Desc: 'Учитесь в университете Казахстана',
+                        step3Title: 'Год 2',
+                        step3Desc: 'Переведитесь в партнерский университет за рубежом',
+                        step4Title: 'Выпуститесь',
+                        step4Desc: 'Получите два признанных диплома магистра',
+                        programsTitle: 'Рекомендуемые программы 1+1',
+                        programsSubtitle: 'Отборные партнерства между Казахстаном и ведущими международными университетами',
+                        popular: 'Популярно',
+                        premium: 'Премиум',
+                        tech: 'Технологии',
+                        engineering: 'Инженерия',
+                        industry: 'Промышленность',
+                        research: 'Исследования',
+                        years: 'Лет',
+                        perYear: 'В год',
+                        feat1: 'AACSB аккредитованная бизнес-школа',
+                        feat2: 'Программа на английском',
+                        feat3: 'Диплом, признанный в ЕС',
+                        feat4: 'Топ-30 университет Великобритании',
+                        feat5: 'Партнерство CFA',
+                        feat6: 'Рабочая виза после учебы',
+                        feat7: '#1 Технический университет Италии',
+                        feat8: 'Сильные связи с индустрией',
+                        feat9: 'Низкая стоимость обучения',
+                        feat10: 'Топ-50 университет мира',
+                        feat11: 'Бесплатное государственное образование',
+                        feat12: 'Рабочая виза на 18 месяцев',
+                        feat13: 'Исторический технический университет',
+                        feat14: 'Доступная стоимость жизни',
+                        feat15: 'Право на рабочую визу ЕС',
+                        feat16: 'Исследовательские центры мирового класса',
+                        feat17: 'Сильная поддержка стипендий',
+                        feat18: 'Среда инновационного хаба',
+                        apply: 'Подать заявку',
+                        details: 'Подробнее',
+                        partnersTitle: 'Партнерские страны',
+                        partnersSubtitle: 'Наши программы 1+1 связывают вас с ведущими университетами мира',
+                        uk: 'Великобритания',
+                        germany: 'Германия',
+                        poland: 'Польша',
+                        italy: 'Италия',
+                        korea: 'Южная Корея',
+                        ctaTitle: 'Готовы начать международное путешествие?',
+                        ctaSubtitle: 'Получите персональные рекомендации по выбору подходящей программы 1+1 для ваших карьерных целей',
+                        ctaBtn1: 'Записаться на консультацию',
+                        ctaBtn2: 'Спросить AI-советника',
+                        prog1Sub: 'MBA Бизнес-администрирование',
+                        prog2Sub: 'MSc Финансы и Экономика',
+                        prog3Sub: 'MSc Компьютерная инженерия',
+                        prog4Sub: 'MSc Наука о данных',
+                        prog5Sub: 'MSc Машиностроение',
+                        prog6Sub: 'MSc Биотехнология',
                         dualDegree: 'Двойной диплом',
                         costEffective: 'Экономично',
                         globalRecognition: 'Мировое признание',
@@ -1005,10 +1165,75 @@ class AssylDataHub {
                         partnerUnisSubtitle: 'Учитесь в мировых университетах через программы 2+2'
                     },
                     kz: {
-                        pageTitle: '2+2 Қос диплом бағдарламалары',
-                        pageSubtitle: 'Білімді Қазақстанда бастаңыз, беделді халықаралық университетте аяқтаңыз.',
-                        heroTitle: 'Екі ел. Екі диплом. Бір керемет саяхат.',
-                        heroDesc: 'Біздің 2+2 бағдарламалары алғашқы екі жылды Қазақстанда өткізіп, содан кейін шетелге ауысуға мүмкіндік береді.',
+                        pageTitle: '1+1 Қос диплом бағдарламалары',
+                        pageSubtitle: 'Қазақстан және халықаралық серіктес университеттерден екі магистр дипломы алыңыз. 1 жыл Қазақстанда, содан кейін 1 жыл шетелде оқыңыз.',
+                        heroTitle: '1+1 Қос диплом бағдарламалары',
+                        heroDesc: 'Қазақстан және халықаралық серіктес университеттерден екі магистр дипломы алыңыз. 1 жыл Қазақстанда, содан кейін 1 жыл шетелде оқыңыз — екі мекеменің де дипломдарымен бітіресіз.',
+                        badge1: 'Екі диплом',
+                        badge2: 'Әлемдік мойындау',
+                        badge3: 'Үнемді',
+                        year: 'Жыл',
+                        inKz: 'Қазақстанда',
+                        abroad: 'Шетелде',
+                        diplomas: 'Дипломдар',
+                        graduate: 'Бітіру',
+                        howTitle: '1+1 бағдарламалары қалай жұмыс істейді',
+                        howSubtitle: 'Халықаралық білім және мансап табысына жол',
+                        step1Title: 'Өтініш беру',
+                        step1Desc: 'Қазақстан серіктес университетіне өтініш беріңіз',
+                        step2Title: '1 жыл',
+                        step2Desc: 'Қазақстандағы университетте оқыңыз',
+                        step3Title: '2 жыл',
+                        step3Desc: 'Шетелдегі серіктес университетке ауысыңыз',
+                        step4Title: 'Бітіру',
+                        step4Desc: 'Екі мойындалған магистр дипломын алыңыз',
+                        programsTitle: 'Рекомендацияланған 1+1 бағдарламалары',
+                        programsSubtitle: 'Қазақстан мен әлемдік деңгейдегі халықаралық университеттер арасындағы таңдаулы серіктестіктер',
+                        popular: 'Танымал',
+                        premium: 'Премиум',
+                        tech: 'Технология',
+                        engineering: 'Инженерия',
+                        industry: 'Өнеркәсіп',
+                        research: 'Зерттеу',
+                        years: 'Жыл',
+                        perYear: 'Жылына',
+                        feat1: 'AACSB аккредиттелген бизнес-мектебі',
+                        feat2: 'Ағылшын тіліндегі бағдарлама',
+                        feat3: 'ЕО мойындаған диплом',
+                        feat4: 'Топ-30 Ұлыбритания университеті',
+                        feat5: 'CFA серіктестігі',
+                        feat6: 'Оқудан кейінгі жұмыс визасы',
+                        feat7: '#1 Италиядағы техникалық университет',
+                        feat8: 'Өнеркәсіппен күшті байланыстар',
+                        feat9: 'Төмен оқу ақысы',
+                        feat10: 'Топ-50 әлемдік университет',
+                        feat11: 'Тегін мемлекеттік білім',
+                        feat12: '18 айлық оқудан кейінгі виза',
+                        feat13: 'Тарихи техникалық университет',
+                        feat14: 'Қолжетімді тұрмыс құны',
+                        feat15: 'ЕО жұмыс рұқсатына құқығы',
+                        feat16: 'Әлемдік деңгейдегі зерттеу орындары',
+                        feat17: 'Күшті стипендиялық қолдау',
+                        feat18: 'Инновациялық хаб ортасы',
+                        apply: 'Қазір өтініш беру',
+                        details: 'Толығырақ',
+                        partnersTitle: 'Серіктес елдер',
+                        partnersSubtitle: 'Біздің 1+1 бағдарламалары сізді әлемдегі жетекші университеттермен байланыстырады',
+                        uk: 'Ұлыбритания',
+                        germany: 'Германия',
+                        poland: 'Польша',
+                        italy: 'Италия',
+                        korea: 'Оңтүстік Корея',
+                        ctaTitle: 'Халықаралық саяхатыңызды бастауға дайынсыз ба?',
+                        ctaSubtitle: 'Мансап мақсаттарыңызға сәйкес дұрыс 1+1 бағдарламасын таңдау бойынша жеке кеңес алыңыз',
+                        ctaBtn1: 'Тегін кеңесқа жазылу',
+                        ctaBtn2: 'AI-кеңесшіден сұрау',
+                        prog1Sub: 'MBA Бизнес әкімшілігі',
+                        prog2Sub: 'MSc Қаржы және Экономика',
+                        prog3Sub: 'MSc Компьютерлік инженерия',
+                        prog4Sub: 'MSc Деректер ғылымы',
+                        prog5Sub: 'MSc Механикалық инженерия',
+                        prog6Sub: 'MSc Биотехнология',
                         dualDegree: 'Қос диплом',
                         costEffective: 'Үнемді',
                         globalRecognition: 'Әлемдік мойындау',
@@ -1042,6 +1267,81 @@ class AssylDataHub {
                         benefit6Desc: 'Серіктес университеттерге алдын ала мақұлданған жолдар',
                         partnerUnis: 'Біздің серіктестер',
                         partnerUnisSubtitle: '2+2 бағдарламалары арқылы әлемдік университеттерде оқыңыз'
+                    }
+                },
+                // Compare page
+                compare: {
+                    en: {
+                        title: 'Compare Universities',
+                        subtitle: 'Select universities to compare their rankings, tuition, programs, and more side by side',
+                        city: 'City:',
+                        allCities: 'All Cities',
+                        type: 'Type:',
+                        allTypes: 'All Types',
+                        public: 'Public',
+                        private: 'Private',
+                        sortBy: 'Sort by:',
+                        ranking: 'Ranking',
+                        tuition: 'Tuition (Low to High)',
+                        students: 'Students',
+                        clear: 'Clear',
+                        compareBtn: 'Compare',
+                        viewDetails: 'Details',
+                        select: 'Select',
+                        modalTitle: 'University Comparison',
+                        tuitionLabel: 'Tuition/Year',
+                        studentsLabel: 'Students',
+                        employment: 'Employment',
+                        qsWorld: 'QS World Ranking',
+                        compareValue: 'Compare Value'
+                    },
+                    ru: {
+                        title: 'Сравнить университеты',
+                        subtitle: 'Выберите университеты для сравнения их рейтингов, стоимости обучения, программ и многого другого',
+                        city: 'Город:',
+                        allCities: 'Все города',
+                        type: 'Тип:',
+                        allTypes: 'Все типы',
+                        public: 'Государственный',
+                        private: 'Частный',
+                        sortBy: 'Сортировать:',
+                        ranking: 'Рейтинг',
+                        tuition: 'Стоимость (от низкой)',
+                        students: 'Студенты',
+                        clear: 'Очистить',
+                        compareBtn: 'Сравнить',
+                        viewDetails: 'Подробнее',
+                        select: 'Выбрать',
+                        modalTitle: 'Сравнение университетов',
+                        tuitionLabel: 'Стоимость/Год',
+                        studentsLabel: 'Студенты',
+                        employment: 'Трудоустройство',
+                        qsWorld: 'QS Мировой рейтинг',
+                        compareValue: 'Сравнить значение'
+                    },
+                    kz: {
+                        title: 'Университеттерді салыстыру',
+                        subtitle: 'Рейтингтерін, оқу ақысын, бағдарламаларды және басқаларын салыстыру үшін университеттерді таңдаңыз',
+                        city: 'Қала:',
+                        allCities: 'Барлық қалалар',
+                        type: 'Түрі:',
+                        allTypes: 'Барлық түрлер',
+                        public: 'Мемлекеттік',
+                        private: 'Жеке',
+                        sortBy: 'Сұрыптау:',
+                        ranking: 'Рейтинг',
+                        tuition: 'Оқу ақысы (төменнен)',
+                        students: 'Студенттер',
+                        clear: 'Тазалау',
+                        compareBtn: 'Салыстыру',
+                        viewDetails: 'Толығырақ',
+                        select: 'Таңдау',
+                        modalTitle: 'Университеттерді салыстыру',
+                        tuitionLabel: 'Оқу ақысы/Жыл',
+                        studentsLabel: 'Студенттер',
+                        employment: 'Жұмысқа орналасу',
+                        qsWorld: 'QS Әлемдік рейтинг',
+                        compareValue: 'Мәнді салыстыру'
                     }
                 },
                 // Login modal
@@ -1407,13 +1707,13 @@ class AssylDataHub {
         } else if (path.includes('study-in-kazakhstan')) {
             this.translateStudyKzPage();
         } else if (path.includes('dual-diploma')) {
-            this.translateStudyAbroadPage();
+            this.translateDualDiplomaPage();
+        } else if (path.includes('compare')) {
+            this.translateComparePage();
         } else if (path.includes('profile')) {
             this.translateProfilePage();
         } else if (path.includes('edu-helper')) {
             this.translateEduHelperPage();
-        } else if (path.includes('dual-diploma')) {
-            this.translateDualDiplomaPage();
         }
 
         this.updateProfileUI();
@@ -1691,19 +1991,154 @@ class AssylDataHub {
         // Pricing cards - translate plan names and descriptions
         const pricingCards = {
             en: [
-                { name: 'Free', desc: 'Get started with basic features', btn: 'Start Free' },
-                { name: 'Premium', desc: 'Everything you need for success', btn: 'Get Started' },
-                { name: 'Enterprise', desc: 'For schools and organizations', btn: 'Contact Sales' }
+                { 
+                    name: 'Free', 
+                    desc: 'Get started with basic features', 
+                    btn: 'Get Started Free',
+                    features: [
+                        'Basic university database access',
+                        'Compare up to 2 universities',
+                        'Basic search and filters',
+                        'Community forum access'
+                    ],
+                    unavailable: [
+                        'Personalized recommendations',
+                        'Application tracking',
+                        'Expert consultation'
+                    ]
+                },
+                { 
+                    name: 'Premium', 
+                    desc: 'Everything you need for a successful application', 
+                    btn: 'Start 14-Day Free Trial',
+                    badge: 'Most Popular',
+                    features: [
+                        'Full university database access',
+                        'Compare up to 10 universities',
+                        'Personalized recommendations',
+                        'Application tracking dashboard',
+                        'Document checklist tools',
+                        'Email support (24h response)'
+                    ],
+                    unavailable: [
+                        '1-on-1 expert consultation'
+                    ]
+                },
+                { 
+                    name: 'Complete', 
+                    desc: 'Full support from experts every step of the way', 
+                    btn: 'Contact Us',
+                    features: [
+                        'Everything in Premium',
+                        'Unlimited university comparisons',
+                        '2 hours of expert consultation/mo',
+                        'Essay review service',
+                        'Scholarship matching',
+                        'Interview preparation',
+                        'Priority phone support'
+                    ],
+                    unavailable: []
+                }
             ],
             ru: [
-                { name: 'Бесплатно', desc: 'Начните с базовых функций', btn: 'Начать бесплатно' },
-                { name: 'Премиум', desc: 'Все необходимое для успеха', btn: 'Начать' },
-                { name: 'Корпоративный', desc: 'Для школ и организаций', btn: 'Связаться' }
+                { 
+                    name: 'Бесплатно', 
+                    desc: 'Начните с базовых функций', 
+                    btn: 'Начать бесплатно',
+                    features: [
+                        'Базовый доступ к базе университетов',
+                        'Сравнение до 2 университетов',
+                        'Базовый поиск и фильтры',
+                        'Доступ к форуму сообщества'
+                    ],
+                    unavailable: [
+                        'Персонализированные рекомендации',
+                        'Отслеживание заявок',
+                        'Консультация экспертов'
+                    ]
+                },
+                { 
+                    name: 'Премиум', 
+                    desc: 'Все необходимое для успешной заявки', 
+                    btn: 'Начать 14-дневный пробный период',
+                    badge: 'Самый популярный',
+                    features: [
+                        'Полный доступ к базе университетов',
+                        'Сравнение до 10 университетов',
+                        'Персонализированные рекомендации',
+                        'Панель отслеживания заявок',
+                        'Инструменты чек-листа документов',
+                        'Поддержка по email (ответ в течение 24ч)'
+                    ],
+                    unavailable: [
+                        'Индивидуальная консультация эксперта'
+                    ]
+                },
+                { 
+                    name: 'Полный', 
+                    desc: 'Полная поддержка экспертов на каждом этапе', 
+                    btn: 'Связаться с нами',
+                    features: [
+                        'Все из Премиум',
+                        'Неограниченное сравнение университетов',
+                        '2 часа консультации эксперта/мес',
+                        'Редактирование эссе',
+                        'Подбор стипендий',
+                        'Подготовка к собеседованию',
+                        'Приоритетная телефонная поддержка'
+                    ],
+                    unavailable: []
+                }
             ],
             kz: [
-                { name: 'Тегін', desc: 'Негізгі мүмкіндіктерден бастаңыз', btn: 'Тегін бастау' },
-                { name: 'Премиум', desc: 'Табысқа қажет барлығы', btn: 'Бастау' },
-                { name: 'Корпоративтік', desc: 'Мектептер мен ұйымдарға', btn: 'Байланысу' }
+                { 
+                    name: 'Тегін', 
+                    desc: 'Негізгі мүмкіндіктерден бастаңыз', 
+                    btn: 'Тегін бастау',
+                    features: [
+                        'Университеттер базасына негізгі қолжетімділік',
+                        '2 университетке дейін салыстыру',
+                        'Негізгі іздеу және сүзгілер',
+                        'Қауымдастық форумына қолжетімділік'
+                    ],
+                    unavailable: [
+                        'Жекеленген ұсыныстар',
+                        'Өтініштерді бақылау',
+                        'Эксперт кеңесі'
+                    ]
+                },
+                { 
+                    name: 'Премиум', 
+                    desc: 'Сәтті өтініш үшін қажет барлығы', 
+                    btn: '14 күндік тегін сынақты бастау',
+                    badge: 'Ең танымал',
+                    features: [
+                        'Университеттер базасына толық қолжетімділік',
+                        '10 университетке дейін салыстыру',
+                        'Жекеленген ұсыныстар',
+                        'Өтініштерді бақылау панелі',
+                        'Құжаттар чек-листінің құралдары',
+                        'Email қолдау (24 сағат ішінде жауап)'
+                    ],
+                    unavailable: [
+                        'Эксперттің жеке кеңесі'
+                    ]
+                },
+                { 
+                    name: 'Толық', 
+                    desc: 'Әр қадамда эксперттердің толық қолдауы', 
+                    btn: 'Бізбен байланысу',
+                    features: [
+                        'Премиумдағы барлығы',
+                        'Шексіз университеттерді салыстыру',
+                        '2 сағат эксперт кеңесі/ай',
+                        'Эссе қарау қызметі',
+                        'Стипендияларды сәйкестендіру',
+                        'Сұхбатқа дайындық',
+                        'Басымдық телефондық қолдау'
+                    ],
+                    unavailable: []
+                }
             ]
         };
 
@@ -1714,9 +2149,37 @@ class AssylDataHub {
                 const name = card.querySelector('.plan-name');
                 const desc = card.querySelector('.plan-description');
                 const btn = card.querySelector('.cta-button');
+                const badge = card.querySelector('.popular-badge');
+                
                 if (name) name.textContent = cardData[index].name;
                 if (desc) desc.textContent = cardData[index].desc;
                 if (btn) btn.textContent = cardData[index].btn;
+                if (badge && cardData[index].badge) badge.textContent = cardData[index].badge;
+                
+                // Translate features list
+                const featureList = card.querySelectorAll('.plan-features li');
+                if (featureList.length > 0 && cardData[index].features) {
+                    let availableIndex = 0;
+                    let unavailableIndex = 0;
+                    
+                    featureList.forEach((li) => {
+                        if (li.classList.contains('unavailable')) {
+                            // Unavailable feature
+                            if (unavailableIndex < cardData[index].unavailable.length) {
+                                const icon = li.querySelector('i');
+                                li.innerHTML = (icon ? icon.outerHTML + ' ' : '<i class="fas fa-times"></i> ') + cardData[index].unavailable[unavailableIndex];
+                                unavailableIndex++;
+                            }
+                        } else {
+                            // Available feature
+                            if (availableIndex < cardData[index].features.length) {
+                                const icon = li.querySelector('i');
+                                li.innerHTML = (icon ? icon.outerHTML + ' ' : '<i class="fas fa-check"></i> ') + cardData[index].features[availableIndex];
+                                availableIndex++;
+                            }
+                        }
+                    });
+                }
             }
         });
 
@@ -1848,11 +2311,26 @@ class AssylDataHub {
             else if (text.includes('founded')) label.textContent = common.founded;
         });
 
-        // Section headers inside tabs
-        document.querySelectorAll('.sub-tab-content h3').forEach(h3 => {
+        // Section headers inside tabs - use data-i18n if available
+        document.querySelectorAll('.sub-tab-content h3[data-i18n]').forEach(h3 => {
+            const key = h3.getAttribute('data-i18n');
+            if (key && t[key]) h3.textContent = t[key];
+        });
+        
+        // Translate paragraphs with data-i18n
+        document.querySelectorAll('.sub-tab-content p[data-i18n]').forEach(p => {
+            const key = p.getAttribute('data-i18n');
+            if (key && t[key]) p.textContent = t[key];
+        });
+        
+        // Fallback for headers without data-i18n
+        document.querySelectorAll('.sub-tab-content h3:not([data-i18n])').forEach(h3 => {
             const text = h3.textContent.toLowerCase();
-            if (text.includes('mission')) h3.textContent = t.mission;
-            else if (text.includes('history')) h3.textContent = t.history;
+            if (text.includes('mission')) h3.textContent = t.missionVision || t.mission;
+            else if (text.includes('history')) h3.textContent = t.historyAchievements || t.history;
+            else if (text.includes('campus facilities')) h3.textContent = t.campusFacilities;
+            else if (text.includes('student life')) h3.textContent = t.studentLife;
+            else if (text.includes('international exchange')) h3.textContent = t.internationalExchange;
             else if (text.includes('available') || text.includes('program')) h3.textContent = t.availablePrograms;
             else if (text.includes('tuition') || text.includes('fees')) h3.textContent = t.tuitionFees;
             else if (text.includes('requirement')) h3.textContent = t.requirements;
@@ -2176,72 +2654,204 @@ class AssylDataHub {
         });
     }
 
-    // 2+2 Dual Diploma page translation
+    // 1+1 Dual Diploma page translation
     translateDualDiplomaPage() {
         const t = this.translations.pages.dualDiploma[this.currentLanguage];
         if (!t) return;
 
-        // Page header
-        const pageTitle = document.querySelector('.page-title');
-        const pageSubtitle = document.querySelector('.page-subtitle');
-        if (pageTitle) pageTitle.innerHTML = '2+2 <span class="page-title-accent">' + (this.currentLanguage === 'en' ? 'Dual Diploma' : this.currentLanguage === 'ru' ? 'Двойной диплом' : 'Қос диплом') + '</span> ' + (this.currentLanguage === 'en' ? 'Programs' : this.currentLanguage === 'ru' ? 'Программы' : 'Бағдарламалары');
-        if (pageSubtitle) pageSubtitle.textContent = t.pageSubtitle;
+        // Hero section - use data-i18n if available
+        document.querySelectorAll('[data-i18n^="dual."]').forEach(el => {
+            const key = el.getAttribute('data-i18n').replace('dual.', '');
+            if (t[key]) {
+                if (el.tagName === 'H1' && key === 'heroTitle') {
+                    el.innerHTML = t[key].replace('<span>', '<span>').replace('1+1', '<span>1+1</span>');
+                } else {
+                    el.textContent = t[key];
+                }
+            }
+        });
 
-        // Hero section
+        // Hero section fallback
         const heroTitle = document.querySelector('.dual-hero-content h1');
         const heroDesc = document.querySelector('.dual-hero-content p');
-        if (heroTitle) heroTitle.innerHTML = t.heroTitle.replace('. ', '. <span>').replace(' Two Diplomas', '</span> Two Diplomas').replace(' Екі диплом', '</span> Екі диплом').replace(' Два диплома', '</span> Два диплома');
-        if (heroDesc) heroDesc.textContent = t.heroDesc;
+        if (heroTitle && !heroTitle.hasAttribute('data-i18n')) {
+            heroTitle.innerHTML = t.heroTitle.replace('1+1', '<span>1+1</span>');
+        }
+        if (heroDesc && !heroDesc.hasAttribute('data-i18n')) {
+            heroDesc.textContent = t.heroDesc;
+        }
 
         // Hero badges
         const heroBadges = document.querySelectorAll('.hero-badge');
-        if (heroBadges[0]) heroBadges[0].innerHTML = '<i class="fas fa-graduation-cap"></i> ' + t.dualDegree;
-        if (heroBadges[1]) heroBadges[1].innerHTML = '<i class="fas fa-dollar-sign"></i> ' + t.costEffective;
-        if (heroBadges[2]) heroBadges[2].innerHTML = '<i class="fas fa-globe"></i> ' + t.globalRecognition;
+        if (heroBadges[0] && t.badge1) heroBadges[0].innerHTML = '<i class="fas fa-graduation-cap"></i> <span>' + t.badge1 + '</span>';
+        if (heroBadges[1] && t.badge2) heroBadges[1].innerHTML = '<i class="fas fa-globe"></i> <span>' + t.badge2 + '</span>';
+        if (heroBadges[2] && t.badge3) heroBadges[2].innerHTML = '<i class="fas fa-coins"></i> <span>' + t.badge3 + '</span>';
 
         // How it works section
-        const howTitle = document.querySelector('.how-it-works .section-title h2');
-        const howSubtitle = document.querySelector('.how-it-works .section-title p');
-        if (howTitle) howTitle.textContent = t.howItWorks;
-        if (howSubtitle) howSubtitle.textContent = t.howItWorksSubtitle;
+        const howTitle = document.querySelector('.how-it-works .section-header h2');
+        const howSubtitle = document.querySelector('.how-it-works .section-header p');
+        if (howTitle) howTitle.textContent = t.howTitle;
+        if (howSubtitle) howSubtitle.textContent = t.howSubtitle;
 
         // Steps
         const steps = document.querySelectorAll('.step-item');
-        const stepKeys = ['step1', 'step2', 'step3', 'step4'];
+        const stepKeys = ['step1Title', 'step2Title', 'step3Title', 'step4Title'];
+        const stepDescKeys = ['step1Desc', 'step2Desc', 'step3Desc', 'step4Desc'];
         steps.forEach((step, index) => {
             const h3 = step.querySelector('h3');
             const p = step.querySelector('p');
             if (h3 && t[stepKeys[index]]) h3.textContent = t[stepKeys[index]];
-            if (p && t[stepKeys[index] + 'Desc']) p.textContent = t[stepKeys[index] + 'Desc'];
+            if (p && t[stepDescKeys[index]]) p.textContent = t[stepDescKeys[index]];
         });
 
-        // Programs section title
-        const programsTitle = document.querySelector('.programs-section .section-title h2');
-        const programsSubtitle = document.querySelector('.programs-section .section-title p');
-        if (programsTitle) programsTitle.textContent = t.featuredPrograms;
-        if (programsSubtitle) programsSubtitle.textContent = t.featuredProgramsSubtitle;
+        // Programs section
+        const programsTitle = document.querySelector('.programs-section .section-header h2');
+        const programsSubtitle = document.querySelector('.programs-section .section-header p');
+        if (programsTitle) programsTitle.textContent = t.programsTitle;
+        if (programsSubtitle) programsSubtitle.textContent = t.programsSubtitle;
 
-        // Benefits section
-        const benefitsTitle = document.querySelector('.benefits-section .section-title h2');
-        const benefitsSubtitle = document.querySelector('.benefits-section .section-title p');
-        if (benefitsTitle) benefitsTitle.textContent = t.whyChoose;
-        if (benefitsSubtitle) benefitsSubtitle.textContent = t.whyChooseSubtitle;
+        // Program cards - translate badges and features
+        document.querySelectorAll('.program-badge').forEach((badge, index) => {
+            const badges = document.querySelectorAll('.program-badge');
+            badges.forEach((b, i) => {
+                const text = b.textContent.trim();
+                if (text.includes('Popular') || text.includes('Популярно') || text.includes('Танымал')) {
+                    b.innerHTML = '<i class="fas fa-star"></i> <span>' + t.popular + '</span>';
+                } else if (text.includes('Premium') || text.includes('Премиум')) {
+                    b.innerHTML = '<i class="fas fa-award"></i> <span>' + t.premium + '</span>';
+                } else if (text.includes('Tech') || text.includes('Технологии') || text.includes('Технология')) {
+                    b.innerHTML = '<i class="fas fa-laptop-code"></i> <span>' + t.tech + '</span>';
+                } else if (text.includes('Engineering') || text.includes('Инженерия')) {
+                    b.innerHTML = '<i class="fas fa-microchip"></i> <span>' + t.engineering + '</span>';
+                } else if (text.includes('Industry') || text.includes('Промышленность') || text.includes('Өнеркәсіп')) {
+                    b.innerHTML = '<i class="fas fa-industry"></i> <span>' + t.industry + '</span>';
+                } else if (text.includes('Research') || text.includes('Исследования') || text.includes('Зерттеу')) {
+                    b.innerHTML = '<i class="fas fa-flask"></i> <span>' + t.research + '</span>';
+                }
+            });
+        });
 
-        // Benefit cards
-        const benefitCards = document.querySelectorAll('.benefit-card');
-        const benefitKeys = ['benefit1', 'benefit2', 'benefit3', 'benefit4', 'benefit5', 'benefit6'];
-        benefitCards.forEach((card, index) => {
-            const h3 = card.querySelector('h3');
-            const p = card.querySelector('p');
-            if (h3 && t[benefitKeys[index]]) h3.textContent = t[benefitKeys[index]];
-            if (p && t[benefitKeys[index] + 'Desc']) p.textContent = t[benefitKeys[index] + 'Desc'];
+        // Program features
+        document.querySelectorAll('.program-features li').forEach(li => {
+            const text = li.textContent.trim();
+            const featKeys = ['feat1', 'feat2', 'feat3', 'feat4', 'feat5', 'feat6', 'feat7', 'feat8', 'feat9', 'feat10', 'feat11', 'feat12', 'feat13', 'feat14', 'feat15', 'feat16', 'feat17', 'feat18'];
+            featKeys.forEach(key => {
+                if (t[key] && (text.includes(t[key].substring(0, 20)) || this.matchFeature(text, t[key]))) {
+                    const icon = li.querySelector('i');
+                    li.innerHTML = (icon ? icon.outerHTML + ' ' : '<i class="fas fa-check"></i> ') + '<span>' + t[key] + '</span>';
+                }
+            });
+        });
+
+        // Stat labels
+        document.querySelectorAll('.stat-label').forEach(label => {
+            const text = label.textContent.trim();
+            if (text.includes('Year') || text.includes('Год') || text.includes('Жыл')) label.textContent = t.years;
+            else if (text.includes('Per Year') || text.includes('В год') || text.includes('Жылына')) label.textContent = t.perYear;
         });
 
         // Partners section
-        const partnersTitle = document.querySelector('.partners-section .section-title h2');
-        const partnersSubtitle = document.querySelector('.partners-section .section-title p');
-        if (partnersTitle) partnersTitle.textContent = t.partnerUnis;
-        if (partnersSubtitle) partnersSubtitle.textContent = t.partnerUnisSubtitle;
+        const partnersTitle = document.querySelector('.partners-section .section-header h2');
+        const partnersSubtitle = document.querySelector('.partners-section .section-header p');
+        if (partnersTitle) partnersTitle.textContent = t.partnersTitle;
+        if (partnersSubtitle) partnersSubtitle.textContent = t.partnersSubtitle;
+
+        // CTA section
+        const ctaTitle = document.querySelector('.cta-content h2');
+        const ctaSubtitle = document.querySelector('.cta-content p');
+        const ctaBtn1 = document.querySelector('.cta-buttons .btn-primary');
+        const ctaBtn2 = document.querySelector('.cta-buttons .btn-ghost');
+        if (ctaTitle) ctaTitle.textContent = t.ctaTitle;
+        if (ctaSubtitle) ctaSubtitle.textContent = t.ctaSubtitle;
+        if (ctaBtn1) ctaBtn1.textContent = t.ctaBtn1;
+        if (ctaBtn2) ctaBtn2.textContent = t.ctaBtn2;
+    }
+
+    matchFeature(text, translation) {
+        // Simple matching for feature translation
+        const words = text.split(' ').slice(0, 3);
+        const transWords = translation.split(' ').slice(0, 3);
+        return words.some(w => transWords.some(tw => tw.toLowerCase().includes(w.toLowerCase())));
+    }
+
+    // Compare page translation
+    translateComparePage() {
+        const t = this.translations.pages.compare[this.currentLanguage];
+        if (!t) return;
+
+        // Page header
+        document.querySelectorAll('[data-i18n^="compare."]').forEach(el => {
+            const key = el.getAttribute('data-i18n').replace('compare.', '');
+            if (t[key]) {
+                if (el.tagName === 'H1' && key === 'title') {
+                    el.innerHTML = t[key].replace('Compare', '<span>Compare</span>').replace('Сравнить', '<span>Сравнить</span>').replace('Салыстыру', '<span>Салыстыру</span>');
+                } else {
+                    el.textContent = t[key];
+                }
+            }
+        });
+
+        // Filter labels
+        const filterLabels = document.querySelectorAll('.filter-label');
+        const filterSelects = document.querySelectorAll('.filter-select option');
+        
+        if (filterLabels[0]) filterLabels[0].textContent = t.city;
+        if (filterLabels[1]) filterLabels[1].textContent = t.type;
+        if (filterLabels[2]) filterLabels[2].textContent = t.sortBy;
+
+        // Filter options
+        filterSelects.forEach(opt => {
+            const val = opt.value || opt.textContent.trim();
+            if (val === 'all' || val.includes('All')) {
+                if (opt.parentElement.id === 'cityFilter') opt.textContent = t.allCities;
+                else if (opt.parentElement.id === 'typeFilter') opt.textContent = t.allTypes;
+            } else if (val === 'public' || val.includes('Public') || val.includes('Государственный') || val.includes('Мемлекеттік')) {
+                opt.textContent = t.public;
+            } else if (val === 'private' || val.includes('Private') || val.includes('Частный') || val.includes('Жеке')) {
+                opt.textContent = t.private;
+            } else if (val === 'ranking' || val.includes('Ranking') || val.includes('Рейтинг')) {
+                opt.textContent = t.ranking;
+            } else if (val.includes('Tuition') || val.includes('Стоимость') || val.includes('Оқу ақысы')) {
+                opt.textContent = t.tuition;
+            } else if (val.includes('Student') || val.includes('Студент')) {
+                opt.textContent = t.students;
+            }
+        });
+
+        // Buttons
+        const clearBtn = document.getElementById('clearSelection');
+        const compareBtn = document.getElementById('compareSelected');
+        if (clearBtn) clearBtn.innerHTML = '<i class="fas fa-times"></i> <span>' + t.clear + '</span>';
+        if (compareBtn) {
+            const span = compareBtn.querySelector('span:not(.selected-count)');
+            if (span) span.textContent = t.compareBtn;
+        }
+
+        // University card buttons
+        document.querySelectorAll('.select-uni-btn').forEach(btn => {
+            btn.textContent = t.select;
+        });
+        document.querySelectorAll('.uni-card-actions .btn-secondary').forEach(btn => {
+            btn.textContent = t.viewDetails;
+        });
+
+        // Stat labels
+        document.querySelectorAll('.uni-stat-label').forEach(label => {
+            const text = label.textContent.trim();
+            if (text.includes('QS World') || text.includes('QS Мировой') || text.includes('QS Әлемдік')) {
+                label.textContent = t.qsWorld;
+            } else if (text.includes('Tuition') || text.includes('Стоимость') || text.includes('Оқу ақысы')) {
+                label.textContent = t.tuitionLabel;
+            } else if (text.includes('Student') || text.includes('Студент')) {
+                label.textContent = t.studentsLabel;
+            } else if (text.includes('Employment') || text.includes('Трудоустройство') || text.includes('Жұмысқа орналасу')) {
+                label.textContent = t.employment;
+            }
+        });
+
+        // Modal title
+        const modalTitle = document.querySelector('.compare-modal-header h2');
+        if (modalTitle) modalTitle.textContent = t.modalTitle;
     }
 
     updateProfileUI() {
