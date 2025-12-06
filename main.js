@@ -667,10 +667,9 @@ class AssylDataHub {
                         bookConsultation: 'Book Consultation',
                         bookConsultationDesc: 'Schedule a free consultation with our education counselors.',
                         scheduleNow: 'Schedule Now',
-                        ourOffices: 'Our Offices',
-                        ourOfficesDesc: 'Visit us at one of our locations',
-                        mainOffice: 'Main Office',
-                        workingHours: 'Working Hours'
+                        ctaTitle: 'Ready to Start Your Journey?',
+                        ctaDesc: 'Book a free consultation with our education experts and get personalized guidance for your university search.',
+                        ctaBtn: 'Book Free Consultation'
                     },
                     ru: {
                         pageTitle: 'Свяжитесь <span class="page-title-accent">с нами</span>',
@@ -718,10 +717,9 @@ class AssylDataHub {
                         bookConsultation: 'Записаться на консультацию',
                         bookConsultationDesc: 'Запланируйте бесплатную консультацию с нашими консультантами.',
                         scheduleNow: 'Записаться',
-                        ourOffices: 'Наши офисы',
-                        ourOfficesDesc: 'Посетите нас в одном из наших офисов',
-                        mainOffice: 'Главный офис',
-                        workingHours: 'Часы работы'
+                        ctaTitle: 'Готовы начать свой путь?',
+                        ctaDesc: 'Запишитесь на бесплатную консультацию с нашими экспертами и получите персональное руководство для поиска университета.',
+                        ctaBtn: 'Записаться на консультацию'
                     },
                     kz: {
                         pageTitle: 'Бізбен <span class="page-title-accent">байланысыңыз</span>',
@@ -769,10 +767,9 @@ class AssylDataHub {
                         bookConsultation: 'Кеңесге жазылу',
                         bookConsultationDesc: 'Біздің кеңесшілермен тегін кеңесті жоспарлаңыз.',
                         scheduleNow: 'Жазылу',
-                        ourOffices: 'Біздің офистер',
-                        ourOfficesDesc: 'Біздің офистердің біріне келіңіз',
-                        mainOffice: 'Бас офис',
-                        workingHours: 'Жұмыс сағаттары'
+                        ctaTitle: 'Сапарыңызды бастауға дайынсыз ба?',
+                        ctaDesc: 'Біздің сарапшылармен тегін кеңесге жазылыңыз және университет іздеу үшін жеке нұсқаулық алыңыз.',
+                        ctaBtn: 'Тегін кеңес алу'
                     }
                 },
                 // Pricing page
@@ -2455,6 +2452,14 @@ class AssylDataHub {
         if (messageTextarea && t.messagePlaceholder) {
             messageTextarea.placeholder = t.messagePlaceholder;
         }
+
+        // CTA Section
+        const ctaTitle = document.querySelector('.cta-section h2[data-i18n="contact.ctaTitle"]');
+        const ctaDesc = document.querySelector('.cta-section p[data-i18n="contact.ctaDesc"]');
+        const ctaBtn = document.querySelector('.cta-section a[data-i18n="contact.ctaBtn"]');
+        if (ctaTitle && t.ctaTitle) ctaTitle.textContent = t.ctaTitle;
+        if (ctaDesc && t.ctaDesc) ctaDesc.textContent = t.ctaDesc;
+        if (ctaBtn && t.ctaBtn) ctaBtn.innerHTML = '<i class="fas fa-calendar-alt"></i> ' + t.ctaBtn;
 
         // Footer translations
         this.translateFooter();
