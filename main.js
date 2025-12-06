@@ -337,14 +337,20 @@ class AssylDataHub {
                         logout: 'Logout',
                         // Footer
                         footerAbout: 'Empowering students and families to make informed decisions about higher education since 2025.',
+                        footerDescription: 'Empowering students and families to make informed decisions about higher education since 2025.',
                         quickLinks: 'Quick Links',
                         resources: 'Resources',
+                        tools: 'Tools & Resources',
                         contactUs: 'Contact',
                         appGuide: 'Application Guide',
+                        applicationGuide: 'Application Guide',
                         scholarshipDb: 'Scholarship Database',
+                        scholarships: 'Scholarship Database',
                         studentBlog: 'Student Blog',
+                        blog: 'Student Blog',
                         faq: 'FAQ',
-                        copyright: '© 2025 Assyl DataHub. All rights reserved.',
+                        copyright: '© 2025 Assyl DataHub. All rights reserved. Empowering educational choices through technology.',
+                        location: 'Almaty, Kazakhstan',
                         // Buttons
                         viewDetails: 'View Details',
                         compare: 'Compare',
@@ -373,14 +379,20 @@ class AssylDataHub {
                         login: 'Войти',
                         logout: 'Выйти',
                         footerAbout: 'Помогаем студентам и семьям принимать обоснованные решения о высшем образовании с 2025 года.',
+                        footerDescription: 'Помогаем студентам и семьям принимать обоснованные решения о высшем образовании с 2025 года.',
                         quickLinks: 'Быстрые ссылки',
                         resources: 'Ресурсы',
+                        tools: 'Инструменты и ресурсы',
                         contactUs: 'Контакты',
                         appGuide: 'Руководство по поступлению',
+                        applicationGuide: 'Руководство по поступлению',
                         scholarshipDb: 'База стипендий',
+                        scholarships: 'База стипендий',
                         studentBlog: 'Блог студентов',
+                        blog: 'Блог студентов',
                         faq: 'Вопросы и ответы',
-                        copyright: '© 2025 Assyl DataHub. Все права защищены.',
+                        copyright: '© 2025 Assyl DataHub. Все права защищены. Развиваем образовательный выбор через технологии.',
+                        location: 'Алматы, Казахстан',
                         viewDetails: 'Подробнее',
                         compare: 'Сравнить',
                         learnMore: 'Узнать больше',
@@ -407,14 +419,20 @@ class AssylDataHub {
                         login: 'Кіру',
                         logout: 'Шығу',
                         footerAbout: '2025 жылдан бері студенттер мен отбасыларға жоғары білім туралы негізделген шешім қабылдауға көмектесеміз.',
+                        footerDescription: '2025 жылдан бері студенттер мен отбасыларға жоғары білім туралы негізделген шешім қабылдауға көмектесеміз.',
                         quickLinks: 'Жылдам сілтемелер',
                         resources: 'Ресурстар',
+                        tools: 'Құралдар мен ресурстар',
                         contactUs: 'Байланыс',
                         appGuide: 'Түсу нұсқаулығы',
+                        applicationGuide: 'Түсу нұсқаулығы',
                         scholarshipDb: 'Стипендия базасы',
+                        scholarships: 'Стипендия базасы',
                         studentBlog: 'Студенттер блогы',
+                        blog: 'Студенттер блогы',
                         faq: 'Сұрақ-жауап',
-                        copyright: '© 2025 Assyl DataHub. Барлық құқықтар қорғалған.',
+                        copyright: '© 2025 Assyl DataHub. Барлық құқықтар қорғалған. Технология арқылы білім таңдауын дамытамыз.',
+                        location: 'Алматы, Қазақстан',
                         viewDetails: 'Толығырақ',
                         compare: 'Салыстыру',
                         learnMore: 'Көбірек білу',
@@ -478,7 +496,15 @@ class AssylDataHub {
                         ctaTitle: 'Ready to Start Your Journey?',
                         ctaDesc: 'Get personalized university recommendations and expert guidance. Book a free consultation with our education counselors today.',
                         ctaBtn1: 'Book Free Consultation',
-                        ctaBtn2: 'View Our Services'
+                        ctaBtn2: 'View Our Services',
+                        // Edu Helper Section
+                        eduHelperTitle: 'Meet <span>Edu Helper</span> – Your AI Education Advisor',
+                        eduHelperDesc: 'Not sure which university fits you? Our AI-powered advisor analyzes your test scores (ENT, IELTS, SAT), interests, and career goals to recommend the perfect universities and programs for your future.',
+                        aiFeature1: 'Personalized recommendations',
+                        aiFeature2: 'Based on your scores',
+                        aiFeature3: 'Career path guidance',
+                        aiFeature4: 'Instant answers 24/7',
+                        tryEduHelper: 'Try Edu Helper Now'
                     },
                     ru: {
                         badge: 'Ваше будущее начинается здесь',
@@ -526,7 +552,15 @@ class AssylDataHub {
                         ctaTitle: 'Готовы начать свой путь?',
                         ctaDesc: 'Получите персональные рекомендации по университетам и экспертное руководство. Запишитесь на бесплатную консультацию сегодня.',
                         ctaBtn1: 'Записаться на консультацию',
-                        ctaBtn2: 'Наши услуги'
+                        ctaBtn2: 'Наши услуги',
+                        // Edu Helper Section
+                        eduHelperTitle: 'Познакомьтесь с <span>Edu Helper</span> – вашим AI-консультантом',
+                        eduHelperDesc: 'Не знаете, какой университет вам подходит? Наш AI-помощник анализирует ваши баллы (ЕНТ, IELTS, SAT), интересы и карьерные цели, чтобы подобрать идеальные университеты и программы.',
+                        aiFeature1: 'Персональные рекомендации',
+                        aiFeature2: 'На основе ваших баллов',
+                        aiFeature3: 'Карьерное руководство',
+                        aiFeature4: 'Мгновенные ответы 24/7',
+                        tryEduHelper: 'Попробовать Edu Helper'
                     },
                     kz: {
                         badge: 'Сіздің болашағыңыз осы жерден басталады',
@@ -574,7 +608,15 @@ class AssylDataHub {
                         ctaTitle: 'Сапарыңызды бастауға дайынсыз ба?',
                         ctaDesc: 'Жеке университет ұсыныстары мен сарапшылық нұсқаулықтарын алыңыз. Бүгін тегін кеңесті брондаңыз.',
                         ctaBtn1: 'Тегін кеңес алу',
-                        ctaBtn2: 'Біздің қызметтер'
+                        ctaBtn2: 'Біздің қызметтер',
+                        // Edu Helper Section
+                        eduHelperTitle: '<span>Edu Helper</span> – сіздің AI білім кеңесшіңізбен танысыңыз',
+                        eduHelperDesc: 'Қай университет сізге сәйкес екенін білмейсіз бе? Біздің AI көмекшісі сіздің балдарыңызды (ҰБТ, IELTS, SAT), қызығушылықтарыңыз бен мансаптық мақсаттарыңызды талдап, керемет университеттер мен бағдарламаларды ұсынады.',
+                        aiFeature1: 'Жеке ұсыныстар',
+                        aiFeature2: 'Балдарыңыз негізінде',
+                        aiFeature3: 'Мансаптық нұсқаулық',
+                        aiFeature4: '24/7 жедел жауаптар',
+                        tryEduHelper: 'Edu Helper-ді қолданып көріңіз'
                     }
                 },
                 // Contact page
@@ -2348,6 +2390,39 @@ class AssylDataHub {
                 buttons[1].textContent = t.ctaBtn2;
             }
         }
+
+        // Edu Helper AI CTA Section
+        const aiCtaSection = document.querySelector('.ai-cta-section');
+        if (aiCtaSection && t.eduHelperTitle) {
+            const aiTitle = aiCtaSection.querySelector('h2[data-i18n="index.eduHelperTitle"]');
+            const aiDesc = aiCtaSection.querySelector('p[data-i18n="index.eduHelperDesc"]');
+            const aiFeatures = aiCtaSection.querySelectorAll('.ai-feature span');
+            const aiBtn = aiCtaSection.querySelector('.btn[data-i18n="index.tryEduHelper"]');
+
+            if (aiTitle) aiTitle.innerHTML = t.eduHelperTitle;
+            if (aiDesc) aiDesc.textContent = t.eduHelperDesc;
+            if (aiFeatures[0]) aiFeatures[0].textContent = t.aiFeature1;
+            if (aiFeatures[1]) aiFeatures[1].textContent = t.aiFeature2;
+            if (aiFeatures[2]) aiFeatures[2].textContent = t.aiFeature3;
+            if (aiFeatures[3]) aiFeatures[3].textContent = t.aiFeature4;
+            if (aiBtn) aiBtn.innerHTML = '<i class="fas fa-robot"></i> ' + t.tryEduHelper;
+        }
+
+        // Footer translations
+        this.translateFooter();
+    }
+
+    // Footer translation (shared across pages)
+    translateFooter() {
+        const c = this.translations.pages.common[this.currentLanguage];
+        if (!c) return;
+
+        document.querySelectorAll('[data-i18n^="footer."]').forEach(el => {
+            const key = el.getAttribute('data-i18n').replace('footer.', '');
+            if (c[key]) {
+                el.textContent = c[key];
+            }
+        });
     }
 
     // Contact page translation
@@ -2380,6 +2455,9 @@ class AssylDataHub {
         if (messageTextarea && t.messagePlaceholder) {
             messageTextarea.placeholder = t.messagePlaceholder;
         }
+
+        // Footer translations
+        this.translateFooter();
     }
 
     // Pricing page translation
@@ -2684,6 +2762,9 @@ class AssylDataHub {
 
         const faqTitle = document.querySelector('.faq-title');
         if (faqTitle) faqTitle.textContent = t.faqTitle;
+
+        // Footer translations
+        this.translateFooter();
     }
 
     // Study in Kazakhstan page translation
@@ -3073,6 +3154,9 @@ class AssylDataHub {
             if (h3 && t[featureKeys[index]]) h3.textContent = t[featureKeys[index]];
             if (p && t[featureKeys[index] + 'Desc']) p.textContent = t[featureKeys[index] + 'Desc'];
         });
+
+        // Footer translations
+        this.translateFooter();
     }
 
     // 1+1 Dual Diploma page translation
@@ -3242,6 +3326,9 @@ class AssylDataHub {
         if (ctaSubtitle) ctaSubtitle.textContent = t.ctaSubtitle;
         if (ctaBtn1) ctaBtn1.textContent = t.ctaBtn1;
         if (ctaBtn2) ctaBtn2.textContent = t.ctaBtn2;
+
+        // Footer translations
+        this.translateFooter();
     }
 
     matchFeature(text, translation) {
@@ -3337,6 +3424,9 @@ class AssylDataHub {
         // Modal title
         const modalTitle = document.querySelector('.compare-modal-header h2');
         if (modalTitle) modalTitle.textContent = t.modalTitle;
+
+        // Footer translations
+        this.translateFooter();
     }
 
     updateProfileUI() {
