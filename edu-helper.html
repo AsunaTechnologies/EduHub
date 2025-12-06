@@ -811,7 +811,7 @@
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <span class="logo-icon">A</span>
-                Assyl DataHub
+                <span>A</span>ssyl DataHub
             </a>
             
             <ul class="nav-menu">
@@ -979,8 +979,8 @@
 
                 <div class="payment-amount">
                     <div class="payment-amount-label">One-time Payment</div>
-                    <div class="payment-amount-value">₸2,990</div>
-                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">~$6.50 USD</div>
+                    <div class="payment-amount-value">$5</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">~₸2,300 KZT</div>
                 </div>
 
                 <ul class="payment-features">
@@ -1159,7 +1159,7 @@
                 <h3>Unlock AI Assistant</h3>
                 <p>Get unlimited access to personalized university recommendations and career guidance</p>
                 <button class="btn btn-primary" onclick="showPaymentModal()">
-                    <i class="fas fa-unlock"></i> Unlock Now - ₸2,990
+                    <i class="fas fa-unlock"></i> Unlock Now - $5
                 </button>
             `;
             chatPanel.appendChild(overlay);
@@ -1233,8 +1233,8 @@
                 paypalBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting to PayPal...';
             }
 
-            // PayPal payment amount: $6.50 USD (₸2,990)
-            const amount = 6.50;
+            // PayPal payment amount: $5 USD
+            const amount = 5.00;
             const currency = 'USD';
             const description = 'Edu Helper AI - Unlimited Access';
             
