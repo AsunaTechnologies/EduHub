@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu Helper - AI Career & University Advisor | Assyl DataHub</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Common Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Edu Helper Page Styles */
+        .edu-helper-section {
+            padding: 3rem 0;
+            background: var(--bg-cream);
+            min-height: calc(100vh - 72px - 200px);
+        }
+
+        .edu-helper-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2rem;
+        }
+
+        /* Profile Input Panel */
+        .profile-panel {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-light);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .profile-panel h2 {
+            font-size: 1.35rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-navy);
+        }
+
+        .profile-panel .subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-section h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+        }
+
+        .score-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        .score-input {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .score-input label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+            font-weight: 500;
+        }
+
+        .score-input input {
+            padding: 0.6rem 0.75rem;
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            transition: all var(--transition-fast);
+        }
+
+        .score-input input:focus {
+            outline: none;
+            border-color: var(--primary-navy);
+            box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
+        }
+
+        .interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .interest-tag {
+            padding: 0.5rem 1rem;
+            background: var(--bg-cream);
+            border: 1px solid var(--border-light);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .interest-tag:hover {
+            border-color: var(--primary-navy);
+            color: var(--primary-navy);
+        }
+
+        .interest-tag.selected {
+            background: var(--primary-navy);
+            color: white;
+            border-color: var(--primary-navy);
+        }
+
+        /* Chat Panel */
+        .chat-panel {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
+            min-height: 600px;
+        }
+
+        .chat-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .ai-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-navy), var(--primary-navy-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+        }
+
+        .chat-header-info h2 {
+            font-size: 1.25rem;
+            margin-bottom: 0.15rem;
+            color: var(--primary-navy);
+        }
+
+        .chat-header-info p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        .online-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            margin-left: auto;
+            padding: 0.35rem 0.75rem;
+            background: rgba(39, 174, 96, 0.1);
+            color: var(--success);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .online-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 1.5rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            max-width: 85%;
+            padding: 1rem 1.25rem;
+            border-radius: var(--radius-lg);
+            line-height: 1.6;
+            animation: messageIn 0.3s ease;
+        }
+
+        @keyframes messageIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.ai {
+            background: var(--bg-cream);
+            border: 1px solid var(--border-light);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .message.user {
+            background: var(--primary-navy);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .message .message-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .message.user .message-header {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .message-content {
+            font-size: 0.95rem;
+        }
+
+        .message-content p {
+            margin-bottom: 0.75rem;
+            color: inherit;
+        }
+
+        .message-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .message-content ul {
+            margin: 0.5rem 0;
+            padding-left: 1.25rem;
+        }
+
+        .message-content li {
+            margin-bottom: 0.35rem;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 0.35rem;
+            padding: 1rem 1.25rem;
+            background: var(--bg-cream);
+            border-radius: var(--radius-lg);
+            border-bottom-left-radius: 4px;
+            width: fit-content;
+        }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: var(--text-muted);
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        .chat-input {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .chat-input textarea {
+            flex: 1;
+            padding: 0.875rem 1rem;
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-md);
+            resize: none;
+            font-family: inherit;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            min-height: 50px;
+            max-height: 120px;
+            transition: all var(--transition-fast);
+        }
+
+        .chat-input textarea:focus {
+            outline: none;
+            border-color: var(--primary-navy);
+            box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
+        }
+
+        .send-btn {
+            padding: 0 1.25rem;
+            background: var(--primary-navy);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .send-btn:hover:not(:disabled) {
+            background: var(--primary-navy-light);
+            transform: translateY(-2px);
+        }
+
+        .send-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Quick Questions */
+        .quick-questions {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border-light);
+            background: var(--bg-light);
+        }
+
+        .quick-questions p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .quick-question-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .quick-q-btn {
+            padding: 0.5rem 0.875rem;
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            color: var(--text-secondary);
+        }
+
+        .quick-q-btn:hover {
+            border-color: var(--primary-navy);
+            color: var(--primary-navy);
+            background: white;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 4rem 0;
+            background: var(--bg-white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding: 0 2rem;
+        }
+
+        .feature-item {
+            padding: 1.5rem;
+            background: var(--bg-cream);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .feature-item i {
+            font-size: 2rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-navy);
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .edu-helper-container {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-panel {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .chat-panel {
+                min-height: 500px;
+            }
+
+            .score-inputs {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-questions {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">A</span>
+                Assyl DataHub
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="study-in-kazakhstan.html" class="nav-link">Study in Kazakhstan</a></li>
+                <li><a href="study-abroad.html" class="nav-link">Study Abroad</a></li>
+                <li><a href="dual-diploma.html" class="nav-link">2+2 Programs</a></li>
+                <li><a href="edu-helper.html" class="nav-link active">Edu Helper</a></li>
+                <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="kz">KZ</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Edu <span class="page-title-accent">Helper</span></h1>
+            <p class="page-subtitle">
+                Your AI-powered education advisor. Share your test scores, interests, and goals 
+                to get personalized university and career recommendations.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Edu Helper Section -->
+    <section class="edu-helper-section">
+        <div class="edu-helper-container">
+            <!-- Profile Input Panel -->
+            <div class="profile-panel">
+                <h2><i class="fas fa-user-graduate" style="color: var(--accent-gold); margin-right: 0.5rem;"></i> Your Profile</h2>
+                <p class="subtitle">Fill in your details for better recommendations</p>
+
+                <div class="input-section">
+                    <h3><i class="fas fa-chart-bar" style="margin-right: 0.5rem;"></i> Test Scores</h3>
+                    <div class="score-inputs">
+                        <div class="score-input">
+                            <label>ENT Score</label>
+                            <input type="number" id="entScore" placeholder="0-140" min="0" max="140">
+                        </div>
+                        <div class="score-input">
+                            <label>IELTS Score</label>
+                            <input type="number" id="ieltsScore" placeholder="0-9" min="0" max="9" step="0.5">
+                        </div>
+                        <div class="score-input">
+                            <label>SAT Score</label>
+                            <input type="number" id="satScore" placeholder="400-1600" min="400" max="1600">
+                        </div>
+                        <div class="score-input">
+                            <label>GPA</label>
+                            <input type="number" id="gpaScore" placeholder="0-4.0" min="0" max="4" step="0.1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-section">
+                    <h3><i class="fas fa-heart" style="margin-right: 0.5rem;"></i> Interests</h3>
+                    <div class="interest-tags" id="interestTags">
+                        <span class="interest-tag" data-interest="engineering">Engineering</span>
+                        <span class="interest-tag" data-interest="medicine">Medicine</span>
+                        <span class="interest-tag" data-interest="business">Business</span>
+                        <span class="interest-tag" data-interest="it">IT & Programming</span>
+                        <span class="interest-tag" data-interest="arts">Arts & Design</span>
+                        <span class="interest-tag" data-interest="law">Law</span>
+                        <span class="interest-tag" data-interest="science">Natural Sciences</span>
+                        <span class="interest-tag" data-interest="humanities">Humanities</span>
+                    </div>
+                </div>
+
+                <div class="input-section">
+                    <h3><i class="fas fa-globe" style="margin-right: 0.5rem;"></i> Study Preferences</h3>
+                    <div class="form-group" style="margin-bottom: 0.75rem;">
+                        <select id="studyLocation" class="form-input" style="padding: 0.7rem;">
+                            <option value="">Preferred Location</option>
+                            <option value="kazakhstan">Kazakhstan</option>
+                            <option value="abroad">Abroad</option>
+                            <option value="dual">2+2 Dual Diploma</option>
+                            <option value="any">No Preference</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <select id="budgetRange" class="form-input" style="padding: 0.7rem;">
+                            <option value="">Budget Range (per year)</option>
+                            <option value="low">Under $5,000</option>
+                            <option value="medium">$5,000 - $15,000</option>
+                            <option value="high">$15,000 - $30,000</option>
+                            <option value="premium">$30,000+</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" onclick="generateProfileSummary()">
+                    <i class="fas fa-magic"></i> Generate Recommendations
+                </button>
+            </div>
+
+            <!-- Chat Panel -->
+            <div class="chat-panel">
+                <div class="chat-header">
+                    <div class="ai-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="chat-header-info">
+                        <h2>Edu Helper AI</h2>
+                        <p>Your personal education advisor</p>
+                    </div>
+                    <span class="online-badge">Online</span>
+                </div>
+
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message ai">
+                        <div class="message-header">
+                            <i class="fas fa-robot"></i> Edu Helper AI
+                        </div>
+                        <div class="message-content">
+                            <p>Hello! 👋 I'm your AI education advisor. I'm here to help you find the perfect university and career path based on your test scores, interests, and goals.</p>
+                            <p>You can:</p>
+                            <ul>
+                                <li>Fill in your profile on the left panel and click "Generate Recommendations"</li>
+                                <li>Or simply tell me about yourself - your ENT/IELTS/SAT scores, what profession you're interested in, and I'll guide you!</li>
+                            </ul>
+                            <p>What would you like to know today?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-questions">
+                    <p>Quick questions:</p>
+                    <div class="quick-question-btns">
+                        <button class="quick-q-btn" onclick="askQuickQuestion('What universities can I apply to with 120 ENT score?')">ENT 120 - what unis?</button>
+                        <button class="quick-q-btn" onclick="askQuickQuestion('What IELTS score do I need for Nazarbayev University?')">IELTS for NU?</button>
+                        <button class="quick-q-btn" onclick="askQuickQuestion('Which 2+2 programs are available for IT students?')">2+2 for IT</button>
+                        <button class="quick-q-btn" onclick="askQuickQuestion('Best medical universities in Kazakhstan?')">Medical unis</button>
+                    </div>
+                </div>
+
+                <div class="chat-input">
+                    <textarea id="userInput" placeholder="Ask me anything about universities, programs, or career paths..." rows="1"></textarea>
+                    <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>How Edu Helper Works</h2>
+                <p>Get personalized guidance powered by AI technology</p>
+            </div>
+        </div>
+        <div class="features-grid">
+            <div class="feature-item">
+                <i class="fas fa-clipboard-list"></i>
+                <h3>Share Your Profile</h3>
+                <p>Enter your test scores (ENT, IELTS, SAT), interests, and career goals</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-brain"></i>
+                <h3>AI Analysis</h3>
+                <p>Our AI analyzes your profile against 150+ universities and programs</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-university"></i>
+                <h3>University Match</h3>
+                <p>Get matched with universities that fit your scores and preferences</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-route"></i>
+                <h3>Career Pathway</h3>
+                <p>Discover career paths and programs aligned with your interests</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Assyl DataHub</h4>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 0.5rem;">
+                        Empowering students and families to make informed decisions about higher education since 2025.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="study-in-kazakhstan.html">Study in Kazakhstan</a></li>
+                        <li><a href="study-abroad.html">Study Abroad</a></li>
+                        <li><a href="dual-diploma.html">2+2 Programs</a></li>
+                        <li><a href="edu-helper.html">Edu Helper AI</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Application Guide</a></li>
+                        <li><a href="#">Scholarship Database</a></li>
+                        <li><a href="#">Student Blog</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> abulkasimovbahtiar3@gmail.com</li>
+                        <li><i class="fas fa-phone" style="margin-right: 0.5rem;"></i> +7 (747) 403-9869</li>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i> Almaty, Kazakhstan</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Assyl DataHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="main.js"></script>
+    
+    <script>
+        // Edu Helper AI Chat Functionality
+        const API_URL = 'https://educational-datahub.onrender.com/api/v1/gemini/generate-educational';
+        const chatMessages = document.getElementById('chatMessages');
+        const userInput = document.getElementById('userInput');
+        const sendBtn = document.getElementById('sendBtn');
+        
+        let selectedInterests = [];
+        let isLoading = false;
+
+        // Interest tag selection
+        document.querySelectorAll('.interest-tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                tag.classList.toggle('selected');
+                const interest = tag.dataset.interest;
+                if (tag.classList.contains('selected')) {
+                    selectedInterests.push(interest);
+                } else {
+                    selectedInterests = selectedInterests.filter(i => i !== interest);
+                }
+            });
+        });
+
+        // Auto-resize textarea
+        userInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+        });
+
+        // Send on Enter (but allow Shift+Enter for new lines)
+        userInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        // Generate profile summary and send to AI
+        function generateProfileSummary() {
+            const entScore = document.getElementById('entScore').value;
+            const ieltsScore = document.getElementById('ieltsScore').value;
+            const satScore = document.getElementById('satScore').value;
+            const gpaScore = document.getElementById('gpaScore').value;
+            const studyLocation = document.getElementById('studyLocation').value;
+            const budgetRange = document.getElementById('budgetRange').value;
+
+            let summary = "Hello! Here's my profile:\n";
+            
+            if (entScore) summary += `- ENT Score: ${entScore}/140\n`;
+            if (ieltsScore) summary += `- IELTS Score: ${ieltsScore}/9\n`;
+            if (satScore) summary += `- SAT Score: ${satScore}/1600\n`;
+            if (gpaScore) summary += `- GPA: ${gpaScore}/4.0\n`;
+            
+            if (selectedInterests.length > 0) {
+                summary += `- Interests: ${selectedInterests.join(', ')}\n`;
+            }
+            
+            if (studyLocation) {
+                const locationMap = {
+                    'kazakhstan': 'Kazakhstan',
+                    'abroad': 'Abroad',
+                    'dual': '2+2 Dual Diploma programs',
+                    'any': 'anywhere'
+                };
+                summary += `- Preferred location: ${locationMap[studyLocation]}\n`;
+            }
+            
+            if (budgetRange) {
+                const budgetMap = {
+                    'low': 'Under $5,000/year',
+                    'medium': '$5,000 - $15,000/year',
+                    'high': '$15,000 - $30,000/year',
+                    'premium': '$30,000+/year'
+                };
+                summary += `- Budget: ${budgetMap[budgetRange]}\n`;
+            }
+
+            summary += "\nBased on my profile, what universities and programs would you recommend? What career paths could be a good fit for me?";
+
+            userInput.value = summary;
+            userInput.style.height = 'auto';
+            userInput.style.height = Math.min(userInput.scrollHeight, 120) + 'px';
+            
+            sendMessage();
+        }
+
+        // Quick question helper
+        function askQuickQuestion(question) {
+            userInput.value = question;
+            sendMessage();
+        }
+
+        // Add message to chat
+        function addMessage(content, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            
+            const header = document.createElement('div');
+            header.className = 'message-header';
+            header.innerHTML = type === 'ai' 
+                ? '<i class="fas fa-robot"></i> Edu Helper AI'
+                : '<i class="fas fa-user"></i> You';
+            
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'message-content';
+            
+            // Parse markdown-like formatting
+            let formattedContent = content
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/\n\n/g, '</p><p>')
+                .replace(/\n- /g, '</p><ul><li>')
+                .replace(/\n/g, '<br>');
+            
+            // Wrap in paragraph if not already
+            if (!formattedContent.startsWith('<')) {
+                formattedContent = '<p>' + formattedContent + '</p>';
+            }
+            
+            contentDiv.innerHTML = formattedContent;
+            
+            messageDiv.appendChild(header);
+            messageDiv.appendChild(contentDiv);
+            chatMessages.appendChild(messageDiv);
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Show typing indicator
+        function showTyping() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'typing-indicator';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = '<span></span><span></span><span></span>';
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Hide typing indicator
+        function hideTyping() {
+            const typing = document.getElementById('typingIndicator');
+            if (typing) typing.remove();
+        }
+
+        // Send message to API
+        async function sendMessage() {
+            const message = userInput.value.trim();
+            if (!message || isLoading) return;
+
+            isLoading = true;
+            sendBtn.disabled = true;
+            
+            // Add user message to chat
+            addMessage(message, 'user');
+            userInput.value = '';
+            userInput.style.height = 'auto';
+            
+            // Show typing indicator
+            showTyping();
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        promt: message
+                    })
+                });
+
+                hideTyping();
+
+                if (!response.ok) {
+                    throw new Error('API request failed');
+                }
+
+                const data = await response.json();
+                
+                // Extract the AI response (adjust based on actual API response structure)
+                let aiResponse = data.response || data.message || data.text || data.content || 
+                    (typeof data === 'string' ? data : 'I apologize, but I encountered an issue processing your request. Please try again.');
+                
+                addMessage(aiResponse, 'ai');
+
+            } catch (error) {
+                console.error('Error:', error);
+                hideTyping();
+                addMessage(
+                    "I'm sorry, I'm having trouble connecting right now. Please try again in a moment, or contact our support team at abulkasimovbahtiar3@gmail.com for immediate assistance.",
+                    'ai'
+                );
+            }
+
+            isLoading = false;
+            sendBtn.disabled = false;
+            userInput.focus();
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Focus on input
+            userInput.focus();
+        });
+    </script>
+</body>
+</html>
+
