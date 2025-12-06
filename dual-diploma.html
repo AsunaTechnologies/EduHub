@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2+2 Dual Diploma Programs - Study in Kazakhstan & Abroad | Assyl DataHub</title>
+    <title>1+1 Dual Diploma Programs - International Masters Degree | Assyl DataHub</title>
     
-    <!-- Fonts -->
+    <!-- Modern Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -17,10 +17,11 @@
     <link rel="stylesheet" href="styles.css">
     
     <style>
-        /* Hero Section */
+        /* Hero Section - Modern Dark */
         .dual-hero {
-            padding: 4rem 0;
-            background: linear-gradient(135deg, var(--primary-navy) 0%, #2d4a6f 50%, #3d5a80 100%);
+            margin-top: 68px;
+            padding: 5rem 0;
+            background: var(--bg-dark);
             position: relative;
             overflow: hidden;
         }
@@ -28,11 +29,19 @@
         .dual-hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(99, 102, 241, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
+            animation: meshMove 20s ease-in-out infinite;
+        }
+
+        @keyframes meshMove {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(2%, 2%) rotate(1deg); }
         }
 
         .dual-hero-container {
@@ -49,17 +58,22 @@
 
         .dual-hero-content h1 {
             color: white;
-            font-size: clamp(2rem, 4vw, 2.75rem);
-            margin-bottom: 1rem;
-            line-height: 1.2;
+            font-size: clamp(2.25rem, 4vw, 3rem);
+            margin-bottom: 1.25rem;
+            line-height: 1.15;
+            font-weight: 800;
+            letter-spacing: -0.03em;
         }
 
         .dual-hero-content h1 span {
-            color: var(--accent-gold);
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .dual-hero-content p {
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.75);
             font-size: 1.1rem;
             line-height: 1.7;
             margin-bottom: 2rem;
@@ -67,7 +81,7 @@
 
         .hero-badges {
             display: flex;
-            gap: 1rem;
+            gap: 0.75rem;
             flex-wrap: wrap;
             margin-bottom: 2rem;
         }
@@ -76,15 +90,17 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
+            padding: 0.625rem 1rem;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
             color: white;
-            font-size: 0.9rem;
+            font-size: 0.875rem;
+            backdrop-filter: blur(10px);
         }
 
         .hero-badge i {
-            color: var(--accent-gold);
+            color: var(--accent-gold-light);
         }
 
         .dual-hero-visual {
@@ -96,7 +112,7 @@
         .pathway-visual {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .pathway-node {
@@ -105,66 +121,99 @@
         }
 
         .pathway-icon {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            border: 3px solid var(--accent-gold);
+            width: 110px;
+            height: 110px;
+            border-radius: var(--radius-xl);
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(99, 102, 241, 0.5);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
+            backdrop-filter: blur(10px);
+            transition: all var(--transition-normal);
         }
 
-        .pathway-icon img {
-            width: 50px;
-            height: 35px;
-            border-radius: 4px;
-            object-fit: cover;
+        .pathway-icon:hover {
+            border-color: var(--accent-gold);
+            transform: scale(1.05);
+            box-shadow: var(--shadow-glow);
         }
 
         .pathway-icon span {
-            font-size: 0.75rem;
-            margin-top: 0.35rem;
-            color: var(--accent-gold);
-            font-weight: 600;
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .pathway-icon small {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .pathway-node p {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
             margin: 0;
         }
 
         .pathway-arrow {
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--accent-gold);
+            animation: arrowPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes arrowPulse {
+            0%, 100% { transform: translateX(0); opacity: 1; }
+            50% { transform: translateX(5px); opacity: 0.7; }
         }
 
         /* How It Works */
         .how-it-works {
-            padding: 4rem 0;
+            padding: 5rem 0;
             background: var(--bg-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--text-secondary);
         }
 
         .steps-container {
             max-width: 1000px;
-            margin: 3rem auto 0;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
+            gap: 1.5rem;
             position: relative;
         }
 
         .steps-container::before {
             content: '';
             position: absolute;
-            top: 40px;
-            left: 10%;
-            right: 10%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-gold), var(--primary-navy));
+            top: 50px;
+            left: 12%;
+            right: 12%;
+            height: 2px;
+            background: var(--accent-gradient);
             z-index: 0;
         }
 
@@ -175,193 +224,173 @@
         }
 
         .step-number {
-            width: 80px;
-            height: 80px;
-            background: var(--primary-navy);
-            color: var(--accent-gold);
-            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            background: var(--bg-dark);
+            border-radius: var(--radius-xl);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin: 0 auto 1rem;
-            border: 4px solid var(--bg-white);
-            box-shadow: var(--shadow-medium);
+            margin: 0 auto 1.25rem;
+            box-shadow: var(--shadow-large);
+            position: relative;
+        }
+
+        .step-number::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: var(--radius-xl);
+            background: var(--accent-gradient);
+            z-index: -1;
+        }
+
+        .step-number span {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .step-item h3 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin-bottom: 0.5rem;
             color: var(--primary-navy);
         }
 
         .step-item p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
+            font-size: 0.875rem;
+            color: var(--text-muted);
             line-height: 1.5;
         }
 
         /* Programs Section */
         .programs-section {
-            padding: 4rem 0;
-            background: var(--bg-cream);
+            padding: 5rem 0;
+            background: var(--bg-light);
         }
 
-        .programs-container {
+        .programs-grid {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
-        }
-
-        .program-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
 
         .program-card {
             background: var(--bg-white);
-            border-radius: var(--radius-lg);
+            border-radius: var(--radius-xl);
             overflow: hidden;
-            box-shadow: var(--shadow-soft);
+            box-shadow: var(--shadow-medium);
             transition: all var(--transition-normal);
-            border-top: 5px solid var(--accent-gold);
+            border: 1px solid var(--border-light);
         }
 
         .program-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-medium);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
         }
 
         .program-header {
-            padding: 1.5rem;
-            background: var(--primary-navy);
-            color: white;
+            padding: 1.75rem;
+            background: var(--bg-dark);
+            position: relative;
+            overflow: hidden;
         }
 
-        .program-flags {
-            display: flex;
+        .program-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            opacity: 0.1;
+            transform: translate(30%, -30%);
+        }
+
+        .program-badge {
+            display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            padding: 0.375rem 0.875rem;
+            background: rgba(99, 102, 241, 0.2);
+            border-radius: var(--radius-full);
+            color: var(--accent-gold-light);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             margin-bottom: 1rem;
         }
 
-        .program-flags img {
-            width: 36px;
-            height: 24px;
-            border-radius: 3px;
-            object-fit: cover;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-        }
-
-        .program-flags span {
-            color: var(--accent-gold);
-            font-size: 1.25rem;
-        }
-
-        .program-header h3 {
+        .program-title {
             color: white;
             font-size: 1.25rem;
-            margin-bottom: 0.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
         }
 
-        .program-header p {
-            color: rgba(255, 255, 255, 0.8);
+        .program-subtitle {
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
-            margin: 0;
         }
 
         .program-body {
-            padding: 1.5rem;
+            padding: 1.75rem;
         }
 
-        .program-unis {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .uni-box {
-            background: var(--bg-cream);
-            padding: 1rem;
-            border-radius: var(--radius-md);
-            text-align: center;
-        }
-
-        .uni-box .years {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: var(--primary-navy);
-            color: white;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .uni-box h4 {
-            font-size: 0.95rem;
-            color: var(--primary-navy);
-            margin-bottom: 0.25rem;
-            font-family: 'Source Sans 3', sans-serif;
-        }
-
-        .uni-box p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin: 0;
-        }
-
-        .program-details {
+        .program-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 0.75rem;
-            padding: 1rem 0;
-            border-top: 1px solid var(--border-light);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
             border-bottom: 1px solid var(--border-light);
-            margin-bottom: 1rem;
         }
 
-        .detail-item {
+        .stat-item {
             text-align: center;
         }
 
-        .detail-item .label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--text-muted);
-            margin-bottom: 0.25rem;
+        .stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            display: block;
         }
 
-        .detail-item .value {
-            font-weight: 600;
-            color: var(--primary-navy);
-            font-size: 0.95rem;
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .program-features {
             list-style: none;
-            padding: 0;
-            margin: 0 0 1.5rem 0;
+            margin-bottom: 1.5rem;
         }
 
         .program-features li {
-            padding: 0.4rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
             font-size: 0.9rem;
             color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .program-features li i {
-            color: var(--accent-gold);
-            font-size: 0.8rem;
+            color: var(--success);
+            margin-top: 0.25rem;
         }
 
         .program-actions {
@@ -371,155 +400,103 @@
 
         .program-actions .btn {
             flex: 1;
-            padding: 0.75rem 1rem;
-            font-size: 0.9rem;
         }
 
-        /* Benefits Section */
-        .benefits-section {
-            padding: 4rem 0;
+        /* Partners Section */
+        .partners-section {
+            padding: 5rem 0;
             background: var(--bg-white);
         }
 
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 3rem auto 0;
-            padding: 0 2rem;
-        }
-
-        .benefit-card {
-            text-align: center;
-            padding: 2rem;
-            background: var(--bg-cream);
-            border-radius: var(--radius-lg);
-            transition: all var(--transition-normal);
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .benefit-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: var(--primary-navy);
-            color: var(--accent-gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.75rem;
-            margin: 0 auto 1.25rem;
-        }
-
-        .benefit-card h3 {
-            font-size: 1.15rem;
-            margin-bottom: 0.75rem;
-            color: var(--primary-navy);
-        }
-
-        .benefit-card p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        /* Partner Universities */
-        .partners-section {
-            padding: 4rem 0;
-            background: var(--primary-navy);
-        }
-
-        .partners-section .section-title h2 {
-            color: white;
-        }
-
-        .partners-section .section-title p {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
         .partners-grid {
+            max-width: 1000px;
+            margin: 3rem auto 0;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 3rem auto 0;
-            padding: 0 2rem;
+            gap: 2rem;
         }
 
         .partner-card {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--bg-light);
             border-radius: var(--radius-lg);
-            padding: 1.5rem;
+            padding: 2rem;
             text-align: center;
             transition: all var(--transition-normal);
+            border: 1px solid transparent;
         }
 
         .partner-card:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-3px);
+            background: var(--bg-white);
+            border-color: var(--accent-gold);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
         }
 
-        .partner-card img {
-            width: 60px;
-            height: 40px;
-            border-radius: 4px;
-            object-fit: cover;
+        .partner-flag {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
         }
 
-        .partner-card h4 {
-            color: white;
-            font-size: 1rem;
-            margin-bottom: 0.25rem;
-            font-family: 'Source Sans 3', sans-serif;
+        .partner-name {
             font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 0.25rem;
         }
 
-        .partner-card p {
-            color: var(--accent-gold);
+        .partner-country {
             font-size: 0.85rem;
-            margin: 0;
+            color: var(--text-muted);
         }
 
         /* CTA Section */
         .cta-section {
-            padding: 4rem 0;
-            background: var(--bg-cream);
-            text-align: center;
+            padding: 5rem 0;
+            background: var(--bg-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 50% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
         }
 
         .cta-content {
             max-width: 700px;
             margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-content h2 {
+            color: white;
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
             margin-bottom: 1rem;
         }
 
         .cta-content p {
-            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
             margin-bottom: 2rem;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1rem;
             justify-content: center;
+            gap: 1rem;
             flex-wrap: wrap;
         }
 
-        /* Responsive */
-        @media (max-width: 992px) {
+        @media (max-width: 768px) {
             .dual-hero-container {
                 grid-template-columns: 1fr;
+                gap: 2rem;
                 text-align: center;
             }
 
@@ -529,32 +506,13 @@
 
             .steps-container {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
             }
 
             .steps-container::before {
                 display: none;
             }
-        }
 
-        @media (max-width: 768px) {
-            .pathway-visual {
-                flex-direction: column;
-            }
-
-            .pathway-arrow {
-                transform: rotate(90deg);
-            }
-
-            .steps-container {
-                grid-template-columns: 1fr;
-            }
-
-            .program-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .program-unis {
+            .programs-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -566,78 +524,81 @@
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <span class="logo-icon">A</span>
-                Assyl DataHub
+                <span>A</span>syl DataHub
             </a>
-            
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="study-in-kazakhstan.html" class="nav-link">Study in Kazakhstan</a></li>
-                <li><a href="study-abroad.html" class="nav-link">Study Abroad</a></li>
-                <li><a href="dual-diploma.html" class="nav-link active">2+2 Programs</a></li>
-                <li><a href="edu-helper.html" class="nav-link">Edu Helper</a></li>
-                <li><a href="pricing.html" class="nav-link">Pricing</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="index.html" class="nav-link" data-i18n="nav.home">Home</a></li>
+                <li><a href="study-in-kazakhstan.html" class="nav-link" data-i18n="nav.studyKz">Study in Kazakhstan</a></li>
+                <li><a href="dual-diploma.html" class="nav-link active" data-i18n="nav.dualDiploma">1+1 Programs</a></li>
+                <li><a href="compare.html" class="nav-link" data-i18n="nav.compare">Compare</a></li>
+                <li><a href="edu-helper.html" class="nav-link" data-i18n="nav.eduHelper">Edu Helper</a></li>
+                <li><a href="pricing.html" class="nav-link" data-i18n="nav.pricing">Pricing</a></li>
+                <li><a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a></li>
             </ul>
-
             <div class="lang-switcher">
-                <button class="lang-btn active" data-lang="en">EN</button>
-                <button class="lang-btn" data-lang="ru">RU</button>
-                <button class="lang-btn" data-lang="kz">KZ</button>
+                <button class="lang-btn active" data-lang="en" onclick="window.assylDataHub?.switchLanguage('en')">EN</button>
+                <button class="lang-btn" data-lang="ru" onclick="window.assylDataHub?.switchLanguage('ru')">RU</button>
+                <button class="lang-btn" data-lang="kz" onclick="window.assylDataHub?.switchLanguage('kz')">KZ</button>
             </div>
         </div>
     </nav>
-
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <h1 class="page-title">2+2 <span class="page-title-accent">Dual Diploma</span> Programs</h1>
-            <p class="page-subtitle">
-                Start your education in Kazakhstan, finish at a prestigious international university. 
-                Get two diplomas, one global experience.
-            </p>
-        </div>
-    </section>
 
     <!-- Hero Section -->
     <section class="dual-hero">
         <div class="dual-hero-container">
             <div class="dual-hero-content">
-                <h1>Two Countries. <span>Two Diplomas.</span> One Amazing Journey.</h1>
-                <p>
-                    Our 2+2 programs let you spend your first two years at a top Kazakh university, 
-                    then transfer to complete your degree at partner universities in Hong Kong, UK, 
-                    Germany, and more. Graduate with credentials from both institutions.
+                <h1 data-i18n="dual.heroTitle"><span>1+1</span> Dual Diploma Programs</h1>
+                <p data-i18n="dual.heroSubtitle">
+                    Get two Master's degrees from Kazakhstan and international partner universities. 
+                    Study 1 year locally, then 1 year abroad — graduate with diplomas from both institutions.
                 </p>
+                
                 <div class="hero-badges">
-                    <span class="hero-badge"><i class="fas fa-graduation-cap"></i> Dual Degree</span>
-                    <span class="hero-badge"><i class="fas fa-dollar-sign"></i> Cost Effective</span>
-                    <span class="hero-badge"><i class="fas fa-globe"></i> Global Recognition</span>
+                    <div class="hero-badge">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span data-i18n="dual.badge1">Two Diplomas</span>
+                    </div>
+                    <div class="hero-badge">
+                        <i class="fas fa-globe"></i>
+                        <span data-i18n="dual.badge2">Global Recognition</span>
+                    </div>
+                    <div class="hero-badge">
+                        <i class="fas fa-coins"></i>
+                        <span data-i18n="dual.badge3">Cost Effective</span>
+                    </div>
                 </div>
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <a href="#programs" class="btn btn-accent btn-large">
-                        <i class="fas fa-search"></i> Explore Programs
-                    </a>
-                    <a href="edu-helper.html" class="btn btn-secondary btn-large" style="border-color: white; color: white;">
-                        <i class="fas fa-robot"></i> Ask AI Advisor
-                    </a>
-                </div>
+                
+                <a href="#programs" class="btn btn-primary" data-i18n="dual.exploreBtn">Explore Programs</a>
             </div>
+            
             <div class="dual-hero-visual">
                 <div class="pathway-visual">
                     <div class="pathway-node">
                         <div class="pathway-icon">
-                            <img src="https://flagcdn.com/w80/kz.png" alt="Kazakhstan">
-                            <span>Year 1-2</span>
+                            <span>1</span>
+                            <small data-i18n="dual.year">Year</small>
                         </div>
-                        <p>Kazakhstan</p>
+                        <p data-i18n="dual.inKz">In Kazakhstan</p>
                     </div>
-                    <i class="fas fa-arrow-right pathway-arrow"></i>
+                    <div class="pathway-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
                     <div class="pathway-node">
                         <div class="pathway-icon">
-                            <img src="https://flagcdn.com/w80/hk.png" alt="Hong Kong">
-                            <span>Year 3-4</span>
+                            <span>1</span>
+                            <small data-i18n="dual.year">Year</small>
                         </div>
-                        <p>Partner Country</p>
+                        <p data-i18n="dual.abroad">Abroad</p>
+                    </div>
+                    <div class="pathway-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="pathway-node">
+                        <div class="pathway-icon">
+                            <span>2</span>
+                            <small data-i18n="dual.diplomas">Diplomas</small>
+                        </div>
+                        <p data-i18n="dual.graduate">Graduate</p>
                     </div>
                 </div>
             </div>
@@ -647,415 +608,266 @@
     <!-- How It Works -->
     <section class="how-it-works">
         <div class="container">
-            <div class="section-title">
-                <h2>How 2+2 Programs Work</h2>
-                <p>A seamless pathway to an international degree</p>
+            <div class="section-header">
+                <h2 data-i18n="dual.howTitle">How 1+1 Programs Work</h2>
+                <p data-i18n="dual.howSubtitle">A streamlined pathway to international education and career success</p>
             </div>
+            
             <div class="steps-container">
                 <div class="step-item">
-                    <div class="step-number">1</div>
-                    <h3>Apply</h3>
-                    <p>Apply to a participating Kazakh university with 2+2 agreements</p>
+                    <div class="step-number"><span>1</span></div>
+                    <h3 data-i18n="dual.step1Title">Apply</h3>
+                    <p data-i18n="dual.step1Desc">Submit application to Kazakh partner university</p>
                 </div>
                 <div class="step-item">
-                    <div class="step-number">2</div>
-                    <h3>Study Years 1-2</h3>
-                    <p>Complete your first two years in Kazakhstan, building strong foundations</p>
+                    <div class="step-number"><span>2</span></div>
+                    <h3 data-i18n="dual.step2Title">Year 1</h3>
+                    <p data-i18n="dual.step2Desc">Study at university in Kazakhstan</p>
                 </div>
                 <div class="step-item">
-                    <div class="step-number">3</div>
-                    <h3>Transfer</h3>
-                    <p>Transfer to your partner university abroad with guaranteed acceptance</p>
+                    <div class="step-number"><span>3</span></div>
+                    <h3 data-i18n="dual.step3Title">Year 2</h3>
+                    <p data-i18n="dual.step3Desc">Transfer to partner university abroad</p>
                 </div>
                 <div class="step-item">
-                    <div class="step-number">4</div>
-                    <h3>Graduate</h3>
-                    <p>Complete years 3-4 abroad and receive diplomas from both universities</p>
+                    <div class="step-number"><span>4</span></div>
+                    <h3 data-i18n="dual.step4Title">Graduate</h3>
+                    <p data-i18n="dual.step4Desc">Receive two recognized Master's degrees</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Programs Section -->
-    <section class="programs-section" id="programs">
-        <div class="programs-container">
-            <div class="section-title">
-                <h2>Featured 2+2 Programs</h2>
-                <p>Explore our partnership programs with leading international universities</p>
-            </div>
-
-            <div class="program-cards">
-                <!-- SDU to Hong Kong -->
-                <div class="program-card">
-                    <div class="program-header">
-                        <div class="program-flags">
-                            <img src="https://flagcdn.com/w80/kz.png" alt="Kazakhstan">
-                            <span>→</span>
-                            <img src="https://flagcdn.com/w80/hk.png" alt="Hong Kong">
-                        </div>
-                        <h3>Computer Science & IT</h3>
-                        <p>SDU → City University of Hong Kong</p>
-                    </div>
-                    <div class="program-body">
-                        <div class="program-unis">
-                            <div class="uni-box">
-                                <span class="years">Years 1-2</span>
-                                <h4>SDU University</h4>
-                                <p>Almaty, Kazakhstan</p>
-                            </div>
-                            <div class="uni-box">
-                                <span class="years">Years 3-4</span>
-                                <h4>City University HK</h4>
-                                <p>Hong Kong SAR</p>
-                            </div>
-                        </div>
-                        <div class="program-details">
-                            <div class="detail-item">
-                                <div class="label">Total Cost</div>
-                                <div class="value">~$45,000</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="label">Duration</div>
-                                <div class="value">4 Years</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="label">Language</div>
-                                <div class="value">English</div>
-                            </div>
-                        </div>
-                        <ul class="program-features">
-                            <li><i class="fas fa-check"></i> Dual diploma from both universities</li>
-                            <li><i class="fas fa-check"></i> Work permit eligibility in Hong Kong</li>
-                            <li><i class="fas fa-check"></i> Access to Asia tech job market</li>
-                            <li><i class="fas fa-check"></i> Scholarship opportunities available</li>
-                        </ul>
-                        <div class="program-actions">
-                            <a href="contact.html" class="btn btn-primary btn-small">Apply Now</a>
-                            <button class="btn btn-secondary btn-small" onclick="window.location.href='edu-helper.html'">
-                                <i class="fas fa-robot"></i> Ask AI
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- KIMEP to UK -->
-                <div class="program-card">
-                    <div class="program-header">
-                        <div class="program-flags">
-                            <img src="https://flagcdn.com/w80/kz.png" alt="Kazakhstan">
-                            <span>→</span>
-                            <img src="https://flagcdn.com/w80/gb.png" alt="UK">
-                        </div>
-                        <h3>Business Administration</h3>
-                        <p>KIMEP → University of Manchester</p>
-                    </div>
-                    <div class="program-body">
-                        <div class="program-unis">
-                            <div class="uni-box">
-                                <span class="years">Years 1-2</span>
-                                <h4>KIMEP University</h4>
-                                <p>Almaty, Kazakhstan</p>
-                            </div>
-                            <div class="uni-box">
-                                <span class="years">Years 3-4</span>
-                                <h4>Univ. of Manchester</h4>
-                                <p>Manchester, UK</p>
-                            </div>
-                        </div>
-                        <div class="program-details">
-                            <div class="detail-item">
-                                <div class="label">Total Cost</div>
-                                <div class="value">~$55,000</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="label">Duration</div>
-                                <div class="value">4 Years</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="label">Language</div>
-                                <div class="value">English</div>
-                            </div>
-                        </div>
-                        <ul class="program-features">
-                            <li><i class="fas fa-check"></i> AACSB-accredited business program</li>
-                            <li><i class="fas fa-check"></i> UK Graduate visa (2 years work)</li>
-                            <li><i class="fas fa-check"></i> Strong alumni network globally</li>
-                            <li><i class="fas fa-check"></i> Internship placements included</li>
-                        </ul>
-                        <div class="program-actions">
-                            <a href="contact.html" class="btn btn-primary btn-small">Apply Now</a>
-                            <button class="btn btn-secondary btn-small" onclick="window.location.href='edu-helper.html'">
-                                <i class="fas fa-robot"></i> Ask AI
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- KazNU to Germany -->
-                <div class="program-card">
-                    <div class="program-header">
-                        <div class="program-flags">
-                            <img src="https://flagcdn.com/w80/kz.png" alt="Kazakhstan">
-                            <span>→</span>
-                            <img src="https://flagcdn.com/w80/de.png" alt="Germany">
-                        </div>
-                        <h3>Engineering</h3>
-                        <p>KazNU → TU Munich</p>
-                    </div>
-                    <div class="program-body">
-                        <div class="program-unis">
-                            <div class="uni-box">
-                                <span class="years">Years 1-2</span>
-                                <h4>Al-Farabi KazNU</h4>
-                                <p>Almaty, Kazakhstan</p>
-                            </div>
-                            <div class="uni-box">
-                                <span class="years">Years 3-4</span>
-                                <h4>TU Munich</h4>
-                                <p>Munich, Germany</p>
-                            </div>
-                        </div>
-                        <div class="program-details">
-                            <div class="detail-item">
-                                <div class="label">Total Cost</div>
-                                <div class="value">~$25,000</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="label">Duration</div>
-                                <div class="value">4 Years</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="label">Language</div>
-                                <div class="value">English/German</div>
-                            </div>
-                        </div>
-                        <ul class="program-features">
-                            <li><i class="fas fa-check"></i> Tuition-free at TU Munich</li>
-                            <li><i class="fas fa-check"></i> Top 50 engineering school globally</li>
-                            <li><i class="fas fa-check"></i> Strong industry connections</li>
-                            <li><i class="fas fa-check"></i> 18-month post-study work visa</li>
-                        </ul>
-                        <div class="program-actions">
-                            <a href="contact.html" class="btn btn-primary btn-small">Apply Now</a>
-                            <button class="btn btn-secondary btn-small" onclick="window.location.href='edu-helper.html'">
-                                <i class="fas fa-robot"></i> Ask AI
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SDU to South Korea -->
-                <div class="program-card">
-                    <div class="program-header">
-                        <div class="program-flags">
-                            <img src="https://flagcdn.com/w80/kz.png" alt="Kazakhstan">
-                            <span>→</span>
-                            <img src="https://flagcdn.com/w80/kr.png" alt="South Korea">
-                        </div>
-                        <h3>Data Science & AI</h3>
-                        <p>SDU → KAIST</p>
-                    </div>
-                    <div class="program-body">
-                        <div class="program-unis">
-                            <div class="uni-box">
-                                <span class="years">Years 1-2</span>
-                                <h4>SDU University</h4>
-                                <p>Almaty, Kazakhstan</p>
-                            </div>
-                            <div class="uni-box">
-                                <span class="years">Years 3-4</span>
-                                <h4>KAIST</h4>
-                                <p>Daejeon, South Korea</p>
-                            </div>
-                        </div>
-                        <div class="program-details">
-                            <div class="detail-item">
-                                <div class="label">Total Cost</div>
-                                <div class="value">~$35,000</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="label">Duration</div>
-                                <div class="value">4 Years</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="label">Language</div>
-                                <div class="value">English</div>
-                            </div>
-                        </div>
-                        <ul class="program-features">
-                            <li><i class="fas fa-check"></i> Leading AI research facilities</li>
-                            <li><i class="fas fa-check"></i> Access to Korean tech ecosystem</li>
-                            <li><i class="fas fa-check"></i> Full scholarship opportunities</li>
-                            <li><i class="fas fa-check"></i> Samsung, LG internship programs</li>
-                        </ul>
-                        <div class="program-actions">
-                            <a href="contact.html" class="btn btn-primary btn-small">Apply Now</a>
-                            <button class="btn btn-secondary btn-small" onclick="window.location.href='edu-helper.html'">
-                                <i class="fas fa-robot"></i> Ask AI
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AITU to Singapore -->
-                <div class="program-card">
-                    <div class="program-header">
-                        <div class="program-flags">
-                            <img src="https://flagcdn.com/w80/kz.png" alt="Kazakhstan">
-                            <span>→</span>
-                            <img src="https://flagcdn.com/w80/sg.png" alt="Singapore">
-                        </div>
-                        <h3>Information Technology</h3>
-                        <p>AITU → NUS Singapore</p>
-                    </div>
-                    <div class="program-body">
-                        <div class="program-unis">
-                            <div class="uni-box">
-                                <span class="years">Years 1-2</span>
-                                <h4>AITU</h4>
-                                <p>Astana, Kazakhstan</p>
-                            </div>
-                            <div class="uni-box">
-                                <span class="years">Years 3-4</span>
-                                <h4>NUS Singapore</h4>
-                                <p>Singapore</p>
-                            </div>
-                        </div>
-                        <div class="program-details">
-                            <div class="detail-item">
-                                <div class="label">Total Cost</div>
-                                <div class="value">~$50,000</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="label">Duration</div>
-                                <div class="value">4 Years</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="label">Language</div>
-                                <div class="value">English</div>
-                            </div>
-                        </div>
-                        <ul class="program-features">
-                            <li><i class="fas fa-check"></i> Top 10 university in Asia</li>
-                            <li><i class="fas fa-check"></i> Global tech hub location</li>
-                            <li><i class="fas fa-check"></i> High starting salaries</li>
-                            <li><i class="fas fa-check"></i> Government tuition grants</li>
-                        </ul>
-                        <div class="program-actions">
-                            <a href="contact.html" class="btn btn-primary btn-small">Apply Now</a>
-                            <button class="btn btn-secondary btn-small" onclick="window.location.href='edu-helper.html'">
-                                <i class="fas fa-robot"></i> Ask AI
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Nazarbayev to USA -->
-                <div class="program-card">
-                    <div class="program-header">
-                        <div class="program-flags">
-                            <img src="https://flagcdn.com/w80/kz.png" alt="Kazakhstan">
-                            <span>→</span>
-                            <img src="https://flagcdn.com/w80/us.png" alt="USA">
-                        </div>
-                        <h3>Economics & Finance</h3>
-                        <p>NU → Duke University</p>
-                    </div>
-                    <div class="program-body">
-                        <div class="program-unis">
-                            <div class="uni-box">
-                                <span class="years">Years 1-2</span>
-                                <h4>Nazarbayev University</h4>
-                                <p>Astana, Kazakhstan</p>
-                            </div>
-                            <div class="uni-box">
-                                <span class="years">Years 3-4</span>
-                                <h4>Duke University</h4>
-                                <p>North Carolina, USA</p>
-                            </div>
-                        </div>
-                        <div class="program-details">
-                            <div class="detail-item">
-                                <div class="label">Total Cost</div>
-                                <div class="value">~$80,000</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="label">Duration</div>
-                                <div class="value">4 Years</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="label">Language</div>
-                                <div class="value">English</div>
-                            </div>
-                        </div>
-                        <ul class="program-features">
-                            <li><i class="fas fa-check"></i> Ivy League equivalent education</li>
-                            <li><i class="fas fa-check"></i> OPT work authorization (3 years)</li>
-                            <li><i class="fas fa-check"></i> Top Wall Street recruiters</li>
-                            <li><i class="fas fa-check"></i> Merit-based financial aid</li>
-                        </ul>
-                        <div class="program-actions">
-                            <a href="contact.html" class="btn btn-primary btn-small">Apply Now</a>
-                            <button class="btn btn-secondary btn-small" onclick="window.location.href='edu-helper.html'">
-                                <i class="fas fa-robot"></i> Ask AI
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section class="benefits-section">
+    <section id="programs" class="programs-section">
         <div class="container">
-            <div class="section-title">
-                <h2>Why Choose a 2+2 Program?</h2>
-                <p>The smart way to get an international education</p>
+            <div class="section-header">
+                <h2 data-i18n="dual.programsTitle">Featured 1+1 Programs</h2>
+                <p data-i18n="dual.programsSubtitle">Select partnerships between Kazakhstan and world-class international universities</p>
             </div>
         </div>
-        <div class="benefits-grid">
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="fas fa-piggy-bank"></i>
+        
+        <div class="programs-grid">
+            <!-- SDU + University of Warsaw -->
+            <div class="program-card">
+                <div class="program-header">
+                    <div class="program-badge">
+                        <i class="fas fa-star"></i>
+                        <span data-i18n="dual.popular">Popular</span>
+                    </div>
+                    <h3 class="program-title">SDU → University of Warsaw</h3>
+                    <p class="program-subtitle" data-i18n="dual.prog1Sub">Business Administration MBA</p>
                 </div>
-                <h3>Save 40-60% on Costs</h3>
-                <p>Study your first two years at affordable Kazakh universities, significantly reducing your total education expenses.</p>
+                <div class="program-body">
+                    <div class="program-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">2</span>
+                            <span class="stat-label" data-i18n="dual.years">Years</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">$8k</span>
+                            <span class="stat-label" data-i18n="dual.perYear">Per Year</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">🇵🇱</span>
+                            <span class="stat-label">Poland</span>
+                        </div>
+                    </div>
+                    <ul class="program-features">
+                        <li><i class="fas fa-check"></i> <span data-i18n="dual.feat1">AACSB accredited business school</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="dual.feat2">English-taught program</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="dual.feat3">EU recognized degree</span></li>
+                    </ul>
+                    <div class="program-actions">
+                        <a href="contact.html" class="btn btn-primary btn-small" data-i18n="dual.apply">Apply Now</a>
+                        <a href="#" class="btn btn-secondary btn-small" data-i18n="dual.details">Details</a>
+                    </div>
+                </div>
             </div>
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="fas fa-certificate"></i>
+
+            <!-- KIMEP + Manchester -->
+            <div class="program-card">
+                <div class="program-header">
+                    <div class="program-badge">
+                        <i class="fas fa-award"></i>
+                        <span data-i18n="dual.premium">Premium</span>
+                    </div>
+                    <h3 class="program-title">KIMEP → University of Manchester</h3>
+                    <p class="program-subtitle" data-i18n="dual.prog2Sub">MSc Finance & Economics</p>
                 </div>
-                <h3>Two Recognized Diplomas</h3>
-                <p>Graduate with degrees from both universities - doubling your credentials and career opportunities.</p>
+                <div class="program-body">
+                    <div class="program-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">2</span>
+                            <span class="stat-label" data-i18n="dual.years">Years</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">$18k</span>
+                            <span class="stat-label" data-i18n="dual.perYear">Per Year</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">🇬🇧</span>
+                            <span class="stat-label">UK</span>
+                        </div>
+                    </div>
+                    <ul class="program-features">
+                        <li><i class="fas fa-check"></i> <span data-i18n="dual.feat4">Top 30 UK university</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="dual.feat5">CFA partnership</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="dual.feat6">Post-study work visa</span></li>
+                    </ul>
+                    <div class="program-actions">
+                        <a href="contact.html" class="btn btn-primary btn-small" data-i18n="dual.apply">Apply Now</a>
+                        <a href="#" class="btn btn-secondary btn-small" data-i18n="dual.details">Details</a>
+                    </div>
+                </div>
             </div>
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="fas fa-user-friends"></i>
+
+            <!-- KazNU + Politecnico di Milano -->
+            <div class="program-card">
+                <div class="program-header">
+                    <div class="program-badge">
+                        <i class="fas fa-laptop-code"></i>
+                        <span data-i18n="dual.tech">Tech</span>
+                    </div>
+                    <h3 class="program-title">KazNU → Politecnico di Milano</h3>
+                    <p class="program-subtitle" data-i18n="dual.prog3Sub">MSc Computer Engineering</p>
                 </div>
-                <h3>Smooth Transition</h3>
-                <p>Adjust to university life in familiar surroundings before transitioning to an international environment.</p>
+                <div class="program-body">
+                    <div class="program-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">2</span>
+                            <span class="stat-label" data-i18n="dual.years">Years</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">$5k</span>
+                            <span class="stat-label" data-i18n="dual.perYear">Per Year</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">🇮🇹</span>
+                            <span class="stat-label">Italy</span>
+                        </div>
+                    </div>
+                    <ul class="program-features">
+                        <li><i class="fas fa-check"></i> <span data-i18n="dual.feat7">#1 Technical university in Italy</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="dual.feat8">Strong industry connections</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="dual.feat9">Low tuition fees</span></li>
+                    </ul>
+                    <div class="program-actions">
+                        <a href="contact.html" class="btn btn-primary btn-small" data-i18n="dual.apply">Apply Now</a>
+                        <a href="#" class="btn btn-secondary btn-small" data-i18n="dual.details">Details</a>
+                    </div>
+                </div>
             </div>
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="fas fa-globe-americas"></i>
+
+            <!-- AITU + TU Munich -->
+            <div class="program-card">
+                <div class="program-header">
+                    <div class="program-badge">
+                        <i class="fas fa-microchip"></i>
+                        <span data-i18n="dual.engineering">Engineering</span>
+                    </div>
+                    <h3 class="program-title">AITU → TU Munich</h3>
+                    <p class="program-subtitle" data-i18n="dual.prog4Sub">MSc Data Science</p>
                 </div>
-                <h3>Global Network</h3>
-                <p>Build connections in two countries, with alumni networks spanning Kazakhstan and your partner country.</p>
+                <div class="program-body">
+                    <div class="program-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">2</span>
+                            <span class="stat-label" data-i18n="dual.years">Years</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">$4k</span>
+                            <span class="stat-label" data-i18n="dual.perYear">Per Year</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">🇩🇪</span>
+                            <span class="stat-label">Germany</span>
+                        </div>
+                    </div>
+                    <ul class="program-features">
+                        <li><i class="fas fa-check"></i> <span data-i18n="dual.feat10">Top 50 global university</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="dual.feat11">Free public education</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="dual.feat12">18-month post-study visa</span></li>
+                    </ul>
+                    <div class="program-actions">
+                        <a href="contact.html" class="btn btn-primary btn-small" data-i18n="dual.apply">Apply Now</a>
+                        <a href="#" class="btn btn-secondary btn-small" data-i18n="dual.details">Details</a>
+                    </div>
+                </div>
             </div>
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="fas fa-briefcase"></i>
+
+            <!-- Satbayev + Czech Technical University -->
+            <div class="program-card">
+                <div class="program-header">
+                    <div class="program-badge">
+                        <i class="fas fa-industry"></i>
+                        <span data-i18n="dual.industry">Industry</span>
+                    </div>
+                    <h3 class="program-title">Satbayev → Czech Technical University</h3>
+                    <p class="program-subtitle" data-i18n="dual.prog5Sub">MSc Mechanical Engineering</p>
                 </div>
-                <h3>Better Career Prospects</h3>
-                <p>Access job markets in multiple countries with work permits and international experience.</p>
+                <div class="program-body">
+                    <div class="program-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">2</span>
+                            <span class="stat-label" data-i18n="dual.years">Years</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">$3k</span>
+                            <span class="stat-label" data-i18n="dual.perYear">Per Year</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">🇨🇿</span>
+                            <span class="stat-label">Czechia</span>
+                        </div>
+                    </div>
+                    <ul class="program-features">
+                        <li><i class="fas fa-check"></i> <span data-i18n="dual.feat13">Historic technical university</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="dual.feat14">Affordable living costs</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="dual.feat15">EU work permit eligible</span></li>
+                    </ul>
+                    <div class="program-actions">
+                        <a href="contact.html" class="btn btn-primary btn-small" data-i18n="dual.apply">Apply Now</a>
+                        <a href="#" class="btn btn-secondary btn-small" data-i18n="dual.details">Details</a>
+                    </div>
+                </div>
             </div>
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="fas fa-check-circle"></i>
+
+            <!-- NU + KAIST -->
+            <div class="program-card">
+                <div class="program-header">
+                    <div class="program-badge">
+                        <i class="fas fa-flask"></i>
+                        <span data-i18n="dual.research">Research</span>
+                    </div>
+                    <h3 class="program-title">NU → KAIST</h3>
+                    <p class="program-subtitle" data-i18n="dual.prog6Sub">MSc Biotechnology</p>
                 </div>
-                <h3>Guaranteed Transfer</h3>
-                <p>Pre-approved pathways mean guaranteed acceptance at partner universities if you meet requirements.</p>
+                <div class="program-body">
+                    <div class="program-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">2</span>
+                            <span class="stat-label" data-i18n="dual.years">Years</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">$6k</span>
+                            <span class="stat-label" data-i18n="dual.perYear">Per Year</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">🇰🇷</span>
+                            <span class="stat-label">S. Korea</span>
+                        </div>
+                    </div>
+                    <ul class="program-features">
+                        <li><i class="fas fa-check"></i> <span data-i18n="dual.feat16">World-class research facilities</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="dual.feat17">Strong scholarship support</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="dual.feat18">Innovation hub environment</span></li>
+                    </ul>
+                    <div class="program-actions">
+                        <a href="contact.html" class="btn btn-primary btn-small" data-i18n="dual.apply">Apply Now</a>
+                        <a href="#" class="btn btn-secondary btn-small" data-i18n="dual.details">Details</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1063,41 +875,37 @@
     <!-- Partner Universities -->
     <section class="partners-section">
         <div class="container">
-            <div class="section-title">
-                <h2>Our Partner Universities</h2>
-                <p>Study at world-class institutions through our 2+2 programs</p>
+            <div class="section-header">
+                <h2 data-i18n="dual.partnersTitle">Partner Countries</h2>
+                <p data-i18n="dual.partnersSubtitle">Our 1+1 programs connect you with top universities worldwide</p>
             </div>
-        </div>
-        <div class="partners-grid">
-            <div class="partner-card">
-                <img src="https://flagcdn.com/w80/hk.png" alt="Hong Kong">
-                <h4>City University of Hong Kong</h4>
-                <p>#54 World Ranking</p>
-            </div>
-            <div class="partner-card">
-                <img src="https://flagcdn.com/w80/gb.png" alt="UK">
-                <h4>University of Manchester</h4>
-                <p>#32 World Ranking</p>
-            </div>
-            <div class="partner-card">
-                <img src="https://flagcdn.com/w80/de.png" alt="Germany">
-                <h4>TU Munich</h4>
-                <p>#37 World Ranking</p>
-            </div>
-            <div class="partner-card">
-                <img src="https://flagcdn.com/w80/kr.png" alt="South Korea">
-                <h4>KAIST</h4>
-                <p>#41 World Ranking</p>
-            </div>
-            <div class="partner-card">
-                <img src="https://flagcdn.com/w80/sg.png" alt="Singapore">
-                <h4>NUS Singapore</h4>
-                <p>#8 World Ranking</p>
-            </div>
-            <div class="partner-card">
-                <img src="https://flagcdn.com/w80/us.png" alt="USA">
-                <h4>Duke University</h4>
-                <p>#22 World Ranking</p>
+            
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-flag">🇬🇧</div>
+                    <div class="partner-name" data-i18n="dual.uk">United Kingdom</div>
+                    <div class="partner-country">3 Programs</div>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-flag">🇩🇪</div>
+                    <div class="partner-name" data-i18n="dual.germany">Germany</div>
+                    <div class="partner-country">4 Programs</div>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-flag">🇵🇱</div>
+                    <div class="partner-name" data-i18n="dual.poland">Poland</div>
+                    <div class="partner-country">2 Programs</div>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-flag">🇮🇹</div>
+                    <div class="partner-name" data-i18n="dual.italy">Italy</div>
+                    <div class="partner-country">2 Programs</div>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-flag">🇰🇷</div>
+                    <div class="partner-name" data-i18n="dual.korea">South Korea</div>
+                    <div class="partner-country">2 Programs</div>
+                </div>
             </div>
         </div>
     </section>
@@ -1106,68 +914,42 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to Start Your 2+2 Journey?</h2>
-                <p>
-                    Talk to our education advisors to find the perfect dual diploma program for your goals. 
-                    Get personalized recommendations based on your test scores and career aspirations.
-                </p>
+                <h2 data-i18n="dual.ctaTitle">Ready to Start Your International Journey?</h2>
+                <p data-i18n="dual.ctaSubtitle">Get personalized guidance on choosing the right 1+1 program for your career goals</p>
                 <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-primary btn-large">
-                        <i class="fas fa-calendar-alt"></i> Book Free Consultation
-                    </a>
-                    <a href="edu-helper.html" class="btn btn-secondary btn-large">
-                        <i class="fas fa-robot"></i> Ask AI Advisor
-                    </a>
+                    <a href="contact.html" class="btn btn-primary" data-i18n="dual.ctaBtn1">Book Free Consultation</a>
+                    <a href="edu-helper.html" class="btn btn-ghost" data-i18n="dual.ctaBtn2">Ask AI Advisor</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Assyl DataHub</h4>
-                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 0.5rem;">
-                        Empowering students and families to make informed decisions about higher education since 2025.
-                    </p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 data-i18n="footer.quickLinks">Quick Links</h4>
                     <ul>
-                        <li><a href="study-in-kazakhstan.html">Study in Kazakhstan</a></li>
-                        <li><a href="study-abroad.html">Study Abroad</a></li>
-                        <li><a href="dual-diploma.html">2+2 Programs</a></li>
-                        <li><a href="edu-helper.html">Edu Helper AI</a></li>
+                        <li><a href="study-in-kazakhstan.html" data-i18n="nav.studyKz">Study in Kazakhstan</a></li>
+                        <li><a href="dual-diploma.html" data-i18n="nav.dualDiploma">1+1 Programs</a></li>
+                        <li><a href="compare.html" data-i18n="nav.compare">Compare Universities</a></li>
+                        <li><a href="edu-helper.html" data-i18n="nav.eduHelper">Edu Helper AI</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.resources">Resources</h4>
                     <ul>
-                        <li><a href="#">Application Guide</a></li>
-                        <li><a href="#">Scholarship Database</a></li>
-                        <li><a href="#">Student Blog</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#" data-i18n="footer.applicationGuide">Application Guide</a></li>
+                        <li><a href="#" data-i18n="footer.scholarships">Scholarship Database</a></li>
+                        <li><a href="#" data-i18n="footer.blog">Student Blog</a></li>
+                        <li><a href="#" data-i18n="footer.faq">FAQ</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> abulkasimovbahtiar3@gmail.com</li>
-                        <li><i class="fas fa-phone" style="margin-right: 0.5rem;"></i> +7 (747) 403-9869</li>
-                        <li><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i> Almaty, Kazakhstan</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Assyl DataHub. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Main JavaScript -->
     <script src="main.js"></script>
 </body>
 </html>
-

@@ -10,12 +10,13 @@
       "dest": "/study-in-kazakhstan.html"
     },
     {
-      "src": "/study-abroad",
-      "dest": "/study-abroad.html"
-    },
-    {
       "src": "/dual-diploma",
       "dest": "/dual-diploma.html"
+
+    },
+    {
+      "src": "/compare",
+      "dest": "/compare.html"
     },
     {
       "src": "/edu-helper",
