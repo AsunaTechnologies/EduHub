@@ -201,6 +201,33 @@
             box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1);
         }
 
+        .form-input.phone-valid {
+            border-color: var(--success);
+        }
+
+        .form-input.phone-valid:focus {
+            border-color: var(--success);
+            box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.1);
+        }
+
+        .form-input.phone-invalid {
+            border-color: var(--error);
+        }
+
+        .form-input.phone-invalid:focus {
+            border-color: var(--error);
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+        }
+
+        .phone-hint {
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
         /* Documents Section */
         .documents-grid {
             display: grid;
@@ -663,6 +690,68 @@
             font-size: 0.85rem;
         }
 
+        /* Sync Notification Animations */
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        .sync-notification i {
+            font-size: 1.1rem;
+        }
+
+        /* Phone Input Validation Styles */
+        .form-input.phone-valid {
+            border-color: var(--success);
+            background: rgba(46, 204, 113, 0.05);
+        }
+
+        .form-input.phone-invalid {
+            border-color: var(--error);
+            background: rgba(231, 76, 60, 0.05);
+        }
+
+        .phone-hint {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Cloud Sync Badge */
+        .cloud-sync-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.35rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .cloud-sync-badge i {
+            font-size: 0.7rem;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .profile-section {
@@ -773,8 +862,9 @@
                                 <input type="email" class="form-input" id="email" placeholder="your@email.com">
                             </div>
                             <div class="form-group">
-                                <label class="form-label" data-i18n="profile.phone">Phone Number</label>
-                                <input type="tel" class="form-input" id="phone" placeholder="+7 (XXX) XXX-XXXX">
+                                <label class="form-label" data-i18n="profile.phone">Phone Number <span class="cloud-sync-badge"><i class="fas fa-cloud"></i> Cloud Sync</span></label>
+                                <input type="tel" class="form-input" id="phone" placeholder="+7 747 403 9869">
+                                <p class="phone-hint" id="phoneHint">Enter your phone to sync data across devices</p>
                             </div>
                         </form>
 
@@ -1044,6 +1134,8 @@
 
     <!-- Main JavaScript -->
     <script src="main.js"></script>
+    <!-- User API -->
+    <script src="api/user.js"></script>
     
     <script>
         // Document storage
@@ -1051,10 +1143,11 @@
         let bookmarkedUniversities = JSON.parse(localStorage.getItem('bookmarkedUniversities')) || [];
         let sentApplications = JSON.parse(localStorage.getItem('sentApplications')) || [];
         let selectedUnisForSend = [];
+        let isSyncing = false;
 
         // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            loadPersonalInfo();
+        document.addEventListener('DOMContentLoaded', async function() {
+            await loadPersonalInfo();
             loadDocuments();
             loadBookmarks();
             loadApplications();
@@ -1070,6 +1163,42 @@
                     const sectionId = this.dataset.section;
                     switchToSection(sectionId);
                 });
+            });
+
+            // Add phone input listener for auto-load and validation
+            const phoneInput = document.getElementById('phone');
+            const phoneHint = document.getElementById('phoneHint');
+            let phoneDebounceTimer;
+            
+            phoneInput.addEventListener('input', function() {
+                const phone = this.value;
+                clearTimeout(phoneDebounceTimer);
+                
+                // Real-time validation styling
+                if (phone.length > 5) {
+                    if (window.UserAPI && window.UserAPI.isValidPhoneNumber(phone)) {
+                        this.classList.remove('phone-invalid');
+                        this.classList.add('phone-valid');
+                        phoneHint.textContent = '✓ Valid phone number';
+                        phoneHint.style.color = 'var(--success)';
+                    } else {
+                        this.classList.remove('phone-valid');
+                        this.classList.add('phone-invalid');
+                        phoneHint.textContent = 'Format: +7 XXX XXX XXXX';
+                        phoneHint.style.color = 'var(--error)';
+                    }
+                } else {
+                    this.classList.remove('phone-valid', 'phone-invalid');
+                    phoneHint.textContent = 'Enter your phone to sync data across devices';
+                    phoneHint.style.color = 'var(--text-muted)';
+                }
+
+                // Debounced backend check
+                phoneDebounceTimer = setTimeout(async () => {
+                    if (window.UserAPI && window.UserAPI.isValidPhoneNumber(phone)) {
+                        await tryLoadUserFromBackend(phone);
+                    }
+                }, 1000); // Wait 1 second after typing stops
             });
         });
 
@@ -1092,8 +1221,125 @@
             });
         }
 
+        // Try to load user data from backend
+        async function tryLoadUserFromBackend(phone) {
+            if (!window.UserAPI || isSyncing) return false;
+            
+            try {
+                showSyncStatus('loading', 'Loading your profile...');
+                const userData = await window.UserAPI.getUserByPhone(phone);
+                
+                if (userData) {
+                    // User found - populate fields from backend
+                    if (userData.firstName) document.getElementById('firstName').value = userData.firstName;
+                    if (userData.lastName) document.getElementById('lastName').value = userData.lastName;
+                    if (userData.email) document.getElementById('email').value = userData.email;
+                    
+                    // Update localStorage
+                    const info = {
+                        firstName: userData.firstName || '',
+                        lastName: userData.lastName || '',
+                        email: userData.email || '',
+                        phone: userData.phoneNumber || phone
+                    };
+                    localStorage.setItem('personalInfo', JSON.stringify(info));
+                    updateProfileDisplay(info);
+                    
+                    // Restore documents
+                    if (userData.documents && Object.keys(userData.documents).length > 0) {
+                        Object.entries(userData.documents).forEach(([type, data]) => {
+                            uploadedDocuments[type] = {
+                                name: data.fileName,
+                                url: data.url,
+                                uploadedAt: data.uploadedAt
+                            };
+                        });
+                        localStorage.setItem('uploadedDocuments', JSON.stringify(uploadedDocuments));
+                        loadDocuments();
+                    }
+                    
+                    // Restore bookmarked universities
+                    if (userData.bookmarkedUniversities && userData.bookmarkedUniversities.length > 0) {
+                        bookmarkedUniversities = userData.bookmarkedUniversities;
+                        localStorage.setItem('bookmarkedUniversities', JSON.stringify(bookmarkedUniversities));
+                        loadBookmarks();
+                    }
+                    
+                    // Restore sent applications
+                    if (userData.sentApplications && userData.sentApplications.length > 0) {
+                        sentApplications = userData.sentApplications;
+                        localStorage.setItem('sentApplications', JSON.stringify(sentApplications));
+                        loadApplications();
+                    }
+                    
+                    updateStats();
+                    showSyncStatus('success', 'Profile loaded from cloud!');
+                    return true;
+                } else {
+                    showSyncStatus('info', 'New user - data will be saved to cloud');
+                    return false;
+                }
+            } catch (error) {
+                console.error('Error loading from backend:', error);
+                showSyncStatus('error', 'Could not connect to server');
+                return false;
+            }
+        }
+
+        // Show sync status notification
+        function showSyncStatus(type, message) {
+            const existing = document.querySelector('.sync-notification');
+            if (existing) existing.remove();
+
+            const notification = document.createElement('div');
+            notification.className = 'sync-notification';
+            
+            const icons = {
+                loading: '<i class="fas fa-spinner fa-spin"></i>',
+                success: '<i class="fas fa-cloud-download-alt"></i>',
+                error: '<i class="fas fa-exclamation-circle"></i>',
+                info: '<i class="fas fa-info-circle"></i>',
+                saving: '<i class="fas fa-cloud-upload-alt"></i>'
+            };
+            
+            const colors = {
+                loading: '#3498db',
+                success: '#27ae60',
+                error: '#e74c3c',
+                info: '#f39c12',
+                saving: '#9b59b6'
+            };
+
+            notification.innerHTML = `${icons[type] || icons.info} ${message}`;
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: ${colors[type] || colors.info};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                font-weight: 500;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+                z-index: 9999;
+                animation: slideInRight 0.3s ease-out;
+            `;
+
+            document.body.appendChild(notification);
+
+            if (type !== 'loading' && type !== 'saving') {
+                setTimeout(() => {
+                    notification.style.animation = 'slideOutRight 0.3s ease-out forwards';
+                    setTimeout(() => notification.remove(), 300);
+                }, 3000);
+            }
+        }
+
         // Personal Info
-        function loadPersonalInfo() {
+        async function loadPersonalInfo() {
             const info = JSON.parse(localStorage.getItem('personalInfo')) || {};
             if (info.firstName) document.getElementById('firstName').value = info.firstName;
             if (info.lastName) document.getElementById('lastName').value = info.lastName;
@@ -1101,18 +1347,62 @@
             if (info.phone) document.getElementById('phone').value = info.phone;
 
             updateProfileDisplay(info);
+
+            // Try to load from backend if phone exists
+            if (info.phone && window.UserAPI && window.UserAPI.isValidPhoneNumber(info.phone)) {
+                await tryLoadUserFromBackend(info.phone);
+            }
         }
 
-        function savePersonalInfo() {
+        async function savePersonalInfo() {
             const info = {
                 firstName: document.getElementById('firstName').value,
                 lastName: document.getElementById('lastName').value,
                 email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value
             };
+            
+            // Validate phone number
+            if (!info.phone) {
+                alert('Please enter your phone number to save your profile.');
+                document.getElementById('phone').focus();
+                return;
+            }
+
+            if (window.UserAPI && !window.UserAPI.isValidPhoneNumber(info.phone)) {
+                alert('Please enter a valid phone number (e.g., +7 747 403 9869)');
+                document.getElementById('phone').focus();
+                return;
+            }
+
             localStorage.setItem('personalInfo', JSON.stringify(info));
             updateProfileDisplay(info);
-            alert('Personal information saved!');
+
+            // Sync to backend
+            if (window.UserAPI) {
+                await syncToBackend();
+            } else {
+                alert('Personal information saved locally!');
+            }
+        }
+
+        // Sync all data to backend
+        async function syncToBackend() {
+            if (!window.UserAPI || isSyncing) return;
+            
+            isSyncing = true;
+            showSyncStatus('saving', 'Saving to cloud...');
+
+            try {
+                const result = await window.UserAPI.syncToBackend();
+                showSyncStatus('success', 'Profile saved to cloud!');
+                console.log('Sync successful:', result);
+            } catch (error) {
+                console.error('Sync failed:', error);
+                showSyncStatus('error', 'Save failed - data saved locally');
+            } finally {
+                isSyncing = false;
+            }
         }
 
         function updateProfileDisplay(info) {
@@ -1125,7 +1415,7 @@
         }
 
         // Document Upload
-        function handleFileUpload(docType, input) {
+        async function handleFileUpload(docType, input) {
             const file = input.files[0];
             if (!file) return;
 
@@ -1135,12 +1425,13 @@
                 return;
             }
 
-            // Store file info (in real app, you'd upload to server)
+            // Store file info (in real app, you'd upload to server/S3)
             uploadedDocuments[docType] = {
                 name: file.name,
                 type: file.type,
                 size: file.size,
-                uploadedAt: new Date().toISOString()
+                uploadedAt: new Date().toISOString(),
+                url: `local://${file.name}` // In production, this would be S3 URL
             };
             localStorage.setItem('uploadedDocuments', JSON.stringify(uploadedDocuments));
 
@@ -1155,9 +1446,15 @@
             removeBtn.style.display = 'inline-flex';
 
             updateStats();
+
+            // Sync to backend if user has valid phone
+            const info = JSON.parse(localStorage.getItem('personalInfo') || '{}');
+            if (info.phone && window.UserAPI && window.UserAPI.isValidPhoneNumber(info.phone)) {
+                await syncToBackend();
+            }
         }
 
-        function removeFile(docType) {
+        async function removeFile(docType) {
             delete uploadedDocuments[docType];
             localStorage.setItem('uploadedDocuments', JSON.stringify(uploadedDocuments));
 
@@ -1172,6 +1469,12 @@
             input.value = '';
 
             updateStats();
+
+            // Sync to backend
+            const info = JSON.parse(localStorage.getItem('personalInfo') || '{}');
+            if (info.phone && window.UserAPI && window.UserAPI.isValidPhoneNumber(info.phone)) {
+                await syncToBackend();
+            }
         }
 
         function loadDocuments() {
@@ -1227,11 +1530,17 @@
             `).join('');
         }
 
-        function removeBookmark(uniId) {
+        async function removeBookmark(uniId) {
             bookmarkedUniversities = bookmarkedUniversities.filter(u => u.id !== uniId);
             localStorage.setItem('bookmarkedUniversities', JSON.stringify(bookmarkedUniversities));
             loadBookmarks();
             updateStats();
+
+            // Sync to backend
+            const info = JSON.parse(localStorage.getItem('personalInfo') || '{}');
+            if (info.phone && window.UserAPI && window.UserAPI.isValidPhoneNumber(info.phone)) {
+                await syncToBackend();
+            }
         }
 
         // Applications
@@ -1349,7 +1658,7 @@
             document.getElementById('sendStep1').style.display = 'block';
         }
 
-        function submitApplication() {
+        async function submitApplication() {
             const email = document.getElementById('confirmEmail').value;
             if (!email || !email.includes('@')) {
                 alert('Please enter a valid email address!');
@@ -1369,6 +1678,12 @@
             });
 
             localStorage.setItem('sentApplications', JSON.stringify(sentApplications));
+
+            // Sync to backend
+            const info = JSON.parse(localStorage.getItem('personalInfo') || '{}');
+            if (info.phone && window.UserAPI && window.UserAPI.isValidPhoneNumber(info.phone)) {
+                await syncToBackend();
+            }
 
             // Show success
             document.getElementById('sendStep2').style.display = 'none';
